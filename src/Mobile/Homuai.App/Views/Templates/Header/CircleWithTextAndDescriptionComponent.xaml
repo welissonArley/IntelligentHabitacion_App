@@ -11,7 +11,7 @@
             </Grid>
             <StackLayout Margin="10,0,0,0">
                 <Label x:Name="LabelTitle" FontSize="18"></Label>
-                <customControl:LabelJustifyText x:Name="LabelText" Style="{StaticResource LabelThin}" FontSize="14" TextColor="{StaticResource GrayDefault}"></customControl:LabelJustifyText>
+                <customControl:LabelJustifyText x:Name="LabelText" Style="{StaticResource LabelThin}" FontSize="14"></customControl:LabelJustifyText>
             </StackLayout>
         </StackLayout>
     </ContentView.Content>
