@@ -123,10 +123,6 @@ Website: comming soon
 
 <!-- Build Status (Badges) -->
 ## Build Status
-![branches](https://badgen.net/github/branches/welissonarley/homuai?style=for-the-badge)
-![commitDevelop](https://badgen.net/github/last-commit/welissonarley/homuai/develop?label=last%20commit%20on%20develop&style=for-the-badge)
-![commitMaster](https://badgen.net/github/last-commit/welissonarley/homuai/master?label=last%20commit%20on%20master&style=for-the-badge)
-
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=welissonArley_Homuai&metric=alert_status)](https://sonarcloud.io/dashboard?id=welissonArley_Homuai)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=welissonArley_Homuai&metric=bugs)](https://sonarcloud.io/dashboard?id=welissonArley_Homuai)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=welissonArley_Homuai&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=welissonArley_Homuai)
