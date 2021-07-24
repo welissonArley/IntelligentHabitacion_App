@@ -12,7 +12,7 @@ namespace Homuai.Application.UseCases.Home.RegisterHome
             RuleFor(x => x.ZipCode).NotEmpty().WithMessage(ResourceTextException.ZIPCODE_EMPTY);
             RuleFor(x => x.Address).NotEmpty().WithMessage(ResourceTextException.ADDRESS_EMPTY);
             RuleFor(x => x.Number).NotEmpty().WithMessage(ResourceTextException.NUMBER_EMPTY);
-            RuleFor(x => x.City).NotNull().WithMessage(ResourceTextException.CITY_EMPTY);
+            RuleFor(x => x.City).NotEmpty().WithMessage(ResourceTextException.CITY_EMPTY);
             RuleFor(x => x.Country).IsInEnum().WithMessage(ResourceTextException.COUNTRY_EMPTY);
             When(x => x.Country == Communication.Enums.Country.BRAZIL, () =>
             {

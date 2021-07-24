@@ -11,7 +11,6 @@ namespace Homuai.Application.Services.LoggedUser
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IUserReadOnlyRepository _repository;
         private readonly TokenController _tokenController;
-        private User user;
 
         public LoggedUser(IHttpContextAccessor httpContextAccessor,
             IUserReadOnlyRepository repository,
@@ -20,21 +19,17 @@ namespace Homuai.Application.Services.LoggedUser
             _repository = repository;
             _httpContextAccessor = httpContextAccessor;
             _tokenController = tokenController;
-            user = null;
         }
 
         public async Task<User> User()
         {
-            if (user != null)
-                return user;
-
             var authorization = _httpContextAccessor.HttpContext.Request.Headers["Authorization"].ToString();
 
             var token = authorization["Bearer ".Length..].Trim();
 
             var email = _tokenController.User(token);
 
-            user = await _repository.GetByEmail(email);
+            var user = await _repository.GetByEmail(email);
 
             return user;
         }
