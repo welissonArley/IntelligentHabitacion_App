@@ -127,6 +127,13 @@ Website: comming soon
 ![commitDevelop](https://badgen.net/github/last-commit/welissonarley/homuai/develop?label=last%20commit%20on%20develop&style=for-the-badge)
 ![commitMaster](https://badgen.net/github/last-commit/welissonarley/homuai/master?label=last%20commit%20on%20master&style=for-the-badge)
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=welissonArley_Homuai&metric=alert_status)](https://sonarcloud.io/dashboard?id=welissonArley_Homuai)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=welissonArley_Homuai&metric=bugs)](https://sonarcloud.io/dashboard?id=welissonArley_Homuai)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=welissonArley_Homuai&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=welissonArley_Homuai)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=welissonArley_Homuai&metric=code_smells)](https://sonarcloud.io/dashboard?id=welissonArley_Homuai)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=welissonArley_Homuai&metric=coverage)](https://sonarcloud.io/dashboard?id=welissonArley_Homuai)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=welissonArley_Homuai&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=welissonArley_Homuai)
+
 <!-- MARKDOWN LINKS & IMAGES -->
 [product-screenshot]: readme-images/screenshot.png
 [contributors-shield]: https://img.shields.io/github/contributors/welissonArley/Homuai.svg?style=for-the-badge
