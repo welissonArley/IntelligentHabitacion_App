@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:Homuai.App"
+             xmlns:templateButton="clr-namespace:Homuai.App.Views.Templates.Button"
+             xmlns:information="clr-namespace:Homuai.App.Views.Templates.Information"
+             xmlns:loading="clr-namespace:Homuai.App.Views.Templates.Loading"
+             xmlns:skeleton="clr-namespace:Homuai.App.Views.Templates.Skeleton"
+             xmlns:templateInputTextWithLabel="clr-namespace:Homuai.App.Views.Templates.TextWithLabel"
+             xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+             Title="{x:Static resourceText:ResourceText.TITLE_MY_PROFILE}"
+             x:Name="UpdateUserInformationContentPage"
+             x:Class="Homuai.App.Views.View.User.Update.UserInformationPage">
+    <ContentPage.Content>
+        <StackLayout Style="{StaticResource MarginStyleDefault}" xct:StateLayout.CurrentState="{Binding CurrentState}">
+            <xct:StateLayout.StateViews>
+                <xct:StateView StateKey="Saving">
+                    <xct:StateView.Template>
+                        <DataTemplate>
+                            <loading:LoadingTemplate Text="{x:Static resourceText:ResourceText.TITLE_SENDING_DATA}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></loading:LoadingTemplate>
+                        </DataTemplate>
+                    </xct:StateView.Template>
+                </xct:StateView>
+                <xct:StateView StateKey="Success">
+                    <xct:StateView.Template>
+                        <DataTemplate>
+                            <information:SucessTemplate HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></information:SucessTemplate>
+                        </DataTemplate>
+                    </xct:StateView.Template>
+                </xct:StateView>
+            </xct:StateLayout.StateViews>
+
+            <templateButton:TabsView VerticalOptions="FillAndExpand">
+                <templateButton:TabsView.TabItems>
+                    <templateButton:TabItem Title="{x:Static resourceText:ResourceText.TITLE_MY_DATA}" Icon="IconTabUser.svg">
+                        <templateButton:TabItem.TabContent>
+                            <StackLayout xct:StateLayout.CurrentState="{Binding Path=BindingContext.CurrentState, Source={x:Reference Name=UpdateUserInformationContentPage}}">
+                                <xct:StateLayout.StateViews>
+                                    <xct:StateView StateKey="Loading">
+                                        <xct:StateView.Template>
+                                            <DataTemplate>
+                                                <StackLayout>
+                                                    <skeleton:InputTextWithLabelSkeleton TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_NAME_TWOPOINTS}"></skeleton:InputTextWithLabelSkeleton>
+                                                    <skeleton:InputTextWithLabelSkeleton TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_EMAIL_TWOPOINTS}"></skeleton:InputTextWithLabelSkeleton>
+                                                </StackLayout>
+                                            </DataTemplate>
+                                        </xct:StateView.Template>
+                                    </xct:StateView>
+                                </xct:StateLayout.StateViews>
+
+                                <templateInputTextWithLabel:InputTextWithLabelComponent BindingEntry="{Binding Path=BindingContext.Model.Name, Source={x:Reference Name=UpdateUserInformationContentPage}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_NAME_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_NAME}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                                <templateInputTextWithLabel:InputTextWithLabelComponent BindingEntry="{Binding Path=BindingContext.Model.Email, Source={x:Reference Name=UpdateUserInformationContentPage}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_EMAIL_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_EMAIL}" IsPassword="False" Keyboard="Email"></templateInputTextWithLabel:InputTextWithLabelComponent>
+
+                                <templateButton:SecondaryActionButton Margin="0,0,0,50" VerticalOptions="EndAndExpand" TitleButton="{x:Static resourceText:ResourceText.TITLE_CHANGE_PASSWORD}" TappedButtonCommand="{Binding Path=BindingContext.ChangePasswordTapped, Source={x:Reference Name=UpdateUserInformationContentPage}}"></templateButton:SecondaryActionButton>
+                            </StackLayout>
+                        </templateButton:TabItem.TabContent>
+                    </templateButton:TabItem>
+
+                    <templateButton:TabItem Title="{x:Static resourceText:ResourceText.TITLE_PHONENUMBERS}" Icon="IconTabPhone.svg">
+                        <templateButton:TabItem.TabContent>
+                            <StackLayout xct:StateLayout.CurrentState="{Binding Path=BindingContext.CurrentState, Source={x:Reference Name=UpdateUserInformationContentPage}}">
+                                <xct:StateLayout.StateViews>
+                                    <xct:StateView StateKey="Loading">
+                                        <xct:StateView.Template>
+                                            <DataTemplate>
+                                                <StackLayout>
+                                                    <skeleton:InputTextWithLabelSkeleton TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_PHONENUMBER_1_TWOPOINTS}"></skeleton:InputTextWithLabelSkeleton>
+                                                    <skeleton:InputTextWithLabelSkeleton TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_PHONENUMBER_2_TWOPOINTS}"></skeleton:InputTextWithLabelSkeleton>
+                                                </StackLayout>
+                                            </DataTemplate>
+                                        </xct:StateView.Template>
+                                    </xct:StateView>
+                                </xct:StateLayout.StateViews>
+
+                                <templateInputTextWithLabel:InputTextWithLabelComponent BindingEntry="{Binding Path=BindingContext.Model.PhoneNumber1, Source={x:Reference Name=UpdateUserInformationContentPage}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_PHONENUMBER_1_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_PHONENUMBER}" IsPassword="False" Keyboard="Telephone"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                                <templateInputTextWithLabel:InputTextWithLabelComponent BindingEntry="{Binding Path=BindingContext.Model.PhoneNumber2, Source={x:Reference Name=UpdateUserInformationContentPage}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_PHONENUMBER_2_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_PHONENUMBER}" IsPassword="False" Keyboard="Telephone"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                            </StackLayout>
+                        </templateButton:TabItem.TabContent>
+                    </templateButton:TabItem>
+
+                    <templateButton:TabItem Title="{x:Static resourceText:ResourceText.TITLE_CONTACTS}" Icon="IconTabEmergency.svg">
+                        <templateButton:TabItem.TabContent>
+                            <StackLayout xct:StateLayout.CurrentState="{Binding Path=BindingContext.CurrentState, Source={x:Reference Name=UpdateUserInformationContentPage}}">
+                                <xct:StateLayout.StateViews>
+                                    <xct:StateView StateKey="Loading">
+                                        <xct:StateView.Template>
+                                            <DataTemplate>
+                                                <StackLayout>
+                                                    <skeleton:InputTextWithLabelSkeleton TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CONTACT_EMERGENCY_1_TWOPOINTS}"></skeleton:InputTextWithLabelSkeleton>
+                                                    <skeleton:InputTextWithLabelSkeleton TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CONTACT_EMERGENCY_1_PHONENUMBER_TWOPOINTS}"></skeleton:InputTextWithLabelSkeleton>
+                                                    <skeleton:InputTextWithLabelSkeleton TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CONTACT_EMERGENCY_1_FAMILYRELATIONSHIP_TWOPOINTS}"></skeleton:InputTextWithLabelSkeleton>
+
+                                                    <skeleton:InputTextWithLabelSkeleton TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CONTACT_EMERGENCY_2_TWOPOINTS}"></skeleton:InputTextWithLabelSkeleton>
+                                                    <skeleton:InputTextWithLabelSkeleton TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CONTACT_EMERGENCY_2_PHONENUMBER_TWOPOINTS}"></skeleton:InputTextWithLabelSkeleton>
+                                                    <skeleton:InputTextWithLabelSkeleton TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CONTACT_EMERGENCY_2_FAMILYRELATIONSHIP_TWOPOINTS}"></skeleton:InputTextWithLabelSkeleton>
+                                                </StackLayout>
+                                            </DataTemplate>
+                                        </xct:StateView.Template>
+                                    </xct:StateView>
+                                </xct:StateLayout.StateViews>
+
+                                <templateInputTextWithLabel:InputTextWithLabelComponent BindingEntry="{Binding Path=BindingContext.Model.EmergencyContact1.Name, Source={x:Reference Name=UpdateUserInformationContentPage}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CONTACT_EMERGENCY_1_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_EMERGENCYCONTACT1_NAME}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                                <templateInputTextWithLabel:InputTextWithLabelComponent BindingEntry="{Binding Path=BindingContext.Model.EmergencyContact1.PhoneNumber, Source={x:Reference Name=UpdateUserInformationContentPage}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CONTACT_EMERGENCY_1_PHONENUMBER_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_PHONENUMBER}" IsPassword="False" Keyboard="Telephone"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                                <templateInputTextWithLabel:InputTextWithLabelComponent BindingEntry="{Binding Path=BindingContext.Model.EmergencyContact1.Relationship, Source={x:Reference Name=UpdateUserInformationContentPage}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CONTACT_EMERGENCY_1_FAMILYRELATIONSHIP_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_EMERGENCYCONTACT1_FAMILYRELATIONSHIP}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
+
+                                <templateInputTextWithLabel:InputTextWithLabelComponent BindingEntry="{Binding Path=BindingContext.Model.EmergencyContact2.Name, Source={x:Reference Name=UpdateUserInformationContentPage}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CONTACT_EMERGENCY_2_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_EMERGENCYCONTACT2_NAME}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                                <templateInputTextWithLabel:InputTextWithLabelComponent BindingEntry="{Binding Path=BindingContext.Model.EmergencyContact2.PhoneNumber, Source={x:Reference Name=UpdateUserInformationContentPage}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CONTACT_EMERGENCY_2_PHONENUMBER_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_PHONENUMBER}" IsPassword="False" Keyboard="Telephone"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                                <templateInputTextWithLabel:InputTextWithLabelComponent BindingEntry="{Binding Path=BindingContext.Model.EmergencyContact2.Relationship, Source={x:Reference Name=UpdateUserInformationContentPage}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CONTACT_EMERGENCY_2_FAMILYRELATIONSHIP_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_EMERGENCYCONTACT2_FAMILYRELATIONSHIP}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                            </StackLayout>
+                        </templateButton:TabItem.TabContent>
+                    </templateButton:TabItem>
+                </templateButton:TabsView.TabItems>
+            </templateButton:TabsView>
+
+            <StackLayout VerticalOptions="End" xct:StateLayout.CurrentState="{Binding CurrentState}">
+                <xct:StateLayout.StateViews>
+                    <xct:StateView StateKey="Loading"></xct:StateView>
+                </xct:StateLayout.StateViews>
+
+                <Button Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding UpdateInformationsTapped}"></Button>
+                <templateButton:DeleteButton IsVisible="False" Margin="0,50,0,0" TitleButton="{x:Static resourceText:ResourceText.TITLE_DELETE_ACCOUNT}" TappedButtonCommand="{Binding Path=BindingContext.DeleteAccountTapped, Source={x:Reference Name=UpdateUserInformationContentPage}}"></templateButton:DeleteButton>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

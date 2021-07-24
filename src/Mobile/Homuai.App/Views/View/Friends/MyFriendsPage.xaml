@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:Homuai.App"
+             xmlns:customControl="clr-namespace:Homuai.App.CustomControl"
+             xmlns:template="clr-namespace:Homuai.App.Views.Templates.Information"
+             xmlns:loading="clr-namespace:Homuai.App.Views.Templates.Loading"
+             xmlns:component="clr-namespace:Homuai.App.Views.Templates.Search"
+             xmlns:skeleton="clr-namespace:Homuai.App.Views.Templates.Skeleton"
+             xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+             Title="{x:Static resourceText:ResourceText.TITLE_MY_FRIENDS}"
+             x:Name="MyFriendsContentPage"
+             x:Class="Homuai.App.Views.View.Friends.MyFriendsPage">
+    <ContentPage.Content>
+        <StackLayout Style="{x:StaticResource MarginStyleDefault}" xct:StateLayout.CurrentState="{Binding CurrentState}">
+            <xct:StateLayout.StateViews>
+                <xct:StateView StateKey="Saving">
+                    <xct:StateView.Template>
+                        <DataTemplate>
+                            <loading:LoadingTemplate Text="{x:Static resourceText:ResourceText.TITLE_SENDING_DATA}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></loading:LoadingTemplate>
+                        </DataTemplate>
+                    </xct:StateView.Template>
+                </xct:StateView>
+                <xct:StateView StateKey="Success">
+                    <xct:StateView.Template>
+                        <DataTemplate>
+                            <template:SucessTemplate HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></template:SucessTemplate>
+                        </DataTemplate>
+                    </xct:StateView.Template>
+                </xct:StateView>
+                <xct:StateView StateKey="Empty" VerticalOptions="FillAndExpand">
+                    <xct:StateView.Template>
+                        <DataTemplate>
+                            <Grid VerticalOptions="FillAndExpand">
+                                <StackLayout>
+                                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Spacing="-3" IsVisible="{Binding FriendsListIsEmpty}">
+                                        <Image Source="IlustrationDog"></Image>
+                                        <customControl:LabelJustifyText Margin="0,40,0,0" Text="{x:Static resourceText:ResourceText.PHRASE_YOU_HAVENT_ADDED_FRIENDS}" Style="{x:StaticResource LabelLight}" FontSize="18"></customControl:LabelJustifyText>
+                                    </StackLayout>
+
+                                    <Button Text="{x:Static resourceText:ResourceText.TITLE_ADD_FRIEND}" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding Path=BindingContext.AddFriendCommand, Source={x:Reference Name=MyFriendsContentPage}}"></Button>
+                                </StackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </xct:StateView.Template>
+                </xct:StateView>
+                <xct:StateView StateKey="Loading">
+                    <xct:StateView.Template>
+                        <DataTemplate>
+                            <StackLayout>
+                                <skeleton:LabelAmountAvaliableSkeleton Margin="0,20,0,0"></skeleton:LabelAmountAvaliableSkeleton>
+                                <component:SearchByNameComponent IsEnabled="False"></component:SearchByNameComponent>
+                                <Label Margin="0,30,0,0" Text="{x:Static resourceText:ResourceText.TITLE_CHOOSE_YOUR_FRIEND}" FontSize="14" Style="{x:StaticResource LabelSemiBold}" TextColor="{x:StaticResource GrayDefault}"></Label>
+
+                                <skeleton:MyFriendsComponentSkeleton></skeleton:MyFriendsComponentSkeleton>
+                                <skeleton:MyFriendsComponentSkeleton></skeleton:MyFriendsComponentSkeleton>
+                                <skeleton:MyFriendsComponentSkeleton></skeleton:MyFriendsComponentSkeleton>
+                            </StackLayout>
+                        </DataTemplate>
+                    </xct:StateView.Template>
+                </xct:StateView>
+            </xct:StateLayout.StateViews>
+
+            <StackLayout VerticalOptions="FillAndExpand">
+                <Label Margin="0,20,0,0" Text="{Binding FriendsList.Count, StringFormat={x:Static resourceText:ResourceText.TITLE_FRIENDS_AVALIABLE}}" FontSize="12" Style="{x:StaticResource LabelThin}"></Label>
+                <component:SearchByNameComponent EntryTextChanged="{Binding Path=BindingContext.SearchTextChangedCommand, Source={x:Reference Name=MyFriendsContentPage}}"></component:SearchByNameComponent>
+                <Label Margin="0,30,0,0" Text="{x:Static resourceText:ResourceText.TITLE_CHOOSE_YOUR_FRIEND}" TextColor="{x:StaticResource GrayDefault}" FontSize="14" Style="{x:StaticResource LabelSemiBold}"></Label>
+                <CollectionView x:Name="List" Margin="0,30,0,0" VerticalOptions="FillAndExpand" ItemsSource="{Binding FriendsList}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <template:MyFriendsComponent TappedItemCommand="{Binding Path=BindingContext.DetailFriendCommand, Source={x:Reference Name=List}}" TappedMakePhonecallCommand="{Binding Path=BindingContext.MakePhonecallCommand, Source={x:Reference Name=List}}" Friend="{Binding .}"></template:MyFriendsComponent>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.EmptyView>
+                        <ContentView>
+                            <template:EmptyTemplate></template:EmptyTemplate>
+                        </ContentView>
+                    </CollectionView.EmptyView>
+                </CollectionView>
+            </StackLayout>
+            <Button Text="{x:Static resourceText:ResourceText.TITLE_ADD_FRIEND}" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding AddFriendCommand}" x:Name="ButtonAddFriend"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

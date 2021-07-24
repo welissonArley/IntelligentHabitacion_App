@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:Homuai.App"
+             xmlns:loading="clr-namespace:Homuai.App.Views.Templates.Loading"
+             xmlns:templateInputTextWithLabel="clr-namespace:Homuai.App.Views.Templates.TextWithLabel"
+             xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+             Title="{x:Static resourceText:ResourceText.TITLE_LOGIN}"
+             x:Class="Homuai.App.Views.View.Login.DoLogin.LoginPage">
+    <ContentPage.Content>
+        <StackLayout Style="{x:StaticResource MarginStyleDefault}" xct:StateLayout.CurrentState="{Binding CurrentState}">
+            <xct:StateLayout.StateViews>
+                <xct:StateView StateKey="Saving">
+                    <xct:StateView.Template>
+                        <DataTemplate>
+                            <loading:LoadingTemplate Text="{x:Static resourceText:ResourceText.TITLE_SENDING_DATA}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></loading:LoadingTemplate>
+                        </DataTemplate>
+                    </xct:StateView.Template>
+                </xct:StateView>
+            </xct:StateLayout.StateViews>
+
+            <StackLayout VerticalOptions="StartAndExpand">
+                <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Email" LabelTitle="{x:Static resourceText:ResourceText.TITLE_EMAIL_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_EMAIL}" Keyboard="Email"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                <templateInputTextWithLabel:InputPasswordWithLabelComponent PropertyToBindindEntry="Password" LabelTitle="{x:Static resourceText:ResourceText.TITLE_PASSWORD_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_PASSWORD}"></templateInputTextWithLabel:InputPasswordWithLabelComponent>
+
+                <Label Text="{x:Static resourceText:ResourceText.TITLE_FORGOT_PASSWORD}" HorizontalOptions="EndAndExpand" Style="{x:StaticResource LabelMedium}" Margin="0,40,0,0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Button Margin="0,50,0,0" Text="{x:Static resourceText:ResourceText.TITLE_LOGIN}" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding ButtonLoginCommand}"></Button>
+            </StackLayout>
+
+            <StackLayout IsVisible="{Binding CanUseFigerprintToLogin}">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding UsingFigerprintToLoginCommand}"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+                <Image Source="IconFingerprint" HeightRequest="70" WidthRequest="61" HorizontalOptions="CenterAndExpand"></Image>
+                <Label Margin="0,20,0,0" Text="{x:Static resourceText:ResourceText.TITLE_USE_YOUR_FIGERPRINT_TO_LOGIN}" HorizontalOptions="CenterAndExpand" FontSize="14" HorizontalTextAlignment="Center"></Label>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

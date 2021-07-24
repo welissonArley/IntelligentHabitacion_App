@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Homuai.App.Views.Templates.Loading.LoadingTemplate">
+    <ContentView.Content>
+        <StackLayout Margin="0,200,0,0">
+            <ActivityIndicator HeightRequest="35" WidthRequest="35" IsRunning="True" Color="{x:StaticResource GreenDefault}"></ActivityIndicator>
+            <Label FontSize="15" x:Name="LabelText" Style="{x:StaticResource LabelBold}" HorizontalOptions="CenterAndExpand"></Label>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:Homuai.App"
+             xmlns:CustomEntry="clr-namespace:Homuai.App.CustomControl"
+             xmlns:templateStep="clr-namespace:Homuai.App.Views.Templates.Step"
+             x:Class="Homuai.App.Views.View.User.Register.RequestNamePage">
+    <ContentPage.Content>
+        <StackLayout Style="{x:StaticResource MarginStyleDefault}">
+            <templateStep:Steps AmountCompleteSteps="2" AmountIncompleteSteps="3"></templateStep:Steps>
+
+            <Label Text="{x:Static resourceText:ResourceText.TITLE_YOUR_NAME}" Style="{x:StaticResource LabelTitle}"></Label>
+
+            <CustomEntry:EntryNoLine Text="{Binding Model.Name}" VerticalOptions="CenterAndExpand" Placeholder="{x:Static resourceText:ResourceText.PLACEHOLDER_NAME}" ReturnCommand="{Binding NextCommand}"></CustomEntry:EntryNoLine>
+
+            <Button Text="{x:Static resourceText:ResourceText.TITLE_NEXT}" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding NextCommand}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

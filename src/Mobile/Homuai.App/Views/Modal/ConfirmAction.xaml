@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:resourceText="clr-namespace:Homuai.App"
+                 xmlns:customControl="clr-namespace:Homuai.App.CustomControl"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}"
+             x:Class="Homuai.App.Views.Modal.ConfirmAction">
+    <Frame HasShadow="True" Padding="0" BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="20">
+                <Image WidthRequest="50" HeightRequest="50" x:Name="ImageIcon"></Image>
+                <StackLayout Margin="15,0,0,0">
+                    <Label x:Name="LabelTitle" FontSize="14" Style="{StaticResource LabelBold}"></Label>
+                    <customControl:LabelJustifyText x:Name="LabelText"></customControl:LabelJustifyText>
+                </StackLayout>
+            </StackLayout>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="0" RowDefinitions="40">
+                <Button Clicked="Button_Cancel" Grid.Column="0" Text="{x:Static resourceText:ResourceText.TITLE_CANCEL}" BackgroundColor="#ececec" TextColor="Black" CornerRadius="0"></Button>
+                <Button x:Name="ButtonOk" Clicked="Button_Ok" Grid.Column="1" Text="{x:Static resourceText:ResourceText.TITLE_YES_IAMSURE}" TextColor="Black" CornerRadius="0"></Button>
+            </Grid>
+        </StackLayout>
+    </Frame>
+</pages:PopupPage>

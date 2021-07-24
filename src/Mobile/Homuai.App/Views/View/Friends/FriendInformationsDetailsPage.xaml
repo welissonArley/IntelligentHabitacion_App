@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:Homuai.App"
+             xmlns:converter="clr-namespace:Homuai.App.Converter"
+             xmlns:templateButton="clr-namespace:Homuai.App.Views.Templates.Button"
+             xmlns:header="clr-namespace:Homuai.App.Views.Templates.Header"
+             xmlns:informations="clr-namespace:Homuai.App.Views.Templates.Information"
+             xmlns:loading="clr-namespace:Homuai.App.Views.Templates.Loading"
+             xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+             Title="{x:Static resourceText:ResourceText.TITLE_MY_FRIENDS}"
+             x:Name="FriendInformationsContentPage"
+             x:Class="Homuai.App.Views.View.Friends.FriendInformationsDetailsPage">
+    <ContentPage.Resources>
+        <converter:ObjectIsNullOrEmptyConverter x:Key="ObjectNullEmptyConverter"></converter:ObjectIsNullOrEmptyConverter>
+        <converter:ShortNameConverter x:Key="ShortNameConverter"></converter:ShortNameConverter>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid RowDefinitions="*">
+            <StackLayout Grid.Row="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Style="{x:StaticResource MarginStyleDefault}" Spacing="-3" xct:StateLayout.CurrentState="{Binding CurrentState}">
+                <xct:StateLayout.StateViews>
+                    <xct:StateView StateKey="Saving">
+                        <xct:StateView.Template>
+                            <DataTemplate>
+                                <loading:LoadingTemplate Text="{x:Static resourceText:ResourceText.TITLE_SENDING_DATA}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></loading:LoadingTemplate>
+                            </DataTemplate>
+                        </xct:StateView.Template>
+                    </xct:StateView>
+                    <xct:StateView StateKey="Success">
+                        <xct:StateView.Template>
+                            <DataTemplate>
+                                <informations:SucessTemplate HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></informations:SucessTemplate>
+                            </DataTemplate>
+                        </xct:StateView.Template>
+                    </xct:StateView>
+                </xct:StateLayout.StateViews>
+
+                <StackLayout VerticalOptions="FillAndExpand">
+                    <header:CircleWithTextAndDescriptionComponent CircleColor="{Binding Model.ProfileColor}" Text="{Binding Model.DescriptionDateJoined}" Title="{Binding Model.Name}" CircleText="{Binding Model.Name, Converter={StaticResource ShortNameConverter}}"></header:CircleWithTextAndDescriptionComponent>
+
+                    <Label Margin="0,20,0,0" Text="{x:Static resourceText:ResourceText.TITLE_PHONENUMBERS}" FontSize="14" Style="{x:StaticResource LabelSemiBold}"></Label>
+                    <informations:PhonenumbersToCallComponent ProfileColor="{Binding Model.ProfileColor}" TappedMakePhonecallCommand="{Binding Path=BindingContext.MakePhonecallCommand, Source={x:Reference Name=FriendInformationsContentPage}}" PhoneNumbers="{Binding Model.Phonenumbers}"></informations:PhonenumbersToCallComponent>
+
+                    <Label Margin="0,20,0,0" Text="{x:Static resourceText:ResourceText.TITLE_EMERGENCY_CONTACTS_TWOPOINTS}" FontSize="14" Style="{x:StaticResource LabelSemiBold}"></Label>
+                    <informations:EmergencyContactsComponent ProfileColor="{Binding Model.ProfileColor}" TappedMakePhonecallCommand="{Binding Path=BindingContext.MakePhonecallCommand, Source={x:Reference Name=FriendInformationsContentPage}}" EmergencyContacts="{Binding Model.EmergencyContacts}"></informations:EmergencyContactsComponent>
+                </StackLayout>
+            </StackLayout>
+
+            <templateButton:FloatActionButton HorizontalOptions="End" VerticalOptions="End" Grid.Row="0" TappedButtonCommand="{Binding Path=BindingContext.FloatActionCommand, Source={x:Reference Name=FriendInformationsContentPage}}"></templateButton:FloatActionButton>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

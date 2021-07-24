@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customControl="clr-namespace:Homuai.App.CustomControl"
+             x:Class="Homuai.App.Views.Templates.CardIlustrationOptions.CardIlustrationOptions">
+    <ContentView.Content>
+        <Frame HasShadow="True" CornerRadius="15" Padding="10,15,10,10" BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource DarkModeSecondaryColor}}">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Card_OnTapped"></TapGestureRecognizer>
+            </Frame.GestureRecognizers>
+            <StackLayout>
+                <Image x:Name="ImageIlustration"></Image>
+
+                <StackLayout>
+                    <Label x:Name="LabelTitle" Style="{x:StaticResource LabelSemiBold}" HorizontalOptions="CenterAndExpand">
+                        <Label.FontSize>
+                            <OnIdiom x:TypeArguments="x:Double" Phone="14" Tablet="28"></OnIdiom>
+                        </Label.FontSize>
+                    </Label>
+                    <customControl:LabelJustifyText x:Name="LabelDescriptionCard" Style="{x:StaticResource LabelLight}">
+                        <customControl:LabelJustifyText.FontSize>
+                            <OnIdiom x:TypeArguments="x:Double" Phone="10" Tablet="20"></OnIdiom>
+                        </customControl:LabelJustifyText.FontSize>
+                    </customControl:LabelJustifyText>
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

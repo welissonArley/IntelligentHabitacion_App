@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:resourceText="clr-namespace:Homuai.App"
+                 xmlns:customControl="clr-namespace:Homuai.App.CustomControl"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 BackgroundColor="#192846"
+                 x:Class="Homuai.App.Views.Modal.LgpdModal">
+    <Grid ColumnDefinitions="*">
+        <Image Grid.Column="0" Source="IlustrationHalfCircle" HorizontalOptions="End"></Image>
+        <StackLayout Grid.Column="0" Style="{x:StaticResource MarginStyleDefault}">
+            <Label Text="{x:Static resourceText:ResourceText.TITLE_WHY_NEED_FILL_THIS_INFORMATION}" Margin="0,20,0,0" HorizontalTextAlignment="Start" Style="{x:StaticResource LabelExtraBold}" TextColor="{x:StaticResource YellowDefault}" FontSize="30"></Label>
+
+            <customControl:LabelJustifyText Margin="0,90,0,0" x:Name="Message" HorizontalTextAlignment="Center" Style="{x:StaticResource LabelSemiBold}" TextColor="{x:StaticResource YellowDefault}" FontSize="16"></customControl:LabelJustifyText>
+
+            <StackLayout VerticalOptions="EndAndExpand">
+                <Label Text="{x:Static resourceText:ResourceText.TITLE_INFORMATION_NOT_SHARED_AND_SAVED_ENCRYPTION}" HorizontalTextAlignment="Center" Style="{x:StaticResource LabelExtraBold}" TextColor="{x:StaticResource YellowDefault}" FontSize="14"></Label>
+                <Grid Margin="0,60,0,0" ColumnDefinitions="*,10,*" RowDefinitions="50">
+                    <Button Grid.Row="0" Grid.Column="2" CornerRadius="16" BackgroundColor="White" Text="Ok" TextColor="Black" Clicked="OnButton_Clicked"></Button>
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+</pages:PopupPage>

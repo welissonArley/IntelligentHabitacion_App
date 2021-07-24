@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<style name="Theme.Splash" parent="android:Theme">
+		<item name="android:windowBackground">@drawable/splash_screen_night</item>
+		<item name="android:windowNoTitle">true</item>
+		<item name="android:windowFullscreen">false</item>
+		<item name="colorPrimaryDark">@color/colorDarkMode</item>
+		<item name="android:windowLightStatusBar">true</item>
+	</style>
+
+	<style name="MainTheme" parent="MainTheme.Base">
+		<item name="android:statusBarColor">@color/colorDarkMode</item>
+		<item name="android:windowLightStatusBar">false</item>
+	</style>
+</resources>

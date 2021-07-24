@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:Homuai.App"
+             xmlns:calendar="clr-namespace:Homuai.App.Views.Templates.Date"
+             xmlns:information="clr-namespace:Homuai.App.Views.Templates.Information"
+             xmlns:skeleton="clr-namespace:Homuai.App.Views.Templates.Skeleton"
+             xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+             Title="{Binding TaskModel.Room}"
+             x:Name="TaskDetailsContentPage"
+             x:Class="Homuai.App.Views.View.CleaningSchedule.TaskDetailsPage">
+    <ContentPage.Content>
+        <StackLayout Style="{x:StaticResource MarginStyleDefault}">
+            <StackLayout xct:StateLayout.CurrentState="{Binding CurrentStateCalendar}">
+                <xct:StateLayout.StateViews>
+                    <xct:StateView StateKey="Loading">
+                        <xct:StateView.Template>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <skeleton:CalendarSkeleton />
+                                </StackLayout>
+                            </DataTemplate>
+                        </xct:StateView.Template>
+                    </xct:StateView>
+                </xct:StateLayout.StateViews>
+
+                <calendar:CalendarTemplate OnDaySelectedCommand="{Binding Path=BindingContext.OnDaySelectedCommand, Source={x:Reference TaskDetailsContentPage}}" OnChangeDateCommand="{Binding Path=BindingContext.OnDateChangedCommand, Source={x:Reference TaskDetailsContentPage}}" Model="{Binding Model}" />
+            </StackLayout>
+
+            <StackLayout xct:StateLayout.CurrentState="{Binding CurrentStateHistoric}">
+                <xct:StateLayout.StateViews>
+                    <xct:StateView StateKey="Loading">
+                        <xct:StateView.Template>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <skeleton:TaskDetailsRateSkeleton Margin="0,0,0,0" />
+                                    <skeleton:TaskDetailsRateSkeleton Margin="0,15,0,0" />
+                                </StackLayout>
+                            </DataTemplate>
+                        </xct:StateView.Template>
+                    </xct:StateView>
+                </xct:StateLayout.StateViews>
+
+                <CollectionView ItemsSource="{Binding DetailsDayModel}" IsGrouped="True">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <information:TaskDetailsRateComponent TappedDetailsRateTaskCommand="{Binding Path=BindingContext.OnSeeDetailsRateTappedCommand, Source={x:Reference TaskDetailsContentPage}}" TaskDetails="{Binding .}" TappedRateTaskCommand="{Binding Path=BindingContext.OnRateTaskTappedCommand, Source={x:Reference TaskDetailsContentPage}}"></information:TaskDetailsRateComponent>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.EmptyView>
+                        <ContentView>
+                            <StackLayout VerticalOptions="CenterAndExpand">
+                                <Label Text="{x:Static resourceText:ResourceText.TITLE_NO_RECORDS}" Style="{StaticResource LabelBold}" Margin="10,25,10,10" FontSize="18" HorizontalOptions="Fill" HorizontalTextAlignment="Center" />
+                                <Label Text="{x:Static resourceText:ResourceText.TITLE_THERE_ARE_NOT_CLEANING_RECORDS_THIS_DAY}" Style="{StaticResource LabelMedium}" FontSize="12" HorizontalOptions="Fill" HorizontalTextAlignment="Center" />
+                            </StackLayout>
+                        </ContentView>
+                    </CollectionView.EmptyView>
+                </CollectionView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

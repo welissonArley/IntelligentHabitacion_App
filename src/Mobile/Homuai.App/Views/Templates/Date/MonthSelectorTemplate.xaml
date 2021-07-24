@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Homuai.App.Views.Templates.Date.MonthSelectorTemplate">
+    <ContentView.Content>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="MonthSelector_Tapped"></TapGestureRecognizer>
+            </StackLayout.GestureRecognizers>
+
+            <Label x:Name="LabelMonth" FontSize="14" TextColor="{x:StaticResource GreenDefault}" Style="{x:StaticResource LabelBold}"></Label>
+            <Image Source="IconCalendar" WidthRequest="17" HeightRequest="15" Margin="4,0,0,0"></Image>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

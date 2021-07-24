@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:resourceText="clr-namespace:Homuai.App"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 BackgroundColor="Transparent"
+                 x:Class="Homuai.App.Views.Modal.MenuOptions.FloatActionTaskCleaningScheduleModal">
+    <Frame BackgroundColor="Transparent" VerticalOptions="End" HorizontalOptions="End" HasShadow="True" WidthRequest="300" HeightRequest="160" Padding="0" Margin="0,0,20,100">
+        <StackLayout VerticalOptions="End">
+            <StackLayout Margin="0,10,10,10" Spacing="-6">
+                <StackLayout x:Name="OptionAddFriend" Orientation="Horizontal" HorizontalOptions="End">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="RememberUserCleanRoom_Tapped"></TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+                    <Label TextColor="White" Padding="7" Text="{x:Static resourceText:ResourceText.TITLE_REMIND_FRIEND_PERFORM_TASKS}" BackgroundColor="#607d8b" Style="{StaticResource LabelExtraBold}" FontSize="14" VerticalOptions="Center"></Label>
+                    <Image Source="ActionButtonNotify" HeightRequest="40" WidthRequest="40"></Image>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="End" Margin="0,15,0,0">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ViewCompleteHistory_Tapped"></TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+                    <Label TextColor="White" Padding="7" Text="{x:Static resourceText:ResourceText.TITLE_VIEW_FULL_HISTORY}" BackgroundColor="#607d8b" Style="{StaticResource LabelExtraBold}" FontSize="14" VerticalOptions="Center"></Label>
+                    <Image Source="ActionButtonCalendar" HeightRequest="40" WidthRequest="40"></Image>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="End" Margin="0,15,0,0">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="RegisterRoomsCleaned_Tapped"></TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+                    <Label TextColor="White" Padding="7" Text="{x:Static resourceText:ResourceText.TITLE_REGISTER_ROOM_CLEANING}" BackgroundColor="#607d8b" Style="{StaticResource LabelExtraBold}" FontSize="14" VerticalOptions="Center"></Label>
+                    <Image Source="ActionButtonAdd" HeightRequest="40" WidthRequest="40"></Image>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </Frame>
+</pages:PopupPage>

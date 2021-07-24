@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Homuai.App.Views.Templates.Date.CalendarOptionTemplate">
+    <ContentView.Content>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="ChangeDate_Tapped"></TapGestureRecognizer>
+            </StackLayout.GestureRecognizers>
+            <Label x:Name="LabelDate" Style="{StaticResource LabelBold}" FontSize="14" TextColor="{StaticResource GreenDefault}"></Label>
+            <Image Source="IconCalendar" HeightRequest="15" WidthRequest="17"></Image>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

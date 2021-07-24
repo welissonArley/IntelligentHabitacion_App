@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:Homuai.App"
+             xmlns:CustomEntry="clr-namespace:Homuai.App.CustomControl"
+             xmlns:templateStep="clr-namespace:Homuai.App.Views.Templates.Step"
+             x:Class="Homuai.App.Views.View.User.Register.RequestPhoneNumberPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem NavigationPage.BackButtonTitle="" NavigationPage.TitleIcon="" IconImageSource="IconQuestion" FlexLayout.AlignSelf="Center" Priority="0" Command="{Binding WhyINeedFillThisInformationCommand}"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Style="{x:StaticResource MarginStyleDefault}">
+            <templateStep:Steps AmountCompleteSteps="3" AmountIncompleteSteps="2"></templateStep:Steps>
+
+            <Label Text="{x:Static resourceText:ResourceText.TITLE_NOW_YOUR_PHONE_NUMBER}" Style="{x:StaticResource LabelTitle}"></Label>
+
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <CustomEntry:EntryNoLine Text="{Binding Model.PhoneNumber1}" Placeholder="{x:Static resourceText:ResourceText.PLACEHOLDER_PHONENUMBER}" Keyboard="Telephone"></CustomEntry:EntryNoLine>
+                <CustomEntry:EntryNoLine Text="{Binding Model.PhoneNumber2}" Margin="0,60,0,0" Placeholder="{x:Static resourceText:ResourceText.PLACEHOLDER_PHONENUMBER}" Keyboard="Telephone"></CustomEntry:EntryNoLine>
+            </StackLayout>
+
+            <Button Text="{x:Static resourceText:ResourceText.TITLE_NEXT}" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding NextCommand}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

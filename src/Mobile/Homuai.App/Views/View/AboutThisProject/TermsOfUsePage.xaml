@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:Homuai.App"
+             xmlns:customControl="clr-namespace:Homuai.App.CustomControl"
+             x:Class="Homuai.App.Views.View.AboutThisProject.TermsOfUsePage">
+    <ContentPage.Content>
+        <ScrollView Margin="0,0,0,30">
+            <StackLayout Style="{StaticResource MarginStyleDefault}">
+                <Label Text="{x:Static resourceText:ResourceText.TITLE_TERMS_OF_USE}" Style="{StaticResource LabelBold}" FontSize="18"></Label>
+
+                <Label Margin="0,40,0,0" Text="1. Aceitação" Style="{StaticResource LabelBold}" FontSize="12"></Label>
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="Ao criar a conta, consideramos que você aceita e que está de acordo com as regras e condições descritas neste contrato. Além disso, consideramos que você confirma sua aceitação todas as vezes em que faz uso do App. Concluindo, caso não concorde com esse Contrato, não crie sua conta e/ou utilize o Aplicativo." FontSize="12"></customControl:LabelJustifyText>
+
+                <Label Margin="0,15,0,0" Text="2. Alterações" Style="{StaticResource LabelBold}" FontSize="12"></Label>
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="Podemos alterar este Contrato, as regras e condições a qualquer momento, sem aviso prévio. As alterações estarão disponíveis. É de sua  responsabilidade verificá-las. Para qualquer dúvida, entre em contato com nosso atendimento. Caso você não aceite as alterações deste contrato, encerre sua Conta." FontSize="12"></customControl:LabelJustifyText>
+
+                <Label Margin="0,15,0,0" Text="3. Encerramento e bloqueio de conta" Style="{StaticResource LabelBold}" FontSize="12"></Label>
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="Podemos suspender, bloquear ou encerrar o sua conta em caso de condutas que violam os termos deste Contrato, sem que seja necessário apresentar nossos motivos. Você também tem liberdade para encerrar seu relacionamento conosco." FontSize="12"></customControl:LabelJustifyText>
+
+                <Label Margin="0,15,0,0" Text="4. Conta" Style="{StaticResource LabelBold}" FontSize="12"></Label>
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="Para utilizar este Aplicativo você deve se cadastrar e criar uma conta informando os dados solicitados, os quais alguns são obrigatórios e outros opcionais." FontSize="12"></customControl:LabelJustifyText>
+
+                <Label Margin="0,15,0,0" Text="5. Uso" Style="{StaticResource LabelBold}" FontSize="12"></Label>
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="Para utilizar o Aplicativo, você deve:" FontSize="12"></customControl:LabelJustifyText>
+                <customControl:LabelJustifyText Margin="10,10,0,0" Text="a. Se certificar que está em lojas oficiais (Apple Store e Google Play) para download, instalação e atualizações dos Aplicativos. Não nos responsabilizamos por prejuízos e vazamento de informações causados por aplicativo pirata;" FontSize="12"></customControl:LabelJustifyText>
+                <customControl:LabelJustifyText Margin="10,10,0,0" Text="b. O Aplicativo deve ser utilizado em seu nome, pois a Conta é sua e de mais ninguém;" FontSize="12"></customControl:LabelJustifyText>
+                <customControl:LabelJustifyText Margin="10,10,0,0" Text="c. Não compartilhe sua senha e não permita ninguém acessar o Aplicativo em seu nome, pois você será responsabilizado por qualquer ato a partir do uso indevido dos seus dados. Não nos responsabilizamos por qualquer dano moral ou material gerado pelo uso indevido do Aplicativo ou dos seus dados de acesso (e-mail, senha, etc.)." FontSize="12"></customControl:LabelJustifyText>
+
+                <Label Margin="0,15,0,0" Text="6. Funcionamento" Style="{StaticResource LabelBold}" FontSize="12"></Label>
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="Os itens abaixo descrevem o funcionamento do aplicativo:" FontSize="12"></customControl:LabelJustifyText>
+                <customControl:LabelJustifyText Margin="10,10,0,0" Text="a. após baixar e instalar o Aplicativo precisamos registrar você, e para isso você deve preencher o cadastro com os dados solicitados;" FontSize="12"></customControl:LabelJustifyText>
+                <customControl:LabelJustifyText Margin="10,10,0,0" Text="b. todas as operações disponíveis no Aplicativo dependem de acesso a internet, e você deve providenciar e arcar com os custos." FontSize="12"></customControl:LabelJustifyText>
+
+                <Label Margin="0,15,0,0" Text="7. Proibições" Style="{StaticResource LabelBold}" FontSize="12"></Label>
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="Existem ações que você está proibido de fazer, pois violam nossos objetivos e valores com este Aplicativo:" FontSize="12"></customControl:LabelJustifyText>
+                <customControl:LabelJustifyText Margin="10,10,0,0" Text="a. adotar quaisquer tipos de condutas discriminatórias. Quaisquer condutas relacionadas a, ódio, intolerância, violência física ou moral, racismo e apologia ao crime. Quaisquer condutas relacionados à pornografia, eróticos ou inadequados para menores de idade;" FontSize="12"></customControl:LabelJustifyText>
+                <customControl:LabelJustifyText Margin="10,10,0,0" Text="b. interromper ou prejudicar o serviço do Aplicativo, os servidores ou redes a ele conectados;" FontSize="12"></customControl:LabelJustifyText>
+                <customControl:LabelJustifyText Margin="10,10,0,0" Text="c. interferir na utilização do Aplicativo por outro usuário;" FontSize="12"></customControl:LabelJustifyText>
+                <customControl:LabelJustifyText Margin="10,10,0,0" Text="d. praticar qualquer ato que sobrecarregue indevidamente o Aplicativo;" FontSize="12"></customControl:LabelJustifyText>
+                <customControl:LabelJustifyText Margin="10,10,0,0" Text="e. vincular sem autorização, a imagem e/ou marca deste Aplicativo a movimentos políticos, sindicais, religiosos, etc;" FontSize="12"></customControl:LabelJustifyText>
+                <customControl:LabelJustifyText Margin="10,10,0,0" Text="f. copiar, reproduzir, modificar, ou criar derivações do Aplicativo." FontSize="12"></customControl:LabelJustifyText>
+
+                <Label Margin="0,15,0,0" Text="8. Dados" Style="{StaticResource LabelBold}" FontSize="12"></Label>
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="Você é responsável pela veracidade dos seus dados que cadastrar no Aplicativo." FontSize="12"></customControl:LabelJustifyText>
+
+                <Label Margin="0,15,0,0" Text="9. Finalidade dos Dados" Style="{StaticResource LabelBold}" FontSize="12"></Label>
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="O uso dos seus dados tem exclusivamente as seguintes finalidade:" FontSize="12"></customControl:LabelJustifyText>
+                <customControl:LabelJustifyText Margin="10,10,0,0" Text="a. serem compartilhados com as pessoas que moram com você, com a intenção de melhorar a sua experiência vivendo em conjunto com amigos e/ou familiares;" FontSize="12"></customControl:LabelJustifyText>
+                <customControl:LabelJustifyText Margin="10,10,0,0" Text="b. envio de comunicados importantes para você;" FontSize="12"></customControl:LabelJustifyText>
+
+                <Label Margin="0,15,0,0" Text="10. Organização" Style="{StaticResource LabelBold}" FontSize="12"></Label>
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="O Aplicativo é apenas uma forma de facilitar e organizar tarefas e problemas comuns vividos por usuários que compartilham um mesmo lar. Por isso, não nos responsabilizamos por qualquer desacordo nas relações entre você e as pessoas com quem interagir." FontSize="12"></customControl:LabelJustifyText>
+
+                <Label Margin="0,15,0,0" Text="11. Responsabilidades" Style="{StaticResource LabelBold}" FontSize="12"></Label>
+                <customControl:LabelJustifyText Margin="10,10,0,0" Text="a. não nos responsabilizamos por qualquer dano eventualmente causado por falha ou interrupção de serviço;" FontSize="12"></customControl:LabelJustifyText>
+                <customControl:LabelJustifyText Margin="10,10,0,0" Text="b. Não temos como garantir de que o serviço do Aplicativo não apresente falhas, que seja imune a ataques, vírus, interferência, ou qualquer outro tipo de ataque de segurança;" FontSize="12"></customControl:LabelJustifyText>
+                <customControl:LabelJustifyText Margin="10,10,0,0" Text="c. Podemos suspender ou encerrar este aplicativo de forma temporária ou definitiva por razões técnicas ou qualquer outro motivo, sem informação prévia." FontSize="12"></customControl:LabelJustifyText>
+
+                <Label Margin="0,15,0,0" Text="12. Propriedade" Style="{StaticResource LabelBold}" FontSize="12"></Label>
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="O aplicativo, partes e sistemas pertencem a nós. Todos os usuários, inclusive você, concorda que não estão autorizados a copiar, modificar, transferir ou explorar o Aplicativo para tentar copiar." FontSize="12"></customControl:LabelJustifyText>
+
+                <Label Margin="0,15,0,0" Text="13. Comunicação" Style="{StaticResource LabelBold}" FontSize="12"></Label>
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="Você pode entrar em contato conosco através do formulário disponível dentro do Aplicativo. Retornaremos o mais rápido possível, com uma solução amigável, através do seu email informado no formulário." FontSize="12"></customControl:LabelJustifyText>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

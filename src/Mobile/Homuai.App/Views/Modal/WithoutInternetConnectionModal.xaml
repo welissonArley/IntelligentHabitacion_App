@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:resourceText="clr-namespace:Homuai.App"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 BackgroundColor="Transparent"
+                 x:Class="Homuai.App.Views.Modal.WithoutInternetConnectionModal">
+    <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" ColumnDefinitions="280">
+        <Frame Grid.Column="0" CornerRadius="10" HasShadow="False" Padding="0" HeightRequest="50" BackgroundColor="Black" Opacity="0.5"></Frame>
+        <Label Grid.Column="0" TextColor="White" Style="{x:StaticResource LabelExtraBold}" Text="{x:Static resourceText:ResourceText.TEXT_CHECK_YOUR_INTERNET_CONNECTION}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="15"></Label>
+    </Grid>
+</pages:PopupPage>

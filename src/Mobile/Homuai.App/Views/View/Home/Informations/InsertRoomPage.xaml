@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:Homuai.App"
+             xmlns:templateInputTextWithLabel="clr-namespace:Homuai.App.Views.Templates.TextWithLabel"
+             x:Class="Homuai.App.Views.View.Home.Informations.InsertRoomPage">
+    <ContentPage.Content>
+        <StackLayout Style="{StaticResource MarginStyleDefault}">
+            <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Room" LabelTitle="{x:Static resourceText:ResourceText.TITLE_ROOM_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_ROOM}"></templateInputTextWithLabel:InputTextWithLabelComponent>
+
+            <Label Margin="0,30,0,0" Text="{x:Static resourceText:ResourceText.TITLE_RECOMMENDED_TWOPOINTS}"></Label>
+
+            <StackLayout Orientation="Horizontal" Margin="0,20,0,0">
+                <Button x:Name="LivingRoomButton" Command="{Binding SelectRoomExempleCommand}" CommandParameter="{Binding Text,Source={x:Reference LivingRoomButton}}" Text="{x:Static resourceText:ResourceText.TITLE_LIVING_ROOM}" TextColor="{AppThemeBinding Light=Black, Dark=White}" Padding="20,0,20,0" BackgroundColor="Transparent" BorderWidth="2" BorderColor="{StaticResource GrayDefault}" CornerRadius="20" HeightRequest="35"></Button>
+                <Button x:Name="LaundryButton" Command="{Binding SelectRoomExempleCommand}" CommandParameter="{Binding Text,Source={x:Reference LaundryButton}}" Text="{x:Static resourceText:ResourceText.TITLE_LAUNDRY}" TextColor="{AppThemeBinding Light=Black, Dark=White}" Padding="20,0,20,0" BackgroundColor="Transparent" BorderWidth="2" BorderColor="{StaticResource GrayDefault}" CornerRadius="20" HeightRequest="35"></Button>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Margin="0,15,0,0">
+                <Button x:Name="KitchenButton" Command="{Binding SelectRoomExempleCommand}" CommandParameter="{Binding Text,Source={x:Reference KitchenButton}}" Text="{x:Static resourceText:ResourceText.TITLE_KITCHEN}" TextColor="{AppThemeBinding Light=Black, Dark=White}" Padding="20,0,20,0" BackgroundColor="Transparent" BorderWidth="2" BorderColor="{StaticResource GrayDefault}" CornerRadius="20" HeightRequest="35"></Button>
+                <Button x:Name="DiningRoomButton" Command="{Binding SelectRoomExempleCommand}" CommandParameter="{Binding Text,Source={x:Reference DiningRoomButton}}" Text="{x:Static resourceText:ResourceText.TITLE_DINING_ROOM}" TextColor="{AppThemeBinding Light=Black, Dark=White}" Padding="20,0,20,0" BackgroundColor="Transparent" BorderWidth="2" BorderColor="{StaticResource GrayDefault}" CornerRadius="20" HeightRequest="35"></Button>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Margin="0,15,0,0">
+                <Button x:Name="OfficeButton" Command="{Binding SelectRoomExempleCommand}" CommandParameter="{Binding Text,Source={x:Reference OfficeButton}}" Text="{x:Static resourceText:ResourceText.TITLE_OFFICE}" TextColor="{AppThemeBinding Light=Black, Dark=White}" Padding="20,0,20,0" BackgroundColor="Transparent" BorderWidth="2" BorderColor="{StaticResource GrayDefault}" CornerRadius="20" HeightRequest="35"></Button>
+                <Button x:Name="BathRoomButton" Command="{Binding SelectRoomExempleCommand}" CommandParameter="{Binding Text,Source={x:Reference BathRoomButton}}" Text="{x:Static resourceText:ResourceText.TITLE_BATHROOM}" TextColor="{AppThemeBinding Light=Black, Dark=White}" Padding="20,0,20,0" BackgroundColor="Transparent" BorderWidth="2" BorderColor="{StaticResource GrayDefault}" CornerRadius="20" HeightRequest="35"></Button>
+            </StackLayout>
+
+            <Button VerticalOptions="EndAndExpand" Text="{x:Static resourceText:ResourceText.TITLE_SAVE}" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding SelectedRoomCommand}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

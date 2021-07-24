@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:Homuai.App"
+             xmlns:behavior="clr-namespace:Homuai.App.Behavior"
+             xmlns:enum="clr-namespace:Homuai.App.ValueObjects.Enum;assembly=Homuai.App"
+             xmlns:template="clr-namespace:Homuai.App.Views.Templates.Information"
+             xmlns:loading="clr-namespace:Homuai.App.Views.Templates.Loading"
+             xmlns:templateInputTextWithLabel="clr-namespace:Homuai.App.Views.Templates.TextWithLabel"
+             xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+             x:Class="Homuai.App.Views.View.Home.Register.RegisterHomePage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem NavigationPage.BackButtonTitle="" NavigationPage.TitleIcon="" IconImageSource="IconQuestion" FlexLayout.AlignSelf="Center" Priority="0" Command="{Binding WhyINeedFillThisInformationCommand}"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <behavior:ZipCodeBehavior x:Key="BehaviorZipCode"></behavior:ZipCodeBehavior>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout xct:StateLayout.CurrentState="{Binding CurrentState}">
+            <xct:StateLayout.StateViews>
+                <xct:StateView StateKey="Saving">
+                    <xct:StateView.Template>
+                        <DataTemplate>
+                            <loading:LoadingTemplate Text="{x:Static resourceText:ResourceText.TITLE_SENDING_DATA}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></loading:LoadingTemplate>
+                        </DataTemplate>
+                    </xct:StateView.Template>
+                </xct:StateView>
+                <xct:StateView StateKey="Success">
+                    <xct:StateView.Template>
+                        <DataTemplate>
+                            <template:SucessTemplate HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></template:SucessTemplate>
+                        </DataTemplate>
+                    </xct:StateView.Template>
+                </xct:StateView>
+            </xct:StateLayout.StateViews>
+
+            <ScrollView VerticalOptions="FillAndExpand">
+                <StackLayout Style="{x:StaticResource MarginStyleDefault}">
+                    <template:CountryComponent Country="{Binding Model.City.Country}" Margin="0,20,0,20"></template:CountryComponent>
+
+                    <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.ZipCode" TopMargin="False" LabelTitle="{x:Static resourceText:ResourceText.TITLE_ZIPCODE_TWOPOINTS}" PlaceHolderText="Zipcode">
+                        <templateInputTextWithLabel:InputTextWithLabelComponent.Triggers>
+                            <DataTrigger TargetType="{x:Type templateInputTextWithLabel:InputTextWithLabelComponent}" Binding="{Binding Path=Model.City.Country.Id}" Value="{x:Static enum:CountryEnum.BRAZIL}">
+                                <Setter Property="EntryUnfocused" Value="{Binding ZipCodeChangedUnfocused}"></Setter>
+                                <Setter Property="EntryBehavior" Value="{x:StaticResource BehaviorZipCode}"></Setter>
+                                <Setter Property="Keyboard" Value="Numeric"></Setter>
+                                <Setter Property="PlaceHolderText" Value="31.275-972"></Setter>
+                            </DataTrigger>
+                        </templateInputTextWithLabel:InputTextWithLabelComponent.Triggers>
+                    </templateInputTextWithLabel:InputTextWithLabelComponent>
+
+                    <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.Address" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_ADDRESS_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_ADDRESS}"></templateInputTextWithLabel:InputTextWithLabelComponent>
+
+                    <templateInputTextWithLabel:InputTextWithLabelComponent IsVisible="False" PropertyToBindindEntry="Model.Neighborhood" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_NEIGHBORHOOD_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_NEIGHBORHOOD}">
+                        <templateInputTextWithLabel:InputTextWithLabelComponent.Triggers>
+                            <DataTrigger TargetType="{x:Type templateInputTextWithLabel:InputTextWithLabelComponent}" Binding="{Binding Path=Model.City.Country.Id}" Value="{x:Static enum:CountryEnum.BRAZIL}">
+                                <Setter Property="IsVisible" Value="True"></Setter>
+                            </DataTrigger>
+                        </templateInputTextWithLabel:InputTextWithLabelComponent.Triggers>
+                    </templateInputTextWithLabel:InputTextWithLabelComponent>
+
+                    <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.Number" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_ADDRESSNUMBER_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_ADDRESSNUMBER}"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                    <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.AdditionalAddressInfo" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_ADDITIONALADDRESSINFO_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_ADDITIONALADDRESSINFO}"></templateInputTextWithLabel:InputTextWithLabelComponent>
+
+                    <templateInputTextWithLabel:InputTextWithLabelComponent IsVisible="False" PropertyToBindindEntry="Model.City.StateProvinceName" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_STATE_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_STATE}">
+                        <templateInputTextWithLabel:InputTextWithLabelComponent.Triggers>
+                            <DataTrigger TargetType="{x:Type templateInputTextWithLabel:InputTextWithLabelComponent}" Binding="{Binding Path=Model.City.Country.Id}" Value="{x:Static enum:CountryEnum.BRAZIL}">
+                                <Setter Property="IsVisible" Value="True"></Setter>
+                            </DataTrigger>
+                        </templateInputTextWithLabel:InputTextWithLabelComponent.Triggers>
+                    </templateInputTextWithLabel:InputTextWithLabelComponent>
+
+                    <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.City.Name" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CITY_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_CITY}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
+
+                    <Button VerticalOptions="EndAndExpand" Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{x:StaticResource ButtonYellowDefault}" IsVisible="{Binding IsAdministrator}" Command="{Binding OnConcludeCommand}"></Button>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

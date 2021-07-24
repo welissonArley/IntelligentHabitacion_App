@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:Homuai.App"
+             xmlns:behavior="clr-namespace:Homuai.App.Behavior"
+             xmlns:converter="clr-namespace:Homuai.App.Converter"
+             xmlns:custom="clr-namespace:Homuai.App.CustomControl"
+             xmlns:templateButton="clr-namespace:Homuai.App.Views.Templates.Button"
+             xmlns:header="clr-namespace:Homuai.App.Views.Templates.Header"
+             xmlns:loading="clr-namespace:Homuai.App.Views.Templates.Loading"
+             xmlns:templateInputTextWithLabel="clr-namespace:Homuai.App.Views.Templates.TextWithLabel"
+             xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+             xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             x:Name="AddFriendContentPage"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="Homuai.App.Views.View.Friends.AddFriendPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:ShortNameConverter x:Key="ShortNameConverter"></converter:ShortNameConverter>
+            <converter:ValueDecimalConverter x:Key="DecimalConverter"></converter:ValueDecimalConverter>
+            <converter:DateToStringConverter x:Key="StringDateConverter"></converter:DateToStringConverter>
+        </ResourceDictionary>
+        <behavior:DecimalBehavior x:Key="BehaviorDecimal"></behavior:DecimalBehavior>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Style="{x:StaticResource MarginStyleDefault}" xct:StateLayout.CurrentState="{Binding CurrentState}" xct:StateLayout.CurrentCustomStateKey="{Binding CustomState}">
+            <xct:StateLayout.StateViews>
+                <xct:StateView StateKey="Loading" VerticalOptions="FillAndExpand">
+                    <xct:StateView.Template>
+                        <DataTemplate>
+                            <StackLayout VerticalOptions="FillAndExpand">
+                                <header:CircleWithTextAndDescriptionComponent Margin="0,30,0,0" Text="{x:Static resourceText:ResourceText.DESCRIPTION_ADDING_FRIEND}" Title="{x:Static resourceText:ResourceText.TITLE_ADDING_NEW_FRIEND}" CircleText="+" CircleColor="{Binding Path=BindingContext.ProfileColor, Source={x:Reference Name=AddFriendContentPage}}"></header:CircleWithTextAndDescriptionComponent>
+                                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                    <Label Text="QR Code" FontSize="17" Style="{x:StaticResource LabelExtraBold}" HorizontalOptions="CenterAndExpand" Margin="0,0,0,30"></Label>
+                                    <custom:SkeletonView HorizontalOptions="CenterAndExpand" CornerRadius="10" WidthRequest="180" HeightRequest="180"></custom:SkeletonView>
+                                    <Label Margin="0,15,0,0" Text="{x:Static resourceText:ResourceText.TITLE_THIS_OPERATION_WILL_EXPIRE}" TextColor="{x:StaticResource YellowDefault}" FontSize="18" Style="{x:StaticResource LabelSemiBold}" HorizontalOptions="CenterAndExpand"></Label>
+                                    <Label Text="--:--" TextColor="{x:StaticResource GreenDefault}" FontSize="18" Style="{x:StaticResource LabelSemiBold}" HorizontalOptions="CenterAndExpand"></Label>
+                                </StackLayout>
+                                <templateButton:DeleteButton TitleButton="{x:Static resourceText:ResourceText.TITLE_CANCEL_OPERATION}" IsEnabled="False"></templateButton:DeleteButton>
+                            </StackLayout>
+                        </DataTemplate>
+                    </xct:StateView.Template>
+                </xct:StateView>
+                <xct:StateView StateKey="Saving">
+                    <xct:StateView.Template>
+                        <DataTemplate>
+                            <loading:LoadingTemplate Text="{x:Static resourceText:ResourceText.TITLE_SENDING_DATA}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></loading:LoadingTemplate>
+                        </DataTemplate>
+                    </xct:StateView.Template>
+                </xct:StateView>
+                <xct:StateView StateKey="Custom" CustomStateKey="AcceptNewFriend" VerticalOptions="FillAndExpand">
+                    <xct:StateView.Template>
+                        <DataTemplate>
+                            <StackLayout VerticalOptions="FillAndExpand">
+                                <header:CenterCircleWithTextComponent Margin="0,30,0,0" CircleColor="{Binding Path=BindingContext.Model.ProfileColor, Source={x:Reference Name=AddFriendContentPage}}" CircleText="{Binding Path=BindingContext.Model.Name, Source={x:Reference Name=AddFriendContentPage}, Converter={StaticResource ShortNameConverter}}"></header:CenterCircleWithTextComponent>
+                                <Label Margin="0,20,0,0" Text="{Binding Path=BindingContext.Model.Name, Source={x:Reference Name=AddFriendContentPage}}" FontSize="24" Style="{x:StaticResource LabelBold}" HorizontalOptions="CenterAndExpand"></Label>
+                                <StackLayout VerticalOptions="FillAndExpand" Margin="0,50,0,0">
+                                    <StackLayout Spacing="0">
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.SelectEntryDateTapped, Source={x:Reference Name=AddFriendContentPage}}"></TapGestureRecognizer>
+                                        </StackLayout.GestureRecognizers>
+                                        <templateInputTextWithLabel:InputTextWithLabelComponent IsEnabled="False" BindingEntry="{Binding Path=BindingContext.Model.EntryDate, Source={x:Reference Name=AddFriendContentPage}, Converter={StaticResource StringDateConverter}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_ENTRY_DATE_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_ENTRY_DATE}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                                    </StackLayout>
+                                    <templateInputTextWithLabel:InputTextWithLabelComponent BindingEntry="{Binding Path=BindingContext.Model.MonthlyRent, Source={x:Reference Name=AddFriendContentPage}, Converter={StaticResource DecimalConverter}}" TopMargin="False" LabelTitle="{x:Static resourceText:ResourceText.TITLE_MONTHLYRENT_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_MONTHLYRENT}" IsPassword="False" Keyboard="Numeric" EntryBehavior="{x:StaticResource BehaviorDecimal}"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                                </StackLayout>
+
+                                <Label Text="{x:Static resourceText:ResourceText.TITLE_THIS_OPERATION_WILL_EXPIRE}" TextColor="{x:StaticResource YellowDefault}" FontSize="18" Style="{x:StaticResource LabelSemiBold}" HorizontalOptions="CenterAndExpand"></Label>
+                                <Label Text="{Binding Path=BindingContext.Time, Source={x:Reference Name=AddFriendContentPage}}" TextColor="{x:StaticResource GreenDefault}" FontSize="18" Style="{x:StaticResource LabelSemiBold}" HorizontalOptions="CenterAndExpand"></Label>
+
+                                <Button Margin="0,30,0,0" Style="{x:StaticResource ButtonYellowDefault}" Text="{x:Static resourceText:ResourceText.TITLE_ACCEPT}" Command="{Binding Path=BindingContext.ApproveOperationTapped, Source={x:Reference Name=AddFriendContentPage}}"></Button>
+                                <templateButton:DeleteButton Margin="0,50,0,0" TitleButton="{x:Static resourceText:ResourceText.TITLE_CANCEL_OPERATION}" TappedButtonCommand="{Binding Path=BindingContext.CancelOperationTapped, Source={x:Reference Name=AddFriendContentPage}}"></templateButton:DeleteButton>
+                            </StackLayout>
+                        </DataTemplate>
+                    </xct:StateView.Template>
+                </xct:StateView>
+            </xct:StateLayout.StateViews>
+
+            <StackLayout VerticalOptions="FillAndExpand">
+                <header:CircleWithTextAndDescriptionComponent Margin="0,30,0,0" Text="{x:Static resourceText:ResourceText.DESCRIPTION_ADDING_FRIEND}" Title="{x:Static resourceText:ResourceText.TITLE_ADDING_NEW_FRIEND}" CircleText="+" CircleColor="{Binding Path=BindingContext.ProfileColor, Source={x:Reference Name=AddFriendContentPage}}"></header:CircleWithTextAndDescriptionComponent>
+
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <Label Text="QR Code" FontSize="17" Style="{x:StaticResource LabelExtraBold}" HorizontalOptions="CenterAndExpand" Margin="0,0,0,30"></Label>
+                    <Grid HorizontalOptions="CenterAndExpand" RowDefinitions="180" ColumnDefinitions="180">
+                        <BoxView BackgroundColor="Black" Grid.Column="0" Grid.Row="0"></BoxView>
+                        <zxing:ZXingBarcodeImageView x:Name="BarcodeView" BindingContext="{x:Reference AddFriendContentPage}" Margin="0" BarcodeFormat="QR_CODE" WidthRequest="170" HeightRequest="170" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="0" Grid.Row="0" BarcodeValue="{Binding Path=BindingContext.QrCode, Source={x:Reference Name=AddFriendContentPage}}">
+                            <zxing:ZXingBarcodeImageView.BarcodeOptions>
+                                <zxcm:EncodingOptions Width="170" Height="170"></zxcm:EncodingOptions>
+                            </zxing:ZXingBarcodeImageView.BarcodeOptions>
+                        </zxing:ZXingBarcodeImageView>
+                    </Grid>
+                    <Label Margin="0,15,0,0" Text="{x:Static resourceText:ResourceText.TITLE_THIS_OPERATION_WILL_EXPIRE}" TextColor="{x:StaticResource YellowDefault}" FontSize="18" Style="{x:StaticResource LabelSemiBold}" HorizontalOptions="CenterAndExpand"></Label>
+                    <Label Text="{Binding Path=BindingContext.Time, Source={x:Reference Name=AddFriendContentPage}}" TextColor="{x:StaticResource GreenDefault}" FontSize="18" Style="{x:StaticResource LabelSemiBold}" HorizontalOptions="CenterAndExpand"></Label>
+                </StackLayout>
+
+                <templateButton:DeleteButton TitleButton="{x:Static resourceText:ResourceText.TITLE_CANCEL_OPERATION}" TappedButtonCommand="{Binding Path=BindingContext.CancelOperationTapped, Source={x:Reference Name=AddFriendContentPage}}"></templateButton:DeleteButton>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

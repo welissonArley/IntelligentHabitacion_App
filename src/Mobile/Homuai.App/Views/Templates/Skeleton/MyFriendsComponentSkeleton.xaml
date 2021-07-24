@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:custom="clr-namespace:Homuai.App.CustomControl"
+             x:Class="Homuai.App.Views.Templates.Skeleton.MyFriendsComponentSkeleton">
+    <ContentView.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" Margin="0,10,0,10">
+            <StackLayout Orientation="Horizontal">
+                <Grid RowDefinitions="50">
+                    <Ellipse Grid.Row="0" HeightRequest="50" WidthRequest="50">
+                        <Ellipse.Fill>
+                            <SolidColorBrush Color="{StaticResource SkeletonColor}"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Grid>
+                <StackLayout Margin="10,0,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                    <custom:SkeletonView HorizontalOptions="StartAndExpand" WidthRequest="150" HeightRequest="12" />
+                    <custom:SkeletonView HorizontalOptions="StartAndExpand" WidthRequest="100" HeightRequest="10" />
+                </StackLayout>
+                <Grid VerticalOptions="CenterAndExpand" RowDefinitions="30">
+                    <Ellipse Grid.Row="0" HeightRequest="30" WidthRequest="30">
+                        <Ellipse.Fill>
+                            <SolidColorBrush Color="{StaticResource SkeletonColor}"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Grid>
+            </StackLayout>
+            <BoxView BackgroundColor="{x:StaticResource GrayDefault}" HeightRequest="0.2" Opacity="0.5"></BoxView>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

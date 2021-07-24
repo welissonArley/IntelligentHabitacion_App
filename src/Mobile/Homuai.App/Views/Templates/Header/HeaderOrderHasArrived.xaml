@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:Homuai.App"
+             x:Class="Homuai.App.Views.Templates.Header.HeaderOrderHasArrived">
+    <ContentView.Content>
+        <Grid ColumnDefinitions="*,*">
+            <Image Grid.Column="0" x:Name="ImageOrderHasArrived" Source="IconOrderHasArrived"></Image>
+            <StackLayout Grid.Column="1" Padding="0,0,20,0" VerticalOptions="EndAndExpand">
+                <Label Text="{x:Static resourceText:ResourceText.DESCRIPTION_YOUR_ORDER_HAS_ARRIVED_WAINTING_FOR_YOU}" FontSize="16" Style="{x:StaticResource LabelLight}" Margin="0,0,0,10"></Label>
+                <Button Text="{x:Static resourceText:ResourceText.TITLE_ALREADY_RECEIVED}" Style="{x:StaticResource ButtonYellowDefault}" Clicked="Button_Clicked"></Button>
+            </StackLayout>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

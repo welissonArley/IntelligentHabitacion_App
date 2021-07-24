@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:Homuai.App"
+             xmlns:templateCard="clr-namespace:Homuai.App.Views.Templates.CardIlustrationOptions"
+             xmlns:templateHeader="clr-namespace:Homuai.App.Views.Templates.Header"
+             FlowDirection="LeftToRight"
+             x:Name="UserPartOfAHomeContentPage"
+             x:Class="Homuai.App.Views.View.Dashboard.PartOfHome.UserIsPartOfHomeFlyoutPageDetail"
+             Title=" ">
+    <ScrollView>
+        <StackLayout Spacing="0">
+            <templateHeader:HeaderWithGirlReading x:Name="HeaderGirlReading"></templateHeader:HeaderWithGirlReading>
+            <templateHeader:HeaderOrderHasArrived x:Name="HeaderOrderHasArrived"></templateHeader:HeaderOrderHasArrived>
+
+            <Grid Margin="20,30,20,30" ColumnDefinitions="*,*" ColumnSpacing="30" RowSpacing="30" x:Name="GridCards">
+                <!--<templateCard:CardIlustrationOptions IsVisible="False" Grid.Column="0" Grid.Row="0" Ilustration="IlustrationFinances" TitleCard="{x:Static resourceText:ResourceText.TITLE_FINANCES}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_FINANCES}"></templateCard:CardIlustrationOptions>
+                <templateCard:CardIlustrationOptions IsVisible="False" Grid.Column="1" Grid.Row="0" Ilustration="IlustrationShopping" TitleCard="{x:Static resourceText:ResourceText.TITLE_SHOPPING}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_SHOPPING}"></templateCard:CardIlustrationOptions>-->
+                <templateCard:CardIlustrationOptions Grid.Column="0" Grid.Row="0" Ilustration="IlustrationCleanHouse" TitleCard="{x:Static resourceText:ResourceText.TITLE_CLEAN_HOUSE}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_CLEAN_HOUSE}" TappedCardCommand="{Binding Path=BindingContext.CardCleanHouseTapped, Source={x:Reference Name=UserPartOfAHomeContentPage}}"></templateCard:CardIlustrationOptions>
+                <templateCard:CardIlustrationOptions Grid.Column="1" Grid.Row="0" Ilustration="IlustrationMyFood" TitleCard="{x:Static resourceText:ResourceText.TITLE_MY_FOODS}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_MY_FOOD}" TappedCardCommand="{Binding Path=BindingContext.CardMyFoodsTapped, Source={x:Reference Name=UserPartOfAHomeContentPage}}"></templateCard:CardIlustrationOptions>
+                <templateCard:CardIlustrationOptions Grid.Column="0" Grid.Row="1" Ilustration="IlustrationFriendsSharingHome" TitleCard="{x:Static resourceText:ResourceText.TITLE_MY_FRIENDS}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_MY_FRIENDS}" TappedCardCommand="{Binding Path=BindingContext.CardMyFriendsTapped, Source={x:Reference Name=UserPartOfAHomeContentPage}}"></templateCard:CardIlustrationOptions>
+                <templateCard:CardIlustrationOptions Grid.Column="1" Grid.Row="1" Ilustration="IlustrationCreateHome" TitleCard="{x:Static resourceText:ResourceText.TITLE_HOME_SWEET_HOME}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_HOME_SWEET_HOME}" TappedCardCommand="{Binding Path=BindingContext.CardHomesInformationsTapped, Source={x:Reference Name=UserPartOfAHomeContentPage}}"></templateCard:CardIlustrationOptions>
+                <templateCard:CardIlustrationOptions Grid.Column="0" Grid.Row="2" Ilustration="IlustrationMyInformation" TitleCard="{x:Static resourceText:ResourceText.TITLE_MY_PROFILE}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_MY_DATA}" TappedCardCommand="{Binding Path=BindingContext.CardMyInformationTapped, Source={x:Reference Name=UserPartOfAHomeContentPage}}"></templateCard:CardIlustrationOptions>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

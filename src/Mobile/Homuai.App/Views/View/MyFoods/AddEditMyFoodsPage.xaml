@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:Homuai.App"
+             xmlns:converter="clr-namespace:Homuai.App.Converter"
+             xmlns:templateButton="clr-namespace:Homuai.App.Views.Templates.Button"
+             xmlns:template="clr-namespace:Homuai.App.Views.Templates.Information"
+             xmlns:loading="clr-namespace:Homuai.App.Views.Templates.Loading"
+             xmlns:templateInputTextWithLabel="clr-namespace:Homuai.App.Views.Templates.TextWithLabel"
+             xmlns:InputKit="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+             xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+             Title="{Binding Title}"
+             x:Name="AddEditMyFoodsContentPage"
+             x:Class="Homuai.App.Views.View.MyFoods.AddEditMyFoodsPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:ValueDecimalConverter x:Key="DecimalConverter"></converter:ValueDecimalConverter>
+            <converter:DateToStringConverter x:Key="StringDateConverter"></converter:DateToStringConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="FillAndExpand">
+            <StackLayout Style="{x:StaticResource MarginStyleDefault}" Spacing="-3" xct:StateLayout.CurrentState="{Binding CurrentState}">
+                <xct:StateLayout.StateViews>
+                    <xct:StateView StateKey="Saving">
+                        <xct:StateView.Template>
+                            <DataTemplate>
+                                <loading:LoadingTemplate Text="{x:Static resourceText:ResourceText.TITLE_SENDING_DATA}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></loading:LoadingTemplate>
+                            </DataTemplate>
+                        </xct:StateView.Template>
+                    </xct:StateView>
+                    <xct:StateView StateKey="Success">
+                        <xct:StateView.Template>
+                            <DataTemplate>
+                                <template:SucessTemplate HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></template:SucessTemplate>
+                            </DataTemplate>
+                        </xct:StateView.Template>
+                    </xct:StateView>
+                </xct:StateLayout.StateViews>
+
+                <StackLayout VerticalOptions="FillAndExpand" Spacing="-3">
+                    <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.Name" TopMargin="False" LabelTitle="{x:Static resourceText:ResourceText.TITLE_PRODUCT_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_PRODUCT}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                    <templateInputTextWithLabel:InputTextWithLabelComponent PropertyToBindindEntry="Model.Manufacturer" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_MANUFACTURER_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_MANUFACTURER}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
+
+                    <StackLayout Spacing="0">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SelectDueDateTapped}"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                        <templateInputTextWithLabel:InputTextWithLabelComponent ConverterToEntry="{StaticResource StringDateConverter}" IsEnabled="False" PropertyToBindindEntry="Model.DueDate" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_DUEDATE_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_DUE_DATE}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                    </StackLayout>
+
+                    <templateInputTextWithLabel:InputTextWithLabelComponent ConverterToEntry="{StaticResource DecimalConverter}" PropertyToBindindEntry="Model.Quantity" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_QUANTITY_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_QUANTITY}" IsPassword="False" Keyboard="Numeric" ></templateInputTextWithLabel:InputTextWithLabelComponent>
+
+                    <Label Text="{x:Static resourceText:ResourceText.TITLE_TYPE_TWOPOINTS}" FontSize="8" Style="{x:StaticResource LabelMedium}" TextColor="{x:StaticResource GrayDefault}" Margin="0,20,0,0"></Label>
+                    <InputKit:RadioButtonGroupView Margin="0,10,0,0">
+                        <InputKit:RadioButton Text="{x:Static resourceText:ResourceText.TITLE_UNITY}" Margin="0,10,0,0" IsChecked="{Binding IsCheckedUnity, Mode=TwoWay}"></InputKit:RadioButton>
+                        <InputKit:RadioButton Text="{x:Static resourceText:ResourceText.TITLE_BOX}" Margin="0,10,0,0" IsChecked="{Binding IsCheckedBox, Mode=TwoWay}"></InputKit:RadioButton>
+                        <InputKit:RadioButton Text="{x:Static resourceText:ResourceText.TITLE_PACKAGE}" Margin="0,10,0,0" IsChecked="{Binding IsCheckedPackage, Mode=TwoWay}"></InputKit:RadioButton>
+                        <InputKit:RadioButton Text="{x:Static resourceText:ResourceText.TITLE_KILOGRAM}" Margin="0,10,0,0" IsChecked="{Binding IsCheckedKilogram, Mode=TwoWay}"></InputKit:RadioButton>
+                    </InputKit:RadioButtonGroupView>
+                </StackLayout>
+
+                <StackLayout IsVisible="False" Margin="0,30,0,10">
+                    <StackLayout.Triggers>
+                        <DataTrigger TargetType="StackLayout" Binding="{Binding Title}" Value="{x:Static resourceText:ResourceText.TITLE_EDIT}">
+                            <Setter Property="IsVisible" Value="True"></Setter>
+                        </DataTrigger>
+                    </StackLayout.Triggers>
+                    <templateButton:ConfirmDangerActionButton TitleButton="{x:Static resourceText:ResourceText.TITLE_DELETE}" TappedButtonCommand="{Binding Path=BindingContext.DeleteCommand, Source={x:Reference Name=AddEditMyFoodsContentPage}}"></templateButton:ConfirmDangerActionButton>
+                    <Button VerticalOptions="EndAndExpand" Margin="0,30,0,0" Text="{x:Static resourceText:ResourceText.TITLE_SAVE}" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding SaveCommand}"></Button>
+                </StackLayout>
+                <StackLayout Margin="0,30,0,10">
+                    <StackLayout.Triggers>
+                        <DataTrigger TargetType="StackLayout" Binding="{Binding Title}" Value="{x:Static resourceText:ResourceText.TITLE_EDIT}">
+                            <Setter Property="IsVisible" Value="False"></Setter>
+                        </DataTrigger>
+                    </StackLayout.Triggers>
+                    <templateButton:SecondaryActionButton TitleButton="{x:Static resourceText:ResourceText.TITLE_SAVE_AND_NEW}" TappedButtonCommand="{Binding Path=BindingContext.SaveAndNewCommand, Source={x:Reference Name=AddEditMyFoodsContentPage}}"></templateButton:SecondaryActionButton>
+                    <Button VerticalOptions="EndAndExpand" Margin="0,30,0,0" Text="{x:Static resourceText:ResourceText.TITLE_SAVE}" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding SaveCommand}"></Button>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

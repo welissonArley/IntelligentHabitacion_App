@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:resourceText="clr-namespace:Homuai.App"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 BackgroundColor="Transparent"
+                 x:Class="Homuai.App.Views.Modal.ChoosePhonenumberModal">
+    <Frame HasShadow="True" Padding="0" VerticalOptions="End" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent">
+        <AbsoluteLayout HorizontalOptions="FillAndExpand">
+            <StackLayout AbsoluteLayout.LayoutFlags="SizeProportional"  AbsoluteLayout.LayoutBounds="0.5,0.5,1,1">
+                <Frame Padding="0" BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HasShadow="true" CornerRadius="10" Margin="0,35,0,0">
+                    <StackLayout Spacing="-6">
+                        <StackLayout x:Name="BackgroundCallTo" HeightRequest="80" Spacing="-6">
+                            <Label Margin="0,15,0,0" HorizontalOptions="CenterAndExpand" x:Name="LabelBackgroundCallTo" TextColor="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}" FontSize="18" Style="{x:StaticResource LabelSemiBold}" VerticalOptions="CenterAndExpand"></Label>
+                        </StackLayout>
+                        <StackLayout Margin="0,10,0,0" BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}" HorizontalOptions="FillAndExpand" Spacing="-3">
+                            <StackLayout Margin="20,0,20,0" Spacing="0">
+                                <Label Margin="0,15,0,0" Text="{x:Static resourceText:ResourceText.TITLE_CHOOSE_ONE_NUMBERS_BELOW_TOWPOINTS}" HorizontalOptions="StartAndExpand" FontSize="14" Style="{x:StaticResource LabelSemiBold}"></Label>
+                                <CollectionView x:Name="NumbersList" Margin="0,20,0,10" HeightRequest="120">
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <StackLayout>
+                                                    <StackLayout.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" CommandParameter="{Binding .}"></TapGestureRecognizer>
+                                                    </StackLayout.GestureRecognizers>
+                                                    <Label Text="{Binding TitleNumber}" Style="{x:StaticResource LabelThin}" FontSize="12"></Label>
+                                                    <Label Margin="0,3,0,0" Text="{Binding Number}" HorizontalOptions="StartAndExpand" FontSize="14"></Label>
+                                                    <BoxView BackgroundColor="{x:StaticResource GrayDefault}" Opacity="0.5" HeightRequest="0.2"></BoxView>
+                                                </StackLayout>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <StackLayout AbsoluteLayout.LayoutFlags="XProportional" AbsoluteLayout.LayoutBounds="0.5,0,70,70" VerticalOptions="Start" HorizontalOptions="Fill">
+                <Grid ColumnDefinitions="70" RowDefinitions="70">
+                    <Ellipse x:Name="BackgroundShortName" Grid.Row="0" Grid.Column="0" WidthRequest="70" HeightRequest="70"></Ellipse>
+                    <Label Grid.Row="0" Grid.Column="0" TextColor="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}" FontSize="30" x:Name="ShortName" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Style="{x:StaticResource LabelBold}"></Label>
+                </Grid>
+            </StackLayout>
+        </AbsoluteLayout>
+    </Frame>
+</pages:PopupPage>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Homuai.App.Views.Templates.Header.CenterCircleWithTextComponent">
+    <ContentView.Content>
+        <Grid RowDefinitions="80" ColumnDefinitions="80" HorizontalOptions="CenterAndExpand">
+            <Ellipse x:Name="CircleBoxView" Grid.Column="0" Grid.Row="0" HeightRequest="80" WidthRequest="80"></Ellipse>
+            <Label x:Name="LabelCircleText" Grid.Column="0" Grid.Row="0" TextColor="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}" FontSize="36" Style="{x:StaticResource LabelBold}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

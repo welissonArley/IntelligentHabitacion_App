@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:Homuai.App"
+             x:Class="Homuai.App.Views.Templates.Information.EmptyTemplate">
+    <ContentView.Content>
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Label Text="{x:Static resourceText:ResourceText.TITLE_NO_RESULTS_MATCHED_FILTER}" Style="{StaticResource LabelBold}" Margin="10,25,10,10" FontSize="18" HorizontalOptions="Fill" HorizontalTextAlignment="Center" />
+            <Label Text="{x:Static resourceText:ResourceText.SUBTITLE_NO_RESULTS_MATCHED_FILTER}" Style="{StaticResource LabelMedium}" FontSize="12" HorizontalOptions="Fill" HorizontalTextAlignment="Center" />
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

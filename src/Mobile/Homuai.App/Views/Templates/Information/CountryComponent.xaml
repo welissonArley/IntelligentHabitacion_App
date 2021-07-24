@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Homuai.App.Views.Templates.Information.CountryComponent">
+    <ContentView.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" HeightRequest="35">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="SelectCountry_Tapped"></TapGestureRecognizer>
+            </StackLayout.GestureRecognizers>
+            <StackLayout Orientation="Horizontal">
+                <Label WidthRequest="35" x:Name="CountryPhoneCode" FontSize="15" Style="{x:StaticResource LabelBold}"></Label>
+                <Image x:Name="CountryFlag" HeightRequest="17" WidthRequest="25"></Image>
+                <Label Margin="5,0,0,0" x:Name="CountryName" FontSize="15"></Label>
+            </StackLayout>
+            <BoxView BackgroundColor="{x:StaticResource GrayDefault}" Opacity="0.5" HeightRequest="0.2" Margin="0,0,20,0"></BoxView>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ADDRESS_EMPTY" xml:space="preserve">
+    <value>O logradouro deve ser informado.</value>
+  </data>
+  <data name="ALL_USER_WITHOUT_CLEANING_TASKS" xml:space="preserve">
+    <value>Não é possivel deixar o Cronograma de limpeza com TODOS os usuários sem tarefas.</value>
+  </data>
+  <data name="CITY_EMPTY" xml:space="preserve">
+    <value>O nome da cidade deve ser informado.</value>
+  </data>
+  <data name="CLEANING_SCHEDULE_ALREADY_CREATED" xml:space="preserve">
+    <value>Já existe um cronograma de limpeza criado.</value>
+  </data>
+  <data name="CODE_EMPTY" xml:space="preserve">
+    <value>O código deve ser informado.</value>
+  </data>
+  <data name="CODE_INVALID" xml:space="preserve">
+    <value>O código é inválido.</value>
+  </data>
+  <data name="CODE_OR_PASSWORD_INVALID" xml:space="preserve">
+    <value>Senha ou codigo de verificação inválido.</value>
+  </data>
+  <data name="CODE_RESET_PASSWORD_REQUIRED" xml:space="preserve">
+    <value>Solicite um código para alterar sua senha.</value>
+  </data>
+  <data name="CONNECTION_ADMINISTRATOR_LOST" xml:space="preserve">
+    <value>A conexão com o administrador foi perdida.</value>
+  </data>
+  <data name="COUNTRY_EMPTY" xml:space="preserve">
+    <value>O nome do País deve ser informado.</value>
+  </data>
+  <data name="CURRENT_PASSWORD_EMPTY" xml:space="preserve">
+    <value>A senha atual deve ser informada.</value>
+  </data>
+  <data name="CURRENT_PASSWORD_INVALID" xml:space="preserve">
+    <value>A senha atual é inválida.</value>
+  </data>
+  <data name="DATE_MUST_BE_LESS_THAN" xml:space="preserve">
+    <value>A data deve ser menor que {0}.</value>
+  </data>
+  <data name="DUEDATE_MUST_BE_GRATER_THAN_TODAY" xml:space="preserve">
+    <value>A data de vencimento deve ser maior que hoje.</value>
+  </data>
+  <data name="EMAIL_ALREADYBEENREGISTERED" xml:space="preserve">
+    <value>Este e-mail já está registrado.</value>
+  </data>
+  <data name="EMAIL_EMPTY" xml:space="preserve">
+    <value>E-mail deve ser informado.</value>
+  </data>
+  <data name="EMAIL_INVALID" xml:space="preserve">
+    <value>O e-mail é inválido.</value>
+  </data>
+  <data name="EMERGENCYCONTACT_EMPTY" xml:space="preserve">
+    <value>Um contato de emergência deve ser informado.</value>
+  </data>
+  <data name="EMERGENCYCONTACT_MAX_TWO" xml:space="preserve">
+    <value>Você pode informar no máximo 2 contatos de emergência.</value>
+  </data>
+  <data name="EMERGENCY_CONTACT_SAME_PHONENUMBER" xml:space="preserve">
+    <value>Os contatos de emergência não pode ter o mesmo número de telefone.</value>
+  </data>
+  <data name="EXPIRED_CODE" xml:space="preserve">
+    <value>O código expirou. Solicite um novo.</value>
+  </data>
+  <data name="FRIEND_NOT_FOUND" xml:space="preserve">
+    <value>Friend não encontrado.</value>
+  </data>
+  <data name="INVALID_PASSWORD" xml:space="preserve">
+    <value>A senha deve ter pelo menos 6 caracteres.</value>
+  </data>
+  <data name="INVALID_TASK" xml:space="preserve">
+    <value>Tarefa inválida.</value>
+  </data>
+  <data name="INVALID_USER" xml:space="preserve">
+    <value>Usuário inválido</value>
+  </data>
+  <data name="MESSAGE_EMPTY" xml:space="preserve">
+    <value>Mensagem não pode ser vazia.</value>
+  </data>
+  <data name="MONTHLYRENT_INVALID" xml:space="preserve">
+    <value>O valor do aluguel é inválido.</value>
+  </data>
+  <data name="NAME_EMPTY" xml:space="preserve">
+    <value>O nome deve ser informado.</value>
+  </data>
+  <data name="NEIGHBORHOOD_EMPTY" xml:space="preserve">
+    <value>O bairro deve ser informado.</value>
+  </data>
+  <data name="NUMBER_EMPTY" xml:space="preserve">
+    <value>O número deve ser informado.</value>
+  </data>
+  <data name="PASSWORD_EMPTY" xml:space="preserve">
+    <value>A senha atual deve ser informada.</value>
+  </data>
+  <data name="PHONENUMBERS_ARE_SAME" xml:space="preserve">
+    <value>Os números de telefones são iguais.</value>
+  </data>
+  <data name="PHONENUMBER_EMERGENCY_CONTACT_EMPTY" xml:space="preserve">
+    <value>Um telefone deve ser informado para o Contato de emergência.</value>
+  </data>
+  <data name="PHONENUMBER_EMPTY" xml:space="preserve">
+    <value>Um telefone deve ser informado.</value>
+  </data>
+  <data name="PHONENUMBER_MAX_TWO" xml:space="preserve">
+    <value>Você pode informar no máximo 2 telefones.</value>
+  </data>
+  <data name="PRODUCT_NAME_EMPTY" xml:space="preserve">
+    <value>O nome do produto deve ser informado.</value>
+  </data>
+  <data name="PRODUCT_NOT_FOUND" xml:space="preserve">
+    <value>O produto não foi encontrado.</value>
+  </data>
+  <data name="PUSHNOTIFICATION_INVALID" xml:space="preserve">
+    <value>Id para push notification é inválido.</value>
+  </data>
+  <data name="QUANTITY_PRODUCTS_INVALID" xml:space="preserve">
+    <value>A quantidade de produtos é inválida.</value>
+  </data>
+  <data name="RATE_SCORE_BETWEEN_ZERO_FIVE" xml:space="preserve">
+    <value>Você deve avaliar a tarefa com uma nota entre 0 e 5.</value>
+  </data>
+  <data name="RATE_TASK_JUST_CURRENT_MONTHS_SCHEDULE" xml:space="preserve">
+    <value>Você pode apenas avaliar tarefas no cronograma do mês atual.</value>
+  </data>
+  <data name="RECORD_CLEANING_ROOM_INVALID_DATE" xml:space="preserve">
+    <value>Você pode apenas registrar registros de limpeza para o mês atual e em até 3 dias anteriores a data de hoje.</value>
+  </data>
+  <data name="RELATIONSHIPTO_EMPTY" xml:space="preserve">
+    <value>O grau de parentesco deve ser informado.</value>
+  </data>
+  <data name="ROOM_DOES_NOT_EXIST_HOME" xml:space="preserve">
+    <value>Há cômodos que não existem na Home</value>
+  </data>
+  <data name="ROOM_EMPTY" xml:space="preserve">
+    <value>O nome do cômodo deve ser informado.</value>
+  </data>
+  <data name="ROOM_NAME_EXIST" xml:space="preserve">
+    <value>Já existe um cômodo com este nome.</value>
+  </data>
+  <data name="STATEPROVINCE_EMPTY" xml:space="preserve">
+    <value>O Estado deve ser informado.</value>
+  </data>
+  <data name="THERE_ARE_DUPLICATED_ROOMS" xml:space="preserve">
+    <value>Há cômodos duplicados.</value>
+  </data>
+  <data name="THERE_ARE_DUPLICATE_USERS_REQUEST" xml:space="preserve">
+    <value>Há usuários duplicados na requisição.</value>
+  </data>
+  <data name="THERE_ARE_USERS_DUPLICATE_TASKS_REQUEST" xml:space="preserve">
+    <value>Há usuários com tarefas duplicadas na requisição.</value>
+  </data>
+  <data name="THERE_IS_CLEAN_ROOM_RECORD_THIS_DATE" xml:space="preserve">
+    <value>Já existe um registro de cômodo limpo para esta data.</value>
+  </data>
+  <data name="THE_NAME_EMERGENCY_CONTACT_INVALID" xml:space="preserve">
+    <value>O nome do Contato de emergência deve ser informado.</value>
+  </data>
+  <data name="THE_RELATIONSHIP_EMERGENCY_CONTACT_INVALID" xml:space="preserve">
+    <value>O grau de parentesco com o Contato de emergência deve ser informado.</value>
+  </data>
+  <data name="TYPE_PRODUCTS_INVALID" xml:space="preserve">
+    <value>O tipo do produto é inválido.</value>
+  </data>
+  <data name="UNKNOW_ERROR" xml:space="preserve">
+    <value>Erro desconhecido.</value>
+  </data>
+  <data name="USER_IS_PART_OF_A_HOME" xml:space="preserve">
+    <value>Você já faz parte de um lar. Está operação não é permitida neste momento.</value>
+  </data>
+  <data name="USER_OR_PASSWORD_INVALID" xml:space="preserve">
+    <value>Usuário e/ou senha inválidos.</value>
+  </data>
+  <data name="USER_WITHOUT_PERMISSION_ACCESS_RESOURCE" xml:space="preserve">
+    <value>Você não possui permissão para acessar este recurso.</value>
+  </data>
+  <data name="YOU_ALREADY_RATE_THIS_TASK" xml:space="preserve">
+    <value>Você já avaliou esta tarefa.</value>
+  </data>
+  <data name="YOU_CANNNOT_PERMORM_THIS_ACTION" xml:space="preserve">
+    <value>Você não pode executar esta ação.</value>
+  </data>
+  <data name="YOU_CANNOT_RATE_YOUR_OWN_TASK" xml:space="preserve">
+    <value>Você não pode avaliar sua propria tarefa.</value>
+  </data>
+  <data name="ZIPCODE_EMPTY" xml:space="preserve">
+    <value>O CEP deve ser informado.</value>
+  </data>
+  <data name="ZIPCODE_INVALID_BRAZIL" xml:space="preserve">
+    <value>O CEP é inválido. Deve estar no formato XX.XXX-XXX</value>
+  </data>
+</root>

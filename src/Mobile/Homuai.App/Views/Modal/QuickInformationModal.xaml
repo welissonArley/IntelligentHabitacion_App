@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 BackgroundColor="Transparent"
+                 x:Class="Homuai.App.Views.Modal.QuickInformationModal">
+    <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" ColumnDefinitions="280">
+        <Frame Grid.Column="0" CornerRadius="10" HasShadow="True" Padding="0" HeightRequest="50" BackgroundColor="White" Opacity="0.5"></Frame>
+        <Label x:Name="MessageLabel" Grid.Column="0" Style="{x:StaticResource LabelExtraBold}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="15"></Label>
+    </Grid>
+</pages:PopupPage>

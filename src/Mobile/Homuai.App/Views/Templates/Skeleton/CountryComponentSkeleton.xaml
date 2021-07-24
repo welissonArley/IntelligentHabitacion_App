@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:custom="clr-namespace:Homuai.App.CustomControl"
+             x:Class="Homuai.App.Views.Templates.Skeleton.CountryComponentSkeleton">
+    <ContentView.Content>
+        <StackLayout HeightRequest="35">
+            <StackLayout Orientation="Horizontal">
+                <custom:SkeletonView WidthRequest="25" HeightRequest="12" />
+                <custom:SkeletonView Margin="7,0,0,0" WidthRequest="25" HeightRequest="17" />
+                <custom:SkeletonView Margin="7,0,0,0" WidthRequest="130" HeightRequest="12" />
+            </StackLayout>
+            <custom:SkeletonView CornerRadius="0" Opacity="0.5" HeightRequest="0.2" Margin="0,0,20,0"></custom:SkeletonView>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

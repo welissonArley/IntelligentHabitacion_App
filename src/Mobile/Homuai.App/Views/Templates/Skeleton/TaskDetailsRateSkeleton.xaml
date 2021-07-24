@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customcontrol="clr-namespace:Homuai.App.CustomControl"
+             x:Class="Homuai.App.Views.Templates.Skeleton.TaskDetailsRateSkeleton">
+    <ContentView.Content>
+        <StackLayout>
+            <customcontrol:SkeletonView WidthRequest="105" HeightRequest="16" HorizontalOptions="Start"></customcontrol:SkeletonView>
+            <StackLayout Orientation="Horizontal">
+                <customcontrol:SkeletonView WidthRequest="105" HeightRequest="16" HorizontalOptions="StartAndExpand"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView WidthRequest="85" HeightRequest="16" HorizontalOptions="End"></customcontrol:SkeletonView>
+            </StackLayout>
+
+            <BoxView BackgroundColor="{x:StaticResource GrayDefault}" HeightRequest="0.2" Opacity="0.5" Margin="0,5,0,0"></BoxView>
+            <customcontrol:SkeletonView WidthRequest="95" HeightRequest="16" HorizontalOptions="End" Margin="0,10,0,0"></customcontrol:SkeletonView>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

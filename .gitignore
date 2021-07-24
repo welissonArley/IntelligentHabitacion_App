@@ -193,3 +193,8 @@ UpgradeLog*.htm
 FakesAssemblies/
 
 .vscode/settings.json
+
+Homuai.Api.xml
+
+/.sonarqube
+coverage.opencover.xml

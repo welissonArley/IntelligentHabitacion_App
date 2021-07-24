@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 BackgroundColor="Transparent"
+             x:Class="Homuai.App.Views.Modal.LoadingContentView">
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="*" RowDefinitions="*">
+        <StackLayout Grid.Column="0" Grid.Row="0" BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Opacity="0.8"/>
+
+        <ActivityIndicator Grid.Column="0" Grid.Row="0" IsRunning="True" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Color="{x:StaticResource YellowDefault}" />
+    </Grid>
+</pages:PopupPage>

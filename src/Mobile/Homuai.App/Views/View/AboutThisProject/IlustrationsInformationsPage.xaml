@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:Homuai.App"
+             xmlns:customControl="clr-namespace:Homuai.App.CustomControl"
+             x:Class="Homuai.App.Views.View.AboutThisProject.IlustrationsInformationsPage">
+    <ContentPage.Content>
+        <StackLayout Style="{x:StaticResource MarginStyleDefault}">
+            <Image Source="IlustrationGirlAndCat" HorizontalOptions="CenterAndExpand"></Image>
+
+            <customControl:LabelJustifyText FontSize="14" Text="{x:Static resourceText:ResourceText.DESCRIPTION_ILUSTRATIONS_INFORMATIONS}"></customControl:LabelJustifyText>
+
+            <StackLayout HeightRequest="30" BackgroundColor="Transparent" Margin="0,10,0,0">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding LinkCommand}" CommandParameter="{Binding Source={x:Reference FlatIconLabel}, Path=Text}"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+                <Label x:Name="FlatIconLabel" Text="https://www.flaticon.com" FontSize="14" Style="{StaticResource LabelUrlLink}" VerticalOptions="CenterAndExpand"></Label>
+            </StackLayout>
+            <StackLayout HeightRequest="30" BackgroundColor="Transparent">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding LinkCommand}" CommandParameter="{Binding Source={x:Reference FreepikLabel}, Path=Text}"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+                <Label x:Name="FreepikLabel" Text="https://br.freepik.com" FontSize="14" Style="{StaticResource LabelUrlLink}" VerticalOptions="CenterAndExpand"></Label>
+            </StackLayout>
+            <StackLayout HeightRequest="30" BackgroundColor="Transparent">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding LinkCommand}" CommandParameter="{Binding Source={x:Reference UndrawLabel}, Path=Text}"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+                <Label x:Name="UndrawLabel" Text="https://undraw.co/illustrations" FontSize="14" Style="{StaticResource LabelUrlLink}" VerticalOptions="CenterAndExpand"></Label>
+            </StackLayout>
+            <StackLayout HeightRequest="30" BackgroundColor="Transparent">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding LinkCommand}" CommandParameter="{Binding Source={x:Reference DrawkitLabel}, Path=Text}"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+                <Label x:Name="DrawkitLabel" Text="https://www.drawkit.io" FontSize="14" Style="{StaticResource LabelUrlLink}" VerticalOptions="CenterAndExpand"></Label>
+            </StackLayout>
+            <StackLayout HeightRequest="30" BackgroundColor="Transparent">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding LinkCommand}" CommandParameter="{Binding Source={x:Reference PixelTrueLabel}, Path=Text}"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+                <Label x:Name="PixelTrueLabel" Text="https://www.pixeltrue.com/free-illustrations" FontSize="14" Style="{StaticResource LabelUrlLink}" VerticalOptions="CenterAndExpand"></Label>
+            </StackLayout>
+            <StackLayout HeightRequest="30" BackgroundColor="Transparent">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding LinkCommand}" CommandParameter="{Binding Source={x:Reference Icons8Label}, Path=Text}"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+                <Label x:Name="Icons8Label" Text="https://www.icons8.com" FontSize="14" Style="{StaticResource LabelUrlLink}" VerticalOptions="CenterAndExpand"></Label>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

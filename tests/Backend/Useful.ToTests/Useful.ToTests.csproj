@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="Bogus" Version="33.0.2" />
+    <PackageReference Include="Moq" Version="4.16.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Backend\Homuai.Application\Homuai.Application.csproj" />
+    <ProjectReference Include="..\..\..\src\Backend\Homuai.Domain\Homuai.Domain.csproj" />
+    <ProjectReference Include="..\..\..\src\Shared\Homuai.Communication\Homuai.Communication.csproj" />
+  </ItemGroup>
+
+</Project>

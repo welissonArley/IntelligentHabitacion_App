@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:Homuai.App"
+             xmlns:CustomEntry="clr-namespace:Homuai.App.CustomControl"
+             xmlns:templateStep="clr-namespace:Homuai.App.Views.Templates.Step"
+             x:Class="Homuai.App.Views.View.User.Register.RequestEmergencyContact2Page">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem NavigationPage.BackButtonTitle="" NavigationPage.TitleIcon="" IconImageSource="IconQuestion" FlexLayout.AlignSelf="Center" Priority="0" Command="{Binding WhyINeedFillThisInformationCommand}"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Style="{x:StaticResource MarginStyleDefault}">
+            <templateStep:Steps AmountCompleteSteps="4" AmountIncompleteSteps="1"></templateStep:Steps>
+
+            <Label Text="{x:Static resourceText:ResourceText.TITLE_CONTACT_EMERGENCY_CASES_OPTIONAL}" Style="{x:StaticResource LabelTitle}"></Label>
+
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <CustomEntry:EntryNoLine Text="{Binding Model.EmergencyContact2.Name}" Placeholder="{x:Static resourceText:ResourceText.PLACEHOLDER_EMERGENCYCONTACT2_NAME}"></CustomEntry:EntryNoLine>
+                <CustomEntry:EntryNoLine Text="{Binding Model.EmergencyContact2.Relationship}" Margin="0,40,0,0" Placeholder="{x:Static resourceText:ResourceText.PLACEHOLDER_EMERGENCYCONTACT2_FAMILYRELATIONSHIP}"></CustomEntry:EntryNoLine>
+                <CustomEntry:EntryNoLine Text="{Binding Model.EmergencyContact2.PhoneNumber}" Margin="0,40,0,0" Placeholder="{x:Static resourceText:ResourceText.PLACEHOLDER_PHONENUMBER}" Keyboard="Telephone"></CustomEntry:EntryNoLine>
+            </StackLayout>
+
+            <Button Text="{x:Static resourceText:ResourceText.TITLE_NEXT}" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding NextCommand}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

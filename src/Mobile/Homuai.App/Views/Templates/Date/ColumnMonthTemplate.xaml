@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Homuai.App.Views.Templates.Date.ColumnMonthTemplate">
+    <ContentView.Content>
+        <Grid HorizontalOptions="FillAndExpand" x:Name="DayContent" ColumnDefinitions="*" RowDefinitions="50">
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="SelectedDay"></TapGestureRecognizer>
+            </Grid.GestureRecognizers>
+            <Ellipse IsVisible="False" x:Name="SelectComponent" HeightRequest="50" HorizontalOptions="CenterAndExpand" WidthRequest="50">
+                <Ellipse.Fill>
+                    <SolidColorBrush Color="{StaticResource GreenDefault}"></SolidColorBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Label x:Name="LabelMonth" Style="{x:StaticResource LabelMedium}" FontSize="18" Grid.Row="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

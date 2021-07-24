@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:Homuai.App"
+             xmlns:behavior="clr-namespace:Homuai.App.Behavior"
+             xmlns:enum="clr-namespace:Homuai.App.ValueObjects.Enum;assembly=Homuai.App"
+             xmlns:templateButton="clr-namespace:Homuai.App.Views.Templates.Button"
+             xmlns:informations="clr-namespace:Homuai.App.Views.Templates.Information"
+             xmlns:loading="clr-namespace:Homuai.App.Views.Templates.Loading"
+             xmlns:skeleton="clr-namespace:Homuai.App.Views.Templates.Skeleton"
+             xmlns:templateInputTextWithLabel="clr-namespace:Homuai.App.Views.Templates.TextWithLabel"
+             xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+             Title="{x:Static resourceText:ResourceText.TITLE_HOME_SWEET_HOME}"
+             x:Name="UpdateHomeInformationContentPage"
+             x:Class="Homuai.App.Views.View.Home.Informations.HomeInformationPage">
+    <ContentPage.Resources>
+        <behavior:ZipCodeBehavior x:Key="BehaviorZipCode"></behavior:ZipCodeBehavior>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Style="{StaticResource MarginStyleDefault}">
+            <StackLayout.Triggers>
+                <DataTrigger TargetType="StackLayout" Binding="{Binding IsAdministrator}" Value="True">
+                    <Setter Property="xct:StateLayout.CurrentState" Value="{Binding CurrentState}"></Setter>
+                </DataTrigger>
+            </StackLayout.Triggers>
+
+            <xct:StateLayout.StateViews>
+                <xct:StateView StateKey="Saving">
+                    <xct:StateView.Template>
+                        <DataTemplate>
+                            <loading:LoadingTemplate Text="{x:Static resourceText:ResourceText.TITLE_SENDING_DATA}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></loading:LoadingTemplate>
+                        </DataTemplate>
+                    </xct:StateView.Template>
+                </xct:StateView>
+                <xct:StateView StateKey="Success">
+                    <xct:StateView.Template>
+                        <DataTemplate>
+                            <informations:SucessTemplate HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></informations:SucessTemplate>
+                        </DataTemplate>
+                    </xct:StateView.Template>
+                </xct:StateView>
+            </xct:StateLayout.StateViews>
+
+            <templateButton:TabsView VerticalOptions="FillAndExpand">
+                <templateButton:TabsView.TabItems>
+                    <templateButton:TabItem Title="{x:Static resourceText:ResourceText.TITLE_ADDRESS}" Icon="IconTabAddress.svg">
+                        <templateButton:TabItem.TabContent>
+                            <StackLayout IsEnabled="{Binding Path=BindingContext.IsAdministrator, Source={x:Reference Name=UpdateHomeInformationContentPage}}" xct:StateLayout.CurrentState="{Binding Path=BindingContext.CurrentState, Source={x:Reference Name=UpdateHomeInformationContentPage}}">
+                                <xct:StateLayout.StateViews>
+                                    <xct:StateView StateKey="Loading">
+                                        <xct:StateView.Template>
+                                            <DataTemplate>
+                                                <StackLayout>
+                                                    <skeleton:InputTextWithLabelSkeleton TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_ZIPCODE_TWOPOINTS}"></skeleton:InputTextWithLabelSkeleton>
+                                                    <skeleton:InputTextWithLabelSkeleton TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_ADDRESS_TWOPOINTS}"></skeleton:InputTextWithLabelSkeleton>
+                                                    <skeleton:InputTextWithLabelSkeleton TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_ADDRESSNUMBER_TWOPOINTS}"></skeleton:InputTextWithLabelSkeleton>
+                                                    <skeleton:InputTextWithLabelSkeleton TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_ADDITIONALADDRESSINFO_TWOPOINTS}"></skeleton:InputTextWithLabelSkeleton>
+                                                    <skeleton:InputTextWithLabelSkeleton TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CITY_TWOPOINTS}"></skeleton:InputTextWithLabelSkeleton>
+                                                </StackLayout>
+                                            </DataTemplate>
+                                        </xct:StateView.Template>
+                                    </xct:StateView>
+                                </xct:StateLayout.StateViews>
+
+                                <templateInputTextWithLabel:InputTextWithLabelComponent BindingEntry="{Binding Path=BindingContext.Model.ZipCode, Source={x:Reference Name=UpdateHomeInformationContentPage}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_ZIPCODE_TWOPOINTS}" PlaceHolderText="Zipcode" IsPassword="False">
+                                    <templateInputTextWithLabel:InputTextWithLabelComponent.Triggers>
+                                        <DataTrigger TargetType="{x:Type templateInputTextWithLabel:InputTextWithLabelComponent}" Binding="{Binding Path=BindingContext.Model.City.Country.Id, Source={x:Reference Name=UpdateHomeInformationContentPage}}" Value="{x:Static enum:CountryEnum.BRAZIL}">
+                                            <Setter Property="EntryUnfocused" Value="{Binding Path=BindingContext.ZipCodeChangedUnfocused, Source={x:Reference Name=UpdateHomeInformationContentPage}}"></Setter>
+                                            <Setter Property="EntryBehavior" Value="{x:StaticResource BehaviorZipCode}"></Setter>
+                                            <Setter Property="Keyboard" Value="Numeric"></Setter>
+                                            <Setter Property="PlaceHolderText" Value="31.275-972"></Setter>
+                                        </DataTrigger>
+                                    </templateInputTextWithLabel:InputTextWithLabelComponent.Triggers>
+                                </templateInputTextWithLabel:InputTextWithLabelComponent>
+
+                                <templateInputTextWithLabel:InputTextWithLabelComponent BindingEntry="{Binding Path=BindingContext.Model.Address, Source={x:Reference Name=UpdateHomeInformationContentPage}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_ADDRESS_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_ADDRESS}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
+
+                                <templateInputTextWithLabel:InputTextWithLabelComponent BindingEntry="{Binding Path=BindingContext.Model.Neighborhood, Source={x:Reference Name=UpdateHomeInformationContentPage}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_NEIGHBORHOOD_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_NEIGHBORHOOD}" IsPassword="False">
+                                    <templateInputTextWithLabel:InputTextWithLabelComponent.Triggers>
+                                        <DataTrigger TargetType="{x:Type templateInputTextWithLabel:InputTextWithLabelComponent}" Binding="{Binding Path=BindingContext.Model.City.Country.Id, Source={x:Reference Name=UpdateHomeInformationContentPage}}" Value="{x:Static enum:CountryEnum.BRAZIL}">
+                                            <Setter Property="IsVisible" Value="True"></Setter>
+                                        </DataTrigger>
+                                    </templateInputTextWithLabel:InputTextWithLabelComponent.Triggers>
+                                </templateInputTextWithLabel:InputTextWithLabelComponent>
+
+                                <templateInputTextWithLabel:InputTextWithLabelComponent BindingEntry="{Binding Path=BindingContext.Model.Number, Source={x:Reference Name=UpdateHomeInformationContentPage}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_ADDRESSNUMBER_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_ADDRESSNUMBER}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                                <templateInputTextWithLabel:InputTextWithLabelComponent BindingEntry="{Binding Path=BindingContext.Model.AdditionalAddressInfo, Source={x:Reference Name=UpdateHomeInformationContentPage}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_ADDITIONALADDRESSINFO_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_ADDITIONALADDRESSINFO}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
+
+                                <templateInputTextWithLabel:InputTextWithLabelComponent IsVisible="False" BindingEntry="{Binding Path=BindingContext.Model.City.StateProvinceName, Source={x:Reference Name=UpdateHomeInformationContentPage}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_STATE_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_STATE}">
+                                    <templateInputTextWithLabel:InputTextWithLabelComponent.Triggers>
+                                        <DataTrigger TargetType="{x:Type templateInputTextWithLabel:InputTextWithLabelComponent}" Binding="{Binding Path=BindingContext.Model.City.Country.Id, Source={x:Reference Name=UpdateHomeInformationContentPage}}" Value="{x:Static enum:CountryEnum.BRAZIL}">
+                                            <Setter Property="IsVisible" Value="True"></Setter>
+                                        </DataTrigger>
+                                    </templateInputTextWithLabel:InputTextWithLabelComponent.Triggers>
+                                </templateInputTextWithLabel:InputTextWithLabelComponent>
+
+                                <templateInputTextWithLabel:InputTextWithLabelComponent BindingEntry="{Binding Path=BindingContext.Model.City.Name, Source={x:Reference Name=UpdateHomeInformationContentPage}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CITY_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_CITY}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                            </StackLayout>
+                        </templateButton:TabItem.TabContent>
+                    </templateButton:TabItem>
+
+                    <templateButton:TabItem Title="Wifi" Icon="IconTabWifi.svg">
+                        <templateButton:TabItem.TabContent>
+                            <StackLayout xct:StateLayout.CurrentState="{Binding Path=BindingContext.CurrentState, Source={x:Reference Name=UpdateHomeInformationContentPage}}">
+                                <xct:StateLayout.StateViews>
+                                    <xct:StateView StateKey="Loading">
+                                        <xct:StateView.Template>
+                                            <DataTemplate>
+                                                <StackLayout>
+                                                    <skeleton:InputTextWithLabelSkeleton TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_NAME_TWOPOINTS}"></skeleton:InputTextWithLabelSkeleton>
+                                                    <skeleton:InputTextWithLabelSkeleton TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_PASSWORD_TWOPOINTS}"></skeleton:InputTextWithLabelSkeleton>
+                                                </StackLayout>
+                                            </DataTemplate>
+                                        </xct:StateView.Template>
+                                    </xct:StateView>
+                                </xct:StateLayout.StateViews>
+
+                                <templateInputTextWithLabel:InputTextWithLabelComponent IsEnabled="{Binding Path=BindingContext.IsAdministrator, Source={x:Reference Name=UpdateHomeInformationContentPage}}" BindingEntry="{Binding Path=BindingContext.Model.NetWork.Name, Source={x:Reference Name=UpdateHomeInformationContentPage}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_NAME_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_NETWORK_NAME}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                                <StackLayout Spacing="0" Orientation="Horizontal">
+                                    <templateInputTextWithLabel:InputTextWithLabelComponent IsEnabled="{Binding Path=BindingContext.IsAdministrator, Source={x:Reference Name=UpdateHomeInformationContentPage}}" IconNet="True" BindingEntry="{Binding Path=BindingContext.Model.NetWork.Password, Source={x:Reference Name=UpdateHomeInformationContentPage}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_PASSWORD_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_PASSWORD}" IsPassword="False" HorizontalOptions="FillAndExpand"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                                    <Image HorizontalOptions="End" Source="IconCopy" HeightRequest="20" WidthRequest="20" VerticalOptions="CenterAndExpand">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.CopyWifiPasswordTapped, Source={x:Reference Name=UpdateHomeInformationContentPage}}"></TapGestureRecognizer>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </StackLayout>
+                            </StackLayout>
+                        </templateButton:TabItem.TabContent>
+                    </templateButton:TabItem>
+
+                    <templateButton:TabItem Title="{x:Static resourceText:ResourceText.TITLE_ROOMS}" Icon="IconTabHome.svg">
+                        <templateButton:TabItem.TabContent>
+                            <StackLayout xct:StateLayout.CurrentState="{Binding Path=BindingContext.CurrentState, Source={x:Reference Name=UpdateHomeInformationContentPage}}">
+                                <xct:StateLayout.StateViews>
+                                    <xct:StateView StateKey="Loading">
+                                        <xct:StateView.Template>
+                                            <DataTemplate>
+                                                <StackLayout>
+                                                    <skeleton:InputTextWithLabelSkeleton TopMargin="True" LabelTitle=""></skeleton:InputTextWithLabelSkeleton>
+                                                    <skeleton:InputTextWithLabelSkeleton TopMargin="True" LabelTitle=""></skeleton:InputTextWithLabelSkeleton>
+                                                    <skeleton:InputTextWithLabelSkeleton TopMargin="True" LabelTitle=""></skeleton:InputTextWithLabelSkeleton>
+                                                </StackLayout>
+                                            </DataTemplate>
+                                        </xct:StateView.Template>
+                                    </xct:StateView>
+                                </xct:StateLayout.StateViews>
+
+                                <informations:HomeInformationsRoomTemplate RemoveRoomCommand="{Binding Path=BindingContext.RemoveRoomTapped, Source={x:Reference Name=UpdateHomeInformationContentPage}}" AddRoomCommand="{Binding Path=BindingContext.AddRoomTapped, Source={x:Reference Name=UpdateHomeInformationContentPage}}" Rooms="{Binding Path=BindingContext.Model.Rooms, Source={x:Reference Name=UpdateHomeInformationContentPage}}"></informations:HomeInformationsRoomTemplate>
+                            </StackLayout>
+                        </templateButton:TabItem.TabContent>
+                    </templateButton:TabItem>
+                </templateButton:TabsView.TabItems>
+            </templateButton:TabsView>
+
+            <Button VerticalOptions="End" Margin="0,30,0,0" Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{x:StaticResource ButtonYellowDefault}" IsVisible="{Binding IsAdministrator}" Command="{Binding UpdateInformationsTapped}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:Homuai.App"
+             xmlns:customControl="clr-namespace:Homuai.App.CustomControl"
+             xmlns:template="clr-namespace:Homuai.App.Views.Templates.Information"
+             xmlns:loading="clr-namespace:Homuai.App.Views.Templates.Loading"
+             xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+             x:Class="Homuai.App.Views.View.ContactUs.ContactUsPage">
+    <ContentPage.Content>
+        <StackLayout Style="{StaticResource MarginStyleDefault}" xct:StateLayout.CurrentState="{Binding CurrentState}">
+            <xct:StateLayout.StateViews>
+                <xct:StateView StateKey="Saving">
+                    <xct:StateView.Template>
+                        <DataTemplate>
+                            <loading:LoadingTemplate Text="{x:Static resourceText:ResourceText.TITLE_SENDING_DATA}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></loading:LoadingTemplate>
+                        </DataTemplate>
+                    </xct:StateView.Template>
+                </xct:StateView>
+                <xct:StateView StateKey="Success">
+                    <xct:StateView.Template>
+                        <DataTemplate>
+                            <StackLayout>
+                                <template:SucessTemplate HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></template:SucessTemplate>
+                                <Label Margin="0,20,0,0" Text="{x:Static resourceText:ResourceText.MESSAGE_CONTACT_YOU_AS_SOON_AS_POSSIBLE}" HorizontalOptions="CenterAndExpand" FontSize="16"></Label>
+                            </StackLayout>
+                        </DataTemplate>
+                    </xct:StateView.Template>
+                </xct:StateView>
+            </xct:StateLayout.StateViews>
+
+            <Label Text="{x:Static resourceText:ResourceText.TITLE_WE_LOVE_HEAR_FROM_YOU}" Style="{StaticResource LabelBold}" FontSize="18" />
+            <customControl:LabelJustifyText Text="{x:Static resourceText:ResourceText.DESCRIPTION_CONTACT_US}" FontSize="14" Margin="0,20,0,40" />
+
+            <template:TextAreaTemplate MaximumCaracteres="1000" PropertyToBindindEntry="Message" PlaceHolderText="{x:Static resourceText:ResourceText.TITLE_MESSAGE}"></template:TextAreaTemplate>
+
+            <Button Style="{StaticResource ButtonYellowDefault}" Command="{Binding SendMessageCommand}" VerticalOptions="EndAndExpand" Text="{x:Static resourceText:ResourceText.TITLE_SEND_MESSAGE}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

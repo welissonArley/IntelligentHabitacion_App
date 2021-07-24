@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:resourceText="clr-namespace:Homuai.App"
+             xmlns:appTransformation="clr-namespace:Homuai.App.ValueObjects"
+             Padding="20,40,0,30"
+             FlowDirection="LeftToRight"
+             x:Class="Homuai.App.Views.View.Dashboard.PartOfHome.UserIsPartOfHomeFlyoutPageFlyout"
+             Title="Flyout">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout x:Name="OptionAddFriend" Orientation="Horizontal" Margin="0,0,0,30">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AddNewFriendCommand}"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+                <ffimageloadingsvg:SvgCachedImage WidthRequest="25" HeightRequest="25" Source="resource://Homuai.App.Resources.ActionAddFriend.svg">
+                    <ffimageloadingsvg:SvgCachedImage.Transformations>
+                        <appTransformation:ColorTransformationLightToBlack_DarkToWhite></appTransformation:ColorTransformationLightToBlack_DarkToWhite>
+                    </ffimageloadingsvg:SvgCachedImage.Transformations>
+                </ffimageloadingsvg:SvgCachedImage>
+                <Label Padding="7" Text="{x:Static resourceText:ResourceText.TITLE_ADD_FRIEND}" Style="{StaticResource LabelMedium}" FontSize="14" VerticalOptions="Center"></Label>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AddNewItemCommand}"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+                <ffimageloadingsvg:SvgCachedImage WidthRequest="25" HeightRequest="25" Source="resource://Homuai.App.Resources.ActionAddProduct.svg">
+                    <ffimageloadingsvg:SvgCachedImage.Transformations>
+                        <appTransformation:ColorTransformationLightToBlack_DarkToWhite></appTransformation:ColorTransformationLightToBlack_DarkToWhite>
+                    </ffimageloadingsvg:SvgCachedImage.Transformations>
+                </ffimageloadingsvg:SvgCachedImage>
+                <Label Padding="7" Text="{x:Static resourceText:ResourceText.TITLE_ADD_PRODUCT}" Style="{StaticResource LabelMedium}" FontSize="14" VerticalOptions="Center"></Label>
+            </StackLayout>
+
+            <StackLayout VerticalOptions="EndAndExpand">
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ContactUsCommand}"></TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+                    <ffimageloadingsvg:SvgCachedImage WidthRequest="25" HeightRequest="25" Source="resource://Homuai.App.Resources.ActionSupport.svg">
+                        <ffimageloadingsvg:SvgCachedImage.Transformations>
+                            <appTransformation:ColorTransformationLightToBlack_DarkToWhite></appTransformation:ColorTransformationLightToBlack_DarkToWhite>
+                        </ffimageloadingsvg:SvgCachedImage.Transformations>
+                    </ffimageloadingsvg:SvgCachedImage>
+                    <Label Padding="7" Text="{x:Static resourceText:ResourceText.TITLE_CONTACT_US}" Style="{StaticResource LabelMedium}" FontSize="14" VerticalOptions="Center"></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="0,50,0,0">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding AboutThisProjectCommand}"></TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+                    <ffimageloadingsvg:SvgCachedImage WidthRequest="25" HeightRequest="25" Source="resource://Homuai.App.Resources.ActionAboutApp.svg">
+                        <ffimageloadingsvg:SvgCachedImage.Transformations>
+                            <appTransformation:ColorTransformationLightToBlack_DarkToWhite></appTransformation:ColorTransformationLightToBlack_DarkToWhite>
+                        </ffimageloadingsvg:SvgCachedImage.Transformations>
+                    </ffimageloadingsvg:SvgCachedImage>
+                    <Label Padding="7" Text="{x:Static resourceText:ResourceText.TITLE_ABOUT_THIS_PROJECT}" Style="{StaticResource LabelMedium}" FontSize="14" VerticalOptions="Center"></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="0,30,0,0">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LoggoutCommand}"></TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+                    <ffimageloadingsvg:SvgCachedImage WidthRequest="25" HeightRequest="25" Source="resource://Homuai.App.Resources.ActionLogout.svg">
+                        <ffimageloadingsvg:SvgCachedImage.Transformations>
+                            <appTransformation:ColorTransformationLightToBlack_DarkToWhite></appTransformation:ColorTransformationLightToBlack_DarkToWhite>
+                        </ffimageloadingsvg:SvgCachedImage.Transformations>
+                    </ffimageloadingsvg:SvgCachedImage>
+                    <Label Padding="7" Text="{x:Static resourceText:ResourceText.TITLE_LOGOUT}" Style="{StaticResource LabelMedium}" FontSize="14" VerticalOptions="Center"></Label>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

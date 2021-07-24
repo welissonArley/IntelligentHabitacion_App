@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:customcontrol="clr-namespace:Homuai.App.CustomControl"
+             xmlns:appTransformation="clr-namespace:Homuai.App.ValueObjects"
+             x:Class="Homuai.App.Views.Templates.Skeleton.TaskCleaningScheduleAssignSkeleton">
+    <ContentView.Content>
+        <Frame Margin="0,20,0,0" CornerRadius="4" BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource DarkModeSecondaryColor}}" HasShadow="True" Padding="0" HeightRequest="122">
+            <StackLayout Spacing="-2">
+                <customcontrol:SkeletonView Margin="15,20,0,0" HorizontalOptions="Start" WidthRequest="150" HeightRequest="18"></customcontrol:SkeletonView>
+                <Line Margin="15" Opacity="0.5" BackgroundColor="{StaticResource GrayDefault}" HeightRequest="0.5"></Line>
+                <StackLayout Orientation="Horizontal" Margin="15,0,15,15">
+                    <Ellipse WidthRequest="36" HeightRequest="36">
+                        <Ellipse.Fill>
+                            <SolidColorBrush Color="{AppThemeBinding Light={StaticResource SkeletonColor}, Dark=White}"></SolidColorBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <Ellipse WidthRequest="36" HeightRequest="36">
+                        <Ellipse.Fill>
+                            <SolidColorBrush Color="{AppThemeBinding Light={StaticResource SkeletonColor}, Dark=White}"></SolidColorBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                        <Line WidthRequest="0.5" Opacity="0.5" BackgroundColor="{StaticResource GrayDefault}" HeightRequest="0.5"/>
+                        <ffimageloadingsvg:SvgCachedImage VerticalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" Margin="15,0,0,0" Source="resource://Homuai.App.Resources.IconEdit.svg">
+                            <ffimageloadingsvg:SvgCachedImage.Transformations>
+                                <appTransformation:ColorTransformationLightToBlack_DarkToWhite></appTransformation:ColorTransformationLightToBlack_DarkToWhite>
+                            </ffimageloadingsvg:SvgCachedImage.Transformations>
+                        </ffimageloadingsvg:SvgCachedImage>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

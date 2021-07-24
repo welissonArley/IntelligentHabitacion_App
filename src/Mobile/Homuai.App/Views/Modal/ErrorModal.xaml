@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:customControl="clr-namespace:Homuai.App.CustomControl"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}"
+                 x:Class="Homuai.App.Views.Modal.ErrorModal">
+    <Frame BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource DarkModeSecondaryColor}}" HasShadow="True" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
+        <StackLayout>
+            <BoxView Color="{x:StaticResource RedDefault}" HorizontalOptions="FillAndExpand" HeightRequest="7"></BoxView>
+            <StackLayout VerticalOptions="CenterAndExpand" Margin="0,10,0,0">
+                <customControl:LabelJustifyText Margin="20" x:Name="ErrorMensage" Style="{x:StaticResource LabelSemiBold}" HorizontalOptions="Start" HorizontalTextAlignment="Start" FontSize="15"></customControl:LabelJustifyText>
+                <Button Margin="20" Style="{x:StaticResource ButtonYellowDefault}" BackgroundColor="{StaticResource RedDefault}" Text="OK" Clicked="Button_Clicked_Ok"></Button>
+            </StackLayout>
+        </StackLayout>
+    </Frame>
+</pages:PopupPage>

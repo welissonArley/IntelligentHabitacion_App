@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:Homuai.App"
+             x:Class="Homuai.App.Views.Templates.Information.SucessTemplate">
+    <ContentView.Content>
+        <StackLayout Margin="0,200,0,0">
+            <Image HeightRequest="95" WidthRequest="95" Source="IconCheck"></Image>
+            <Label FontSize="16" Text="{x:Static resourceText:ResourceText.TITLE_SUCCESS}" Style="{x:StaticResource LabelBold}" TextColor="{StaticResource GreenDefault}" HorizontalOptions="CenterAndExpand"></Label>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

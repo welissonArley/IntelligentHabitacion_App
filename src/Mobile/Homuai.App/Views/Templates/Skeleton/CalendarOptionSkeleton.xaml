@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customcontrol="clr-namespace:Homuai.App.CustomControl"
+             x:Class="Homuai.App.Views.Templates.Skeleton.CalendarOptionSkeleton">
+  <ContentView.Content>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+            <customcontrol:SkeletonView WidthRequest="105" HeightRequest="16"></customcontrol:SkeletonView>
+            <Image Source="IconCalendar" HeightRequest="15" WidthRequest="17"></Image>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

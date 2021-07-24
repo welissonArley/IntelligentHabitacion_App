@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:converter="clr-namespace:Homuai.App.Converter"
+             xmlns:appTransformation="clr-namespace:Homuai.App.ValueObjects"
+             xmlns:tabView="clr-namespace:Xam.Plugin.TabView;assembly=Xam.Plugin.TabView"
+             x:Class="Homuai.App.Views.Templates.Button.TabsView">
+    <ContentView.Resources>
+        <converter:SvgImageSourceConverter x:Key="SvgImageSourceConverter"></converter:SvgImageSourceConverter>
+        <converter:InverseBoolConverter x:Key="InverseBoolConverter"></converter:InverseBoolConverter>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <tabView:TabViewControl x:Name="Tabs" HeaderBackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}" HorizontalOptions="FillAndExpand" IsSwipeEnabled="False">
+            <tabView:TabViewControl.TabHeaderItemTemplate>
+                <DataTemplate>
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="40">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                            <ffimageloadingsvg:SvgCachedImage IsVisible="{Binding IsCurrent, Converter={StaticResource InverseBoolConverter}}" WidthRequest="15" HeightRequest="15" Source="{Binding HeaderIcon, Converter={StaticResource SvgImageSourceConverter}}">
+                                <ffimageloadingsvg:SvgCachedImage.Transformations>
+                                    <appTransformation:ColorTransformationLightToBlack_DarkToWhite></appTransformation:ColorTransformationLightToBlack_DarkToWhite>
+                                </ffimageloadingsvg:SvgCachedImage.Transformations>
+                            </ffimageloadingsvg:SvgCachedImage>
+
+                            <ffimageloadingsvg:SvgCachedImage IsVisible="{Binding IsCurrent}" WidthRequest="15" HeightRequest="15" Source="{Binding HeaderIcon, Converter={StaticResource SvgImageSourceConverter}}"/>
+
+                            <Label Text="{Binding HeaderText}" FontSize="14">
+                                <Label.Triggers>
+                                    <DataTrigger Binding="{Binding IsCurrent}" TargetType="Label" Value="True">
+                                        <Setter Property="TextColor" Value="{StaticResource YellowDefault}"></Setter>
+                                        <Setter Property="Style" Value="{StaticResource LabelBold}"></Setter>
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </StackLayout>
+
+                        <BoxView VerticalOptions="End" BackgroundColor="{StaticResource YellowDefault}" HeightRequest="3" HorizontalOptions="FillAndExpand" IsVisible="{Binding IsCurrent}" />
+                    </StackLayout>
+                </DataTemplate>
+            </tabView:TabViewControl.TabHeaderItemTemplate>
+            <tabView:TabViewControl.ItemTemplate>
+                <DataTemplate>
+                    <ContentView Content="{Binding TabContent}"></ContentView>
+                </DataTemplate>
+            </tabView:TabViewControl.ItemTemplate>
+        </tabView:TabViewControl>
+    </ContentView.Content>
+</ContentView>

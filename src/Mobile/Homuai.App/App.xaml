@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:CustomEntry="clr-namespace:Homuai.App.CustomControl"
+             xmlns:InputKit="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             mc:Ignorable="d"
+             x:Class="Homuai.App.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:Key="FontFamilyRalewayRegular" x:TypeArguments="x:String" iOS="Raleway-Regular" Android="Raleway-Regular.ttf#Raleway" />
+            <OnPlatform x:Key="FontFamilyRalewayThin" x:TypeArguments="x:String" iOS="Raleway-Thin" Android="Raleway-Thin.ttf#Raleway Thin" />
+            <OnPlatform x:Key="FontFamilyRalewayBold" x:TypeArguments="x:String" iOS="Raleway-Bold" Android="Raleway-Bold.ttf#Raleway" />
+            <OnPlatform x:Key="FontFamilyRalewaySemiBold" x:TypeArguments="x:String" iOS="Raleway-SemiBold" Android="Raleway-SemiBold.ttf#Raleway SemiBold" />
+            <OnPlatform x:Key="FontFamilyRalewayMedium" x:TypeArguments="x:String" iOS="Raleway-Medium" Android="Raleway-Medium.ttf#Raleway Medium" />
+            <OnPlatform x:Key="FontFamilyRalewayLight" x:TypeArguments="x:String" iOS="Raleway-Light" Android="Raleway-Light.ttf#Raleway Light" />
+            <OnPlatform x:Key="FontFamilyRalewayExtraBold" x:TypeArguments="x:String" iOS="Raleway-ExtraBold" Android="Raleway-ExtraBold.ttf#Raleway-ExtraBold" />
+            <OnPlatform x:Key="FontFamilyRalewayItalic" x:TypeArguments="x:String" iOS="Raleway-Italic" Android="Raleway-Italic.ttf#Raleway" />
+
+            <Color x:Key="YellowDefault">#FEBF3B</Color>
+            <Color x:Key="GrayDefault">#A1A1A1</Color>
+            <Color x:Key="GreenDefault">#65BCBF</Color>
+            <Color x:Key="RedDefault">#F8777D</Color>
+            <Color x:Key="BlueDefault">#F2F6F7</Color>
+            <Color x:Key="OrangeDefault">#FD8369</Color>
+            <Color x:Key="SkeletonColor">#e2e2e2</Color>
+
+            <Color x:Key="DarkModePrimaryColor">#1F1E19</Color>
+            <Color x:Key="DarkModeSecondaryColor">#424242</Color>
+
+            <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}" />
+                <Setter Property="NavigationPage.BackButtonTitle" Value=""></Setter>
+            </Style>
+
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}"></Setter>
+                <Setter Property="BarTextColor" Value="{AppThemeBinding Light=Black, Dark=White}"></Setter>
+                <Setter Property="ios:NavigationPage.HideNavigationBarSeparator" Value="True" ></Setter>
+            </Style>
+
+            <Style TargetType="Label" ApplyToDerivedTypes="True">
+                <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayRegular}"></Setter>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"></Setter>
+            </Style>
+            <Style TargetType="Label" x:Key="LabelThin">
+                <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayThin}"></Setter>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"></Setter>
+            </Style>
+            <Style TargetType="Label" x:Key="LabelBold">
+                <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayBold}"></Setter>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"></Setter>
+            </Style>
+            <Style TargetType="Label" x:Key="LabelSemiBold">
+                <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewaySemiBold}"></Setter>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"></Setter>
+            </Style>
+            <Style TargetType="Label" x:Key="LabelMedium">
+                <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayMedium}"></Setter>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"></Setter>
+            </Style>
+            <Style TargetType="Label" x:Key="LabelLight">
+                <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayLight}"></Setter>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"></Setter>
+            </Style>
+            <Style TargetType="Label" x:Key="LabelTitle">
+                <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewaySemiBold}"></Setter>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"></Setter>
+                <Setter Property="FontSize" Value="22"></Setter>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"></Setter>
+                <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+                <Setter Property="Margin" Value="0,40,0,0"></Setter>
+            </Style>
+            <Style TargetType="Label" x:Key="LabelExtraBold">
+                <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayExtraBold}"></Setter>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"></Setter>
+            </Style>
+            <Style TargetType="Label" x:Key="LabelUrlLink">
+                <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayRegular}"></Setter>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light='#0077AA', Dark='#05B4FF'}"></Setter>
+            </Style>
+
+            <Style TargetType="Button">
+                <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayBold}"></Setter>
+            </Style>
+            <Style x:Key="ButtonYellowDefault" TargetType="Button">
+                <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayBold}"></Setter>
+                <Setter Property="HeightRequest" Value="40"></Setter>
+                <Setter Property="BackgroundColor" Value="{DynamicResource YellowDefault}"></Setter>
+                <Setter Property="CornerRadius" Value="7"></Setter>
+                <Setter Property="FontSize" Value="16"></Setter>
+                <Setter Property="TextColor" Value="Black"></Setter>
+            </Style>
+            <Style x:Key="ButtonDangerActionDefault" TargetType="Button">
+                <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayLight}"></Setter>
+                <Setter Property="HeightRequest" Value="40"></Setter>
+                <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+                <Setter Property="CornerRadius" Value="7"></Setter>
+                <Setter Property="FontSize" Value="16"></Setter>
+                <Setter Property="TextColor" Value="{StaticResource RedDefault}"></Setter>
+                <Setter Property="BorderWidth" Value="3"></Setter>
+                <Setter Property="BorderColor" Value="{x:StaticResource RedDefault}"></Setter>
+            </Style>
+            <Style x:Key="ButtonSecondaryActionDefault" TargetType="Button">
+                <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayBold}"></Setter>
+                <Setter Property="HeightRequest" Value="40"></Setter>
+                <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+                <Setter Property="CornerRadius" Value="7"></Setter>
+                <Setter Property="FontSize" Value="16"></Setter>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"></Setter>
+                <Setter Property="BorderWidth" Value="3"></Setter>
+                <Setter Property="BorderColor" Value="{x:StaticResource YellowDefault}"></Setter>
+            </Style>
+
+            <Style TargetType="StackLayout" x:Key="MarginStyleDefault">
+                <Setter Property="Margin" Value="20,0,20,30"></Setter>
+                <Setter Property="Spacing" Value="0"></Setter>
+            </Style>
+
+            <Style TargetType="Entry" ApplyToDerivedTypes="True">
+                <Setter Property="PlaceholderColor" Value="{StaticResource GrayDefault}"></Setter>
+                <Setter Property="FontSize" Value="14"></Setter>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"></Setter>
+                <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayMedium}"></Setter>
+                <Setter Property="ReturnType" Value="Go"></Setter>
+            </Style>
+            <Style TargetType="CustomEntry:EntryNoLine" ApplyToDerivedTypes="True">
+                <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+                <Setter Property="PlaceholderColor" Value="{StaticResource GrayDefault}"></Setter>
+                <Setter Property="FontSize" Value="14"></Setter>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"></Setter>
+                <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayMedium}"></Setter>
+                <Setter Property="ReturnType" Value="Go"></Setter>
+            </Style>
+
+            <Style TargetType="InputKit:RadioButton" ApplyToDerivedTypes="True">
+                <Setter Property="TextFontSize" Value="10"></Setter>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"></Setter>
+                <Setter Property="CircleColor" Value="{AppThemeBinding Light=Black, Dark=White}"></Setter>
+                <Setter Property="FontFamily" Value="{DynamicResource FontFamilyRalewayLight}"></Setter>
+                <Setter Property="Color" Value="{x:StaticResource YellowDefault}"></Setter>
+            </Style>
+
+            <Style TargetType="Grid">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal" />
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="Transparent" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

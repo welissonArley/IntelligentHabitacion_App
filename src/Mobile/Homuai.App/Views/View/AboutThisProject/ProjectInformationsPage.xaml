@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:Homuai.App"
+             xmlns:customControl="clr-namespace:Homuai.App.CustomControl"
+             x:Class="Homuai.App.Views.View.AboutThisProject.ProjectInformationsPage">
+    <ContentPage.Content>
+        <StackLayout Style="{StaticResource MarginStyleDefault}">
+            <Label Text="{x:Static resourceText:ResourceText.TITLE_HI}" FontSize="18" Style="{StaticResource LabelBold}"></Label>
+            <Label Text="{Binding UserName}" TextColor="{Binding ProfileColor}" FontSize="25" Style="{StaticResource LabelBold}"></Label>
+
+            <customControl:LabelJustifyText Text="Aqui você irá conhecer tudo sobre o Homuai. E se precisar de ajuda, conta com a gente!" FontSize="14" Margin="0,20,0,0"></customControl:LabelJustifyText>
+
+            <Label Text="Sobre o Homuai" FontSize="14" Style="{StaticResource LabelBold}" Margin="0,30,0,0"></Label>
+
+            <StackLayout Margin="0,30,0,0" Orientation="Horizontal">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding PrivacyPolicyCommand}"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+                <StackLayout>
+                    <Label Text="{x:Static resourceText:ResourceText.TITLE_PRIVACY_POLICY}" Style="{StaticResource LabelMedium}" FontSize="14"></Label>
+                    <Label Text="{x:Static resourceText:ResourceText.TITLE_ALL_YOU_NEED_TO_KNOW}" Style="{StaticResource LabelLight}" FontSize="14"></Label>
+                </StackLayout>
+                <Image Source="arrow" WidthRequest="12" HeightRequest="12" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand"></Image>
+            </StackLayout>
+
+            <StackLayout Margin="0,20,0,0" Orientation="Horizontal">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding TermsOfUseCommand}"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+                <StackLayout>
+                    <Label Text="{x:Static resourceText:ResourceText.TITLE_TERMS_OF_USE}" Style="{StaticResource LabelMedium}" FontSize="14"></Label>
+                    <Label Text="{x:Static resourceText:ResourceText.TITLE_WHICH_ARE_THEY}" Style="{StaticResource LabelLight}" FontSize="14"></Label>
+                </StackLayout>
+                <Image Source="arrow" WidthRequest="12" HeightRequest="12" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand"></Image>
+            </StackLayout>
+
+            <StackLayout Margin="0,20,0,0" Orientation="Horizontal">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ShowMeTheLinksCommand}"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+                <StackLayout>
+                    <Label Text="{x:Static resourceText:ResourceText.TITLE_ICONS_ILUSTRATIONS_USED}" Style="{StaticResource LabelMedium}" FontSize="14"></Label>
+                    <Label Text="{x:Static resourceText:ResourceText.TITLE_SHOW_ME_THE_LINKS}" Style="{StaticResource LabelLight}" FontSize="14"></Label>
+                </StackLayout>
+                <Image Source="arrow" WidthRequest="12" HeightRequest="12" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand"></Image>
+            </StackLayout>
+
+            <Label x:Name="LabelVersion" Style="{StaticResource LabelLight}" FontSize="14" VerticalOptions="EndAndExpand"></Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

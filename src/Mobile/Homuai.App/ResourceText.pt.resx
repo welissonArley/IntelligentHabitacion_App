@@ -1,0 +1,1025 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BRAZIL" xml:space="preserve">
+    <value>Brasil</value>
+  </data>
+  <data name="CANADA" xml:space="preserve">
+    <value>Canadá</value>
+  </data>
+  <data name="CHOOSE_A_COUNTRY_BELOW" xml:space="preserve">
+    <value>Escolha um país abaixo:</value>
+  </data>
+  <data name="DESCRIPTION_ACTION_CHANGE_ADMINISTRATOR" xml:space="preserve">
+    <value>Ao executar este processo você está transferindo todos os privilégios de ser Admistrador para o seu amigo</value>
+  </data>
+  <data name="DESCRIPTION_ACTION_REMOVE_FRIEND_FROM_HOME" xml:space="preserve">
+    <value>será removido da associação com a Home. Porém, históricos como por exemplo: pagamentos, cronograma de limpeza, etc, ficarão armazenados para futuras consultas.</value>
+  </data>
+  <data name="DESCRIPTION_ADDING_FRIEND" xml:space="preserve">
+    <value>O novo integrante deve ir no app, clicar em “Participar de uma Lar” e ler o QR Code abaixo :)</value>
+  </data>
+  <data name="DESCRIPTION_ALL" xml:space="preserve">
+    <value> todas </value>
+  </data>
+  <data name="DESCRIPTION_CHOOSE_ROOMS_REGISTER_COMPLETED_CLEANING" xml:space="preserve">
+    <value>Abaixo você pode escolher um ou mais comôdos para registrar limpeza concluída :)</value>
+  </data>
+  <data name="DESCRIPTION_CHOOSE_ROOMS_TO_BE_CLEANED" xml:space="preserve">
+    <value>Abaixo você pode escolher um ou mais comôdos para serem limpados no mês.</value>
+  </data>
+  <data name="DESCRIPTION_CLEAN_HOUSE" xml:space="preserve">
+    <value>Faça sua parte e deixe o lar limpo e organizado.</value>
+  </data>
+  <data name="DESCRIPTION_CONTACT_US" xml:space="preserve">
+    <value>Deixe sua mensagem (Sugestão, reclamação, problemas, dúvidas, etc.) e nos vamos entrar em contato com você o mais rápido possível.</value>
+  </data>
+  <data name="DESCRIPTION_CREATE_HOME" xml:space="preserve">
+    <value>Utilize esta opção para criar um lar e ser o administrador.</value>
+  </data>
+  <data name="DESCRIPTION_DATE_CLEANING_BY_FRIEND" xml:space="preserve">
+    <value>Limpeza realizada em {0} ({1}) por {2}</value>
+  </data>
+  <data name="DESCRIPTION_DELETE_HOME_FIRST_PHRASE" xml:space="preserve">
+    <value>ATENÇÃO!!! Continuar com esse processo vai resultar na perda de </value>
+  </data>
+  <data name="DESCRIPTION_DELETE_HOME_FOURTH_PHRASE" xml:space="preserve">
+    <value> é possivel recuperar os dados após a confirmação deste processo.</value>
+  </data>
+  <data name="DESCRIPTION_DELETE_HOME_SECOND_PHRASE" xml:space="preserve">
+    <value>as informações da Home, incluindo os históricos como, por exemplo: pagamentos, cronograma de limpeza, etc.</value>
+  </data>
+  <data name="DESCRIPTION_DELETE_HOME_THIRD_PHRASE" xml:space="preserve">
+    <value>Lembre-se, </value>
+  </data>
+  <data name="DESCRIPTION_FINANCES" xml:space="preserve">
+    <value>Acompanhe as receitas e despesas do seu lar.</value>
+  </data>
+  <data name="DESCRIPTION_HOME_SWEET_HOME" xml:space="preserve">
+    <value>Veja informações uteis sobre os dados do lar.</value>
+  </data>
+  <data name="DESCRIPTION_HOUSEWORK" xml:space="preserve">
+    <value>Abaixo você pode ver quais comôdos da casa foram limpados, quem limpou e em quais dias do mês selecionado.</value>
+  </data>
+  <data name="DESCRIPTION_ILUSTRATIONS_INFORMATIONS" xml:space="preserve">
+    <value>Um dos objetivos deste App é ser desenhado de forma criativa. E para isso nada melhor que fazer uso de imagens para ilustrar e divertir o usuário, certo? 
+
+Todas as images utilizadas possuem licença gratuitas para o uso, e como agradecimento, deixamos abaixo os links para os sites que nossa equipe utilizou :)</value>
+  </data>
+  <data name="DESCRIPTION_JOIN_HOME" xml:space="preserve">
+    <value>Utilize esta opção para fazer parte de uma republica já criada.</value>
+  </data>
+  <data name="DESCRIPTION_MANAGE_SCHEDULE" xml:space="preserve">
+    <value>Selecione as tarefas para cada um dos moradores da casa. Não se preocupe, você pode alterar isso quando quiser :)</value>
+  </data>
+  <data name="DESCRIPTION_MY_DATA" xml:space="preserve">
+    <value>Utilize esta opção para visualizar e/ou editar suas informações.</value>
+  </data>
+  <data name="DESCRIPTION_MY_FOOD" xml:space="preserve">
+    <value>Veja informações de seus produtos. (Qtd, vencimento, etc).</value>
+  </data>
+  <data name="DESCRIPTION_MY_FRIENDS" xml:space="preserve">
+    <value>Veja informações uteis sobre os seus amigos de lar.</value>
+  </data>
+  <data name="DESCRIPTION_MY_TASKS_CLEANHOUSE" xml:space="preserve">
+    <value>Abaixo você vai encontrar informações das suas tarefas realizadas em cada mês :)</value>
+  </data>
+  <data name="DESCRIPTION_NOTIFY_ORDER_ARRIVED" xml:space="preserve">
+    <value>Vamos enviar uma notificação para avisar que chegou uma encomenda para {0}. Você confirma isto?</value>
+  </data>
+  <data name="DESCRIPTION_REMINDER_PERFORM_TASK" xml:space="preserve">
+    <value>Não se preocupe, seu nome não será exibido no lembrete  quando seu amigo(a) visualiza-lo :)</value>
+  </data>
+  <data name="DESCRIPTION_ROOM_CLEANED" xml:space="preserve">
+    <value>Seus amigos vão receber uma notificação e podem avaliar seu trabalho. Você confirma isto?</value>
+  </data>
+  <data name="DESCRIPTION_SCHEDULE_CLEAR_HOUSE" xml:space="preserve">
+    <value>Abaixo você vai encontrar informações das tarefas realizadas em cada mês :)</value>
+  </data>
+  <data name="DESCRIPTION_SHOPPING" xml:space="preserve">
+    <value>Vai ao Supermercado? Dê uma olhadinha na lista de compras.</value>
+  </data>
+  <data name="DESCRIPTION_WHY_WE_NEED_YOUR_ADDRESS" xml:space="preserve">
+    <value>O Endereço do lar está disponível APENAS para as pessoas que habitam o mesmo lar que você. As informações de Wi-fi também. O objetivo é facilitar que os moradores obtenham as informações de forma rápida e simples. Seu amigo pode conferir o endereço para comprar o novo MAC e usar as informações do Wi-fi para conecta-lo a rede :)</value>
+  </data>
+  <data name="DESCRIPTION_WHY_WE_NEED_YOUR_CEP" xml:space="preserve">
+    <value>Aqui o CEP é importante para ajudar a preencher o endereço no proximo passo. O Endereço do lar está disponível APENAS para as pessoas que habitam o mesmo lar que você.</value>
+  </data>
+  <data name="DESCRIPTION_WHY_WE_NEED_YOUR_EMAIL" xml:space="preserve">
+    <value>Seu e-mail será usado para fazer o login no App e atráves dele nós podemos te enviar links para recuperar sua senha, códigos de segurança para você excluir informações importantes, etc. HEY, te enviaremos APENAS conteudo importantes, portanto não se preocupe :)</value>
+  </data>
+  <data name="DESCRIPTION_WHY_WE_NEED_YOUR_EMERGENCY_CONTACT" xml:space="preserve">
+    <value>Esta informação será compartilhada APENAS com as pessoas que habitam o mesmo lar que você. O objetivo é ajudar na comunicação dos seus amigos com alguém importante para você caso algum imprevisto venha a acontecer.</value>
+  </data>
+  <data name="DESCRIPTION_WHY_WE_NEED_YOUR_TELEPHONE_NUMBER" xml:space="preserve">
+    <value>Seu telefone será compartilhado APENAS com as pessoas que habitam o mesmo lar que você. A intenção é facilitar a comunicação entre os moradores.</value>
+  </data>
+  <data name="DESCRIPTION_YOUR_EVALUATION" xml:space="preserve">
+    <value>Não se preocupe, seu nome não será exibido na avaliação  quando seu amigo(a) visualiza-la :)</value>
+  </data>
+  <data name="DESCRIPTION_YOUR_ORDER_HAS_ARRIVED_WAINTING_FOR_YOU" xml:space="preserve">
+    <value>Você tem uma encomenda te esperando :)</value>
+  </data>
+  <data name="DESCRITION_SETTINGS_SCHEDULE_CLEAN_HOUSE" xml:space="preserve">
+    <value>Procurando pelas configurações do cronograma, certo? Neste momento o cronograma será automaticamente configurado todo dia 1 de cada mês. Mas não se preocupe, em breve o administrador vai ter total controle sobre esta configuração :)</value>
+  </data>
+  <data name="FORMAT_DATE" xml:space="preserve">
+    <value>dd MMMM yyyy</value>
+  </data>
+  <data name="FRANCE" xml:space="preserve">
+    <value>França</value>
+  </data>
+  <data name="HONG_KONG" xml:space="preserve">
+    <value>Hong Kong</value>
+  </data>
+  <data name="INFORMATION_PASSWORD_COPIED_SUCCESSFULLY" xml:space="preserve">
+    <value>Senha copiada com sucesso!</value>
+  </data>
+  <data name="INFORMATION_YOU_CAN_NOT_PERFORM_THIS_ACTION" xml:space="preserve">
+    <value>Você não pode executar está ação por enquanto.</value>
+  </data>
+  <data name="ITALY" xml:space="preserve">
+    <value>Itália</value>
+  </data>
+  <data name="JAPAN" xml:space="preserve">
+    <value>Japão</value>
+  </data>
+  <data name="LUXEMBOURG" xml:space="preserve">
+    <value>Luxemburgo</value>
+  </data>
+  <data name="MALDIVES" xml:space="preserve">
+    <value>Maldivas</value>
+  </data>
+  <data name="MESSAGE_CONTACT_YOU_AS_SOON_AS_POSSIBLE" xml:space="preserve">
+    <value>Entraremos em contato o mais rápido possível.</value>
+  </data>
+  <data name="MONACO" xml:space="preserve">
+    <value>Mônaco</value>
+  </data>
+  <data name="NETHERLANDS" xml:space="preserve">
+    <value>Países Baixos</value>
+  </data>
+  <data name="NEW_ZEALAND" xml:space="preserve">
+    <value>Nova Zelândia</value>
+  </data>
+  <data name="PHRASE_AREYOUSUREEXCUTETHISACTION" xml:space="preserve">
+    <value>Você tem certeza que deseja executar esta ação?</value>
+  </data>
+  <data name="PHRASE_YOU_HAVENT_ADDED_FOODS" xml:space="preserve">
+    <value>Use o botão abaixo para adicionar os produtos. Assim podemos te ajudar com data de vencimento, quantidade, etc :)</value>
+  </data>
+  <data name="PHRASE_YOU_HAVENT_ADDED_FRIENDS" xml:space="preserve">
+    <value>Oh no, você ainda não adicionou nenhum amigo :(</value>
+  </data>
+  <data name="PLACEHOLDER_ADDITIONALADDRESSINFO" xml:space="preserve">
+    <value>Complemento</value>
+  </data>
+  <data name="PLACEHOLDER_ADDRESS" xml:space="preserve">
+    <value>Rua/Avenida</value>
+  </data>
+  <data name="PLACEHOLDER_ADDRESSNUMBER" xml:space="preserve">
+    <value>Número</value>
+  </data>
+  <data name="PLACEHOLDER_CITY" xml:space="preserve">
+    <value>Cidade</value>
+  </data>
+  <data name="PLACEHOLDER_CODE_RECEIVED" xml:space="preserve">
+    <value>Código recebido no e-mail</value>
+  </data>
+  <data name="PLACEHOLDER_CURRENT_PASSWORD" xml:space="preserve">
+    <value>Senha atual</value>
+  </data>
+  <data name="PLACEHOLDER_DEADLINE_PAYMENT_RENT" xml:space="preserve">
+    <value>Dia limite para pagamento do aluguel (entre 1 e 28)</value>
+  </data>
+  <data name="PLACEHOLDER_DUE_DATE" xml:space="preserve">
+    <value>Data de vencimento</value>
+  </data>
+  <data name="PLACEHOLDER_EMAIL" xml:space="preserve">
+    <value>bruce@waynetech.com</value>
+  </data>
+  <data name="PLACEHOLDER_EMERGENCYCONTACT1_FAMILYRELATIONSHIP" xml:space="preserve">
+    <value>Grau de parentesco. Ex.: Mãe, irmã ...</value>
+  </data>
+  <data name="PLACEHOLDER_EMERGENCYCONTACT1_NAME" xml:space="preserve">
+    <value>Nome do Contado: Ex.: Martha Wayne</value>
+  </data>
+  <data name="PLACEHOLDER_EMERGENCYCONTACT2_FAMILYRELATIONSHIP" xml:space="preserve">
+    <value>Grau de parentesco. Ex.: Pai, irmão ...</value>
+  </data>
+  <data name="PLACEHOLDER_EMERGENCYCONTACT2_NAME" xml:space="preserve">
+    <value>Nome do Contado: Ex.: Thomas Wayne</value>
+  </data>
+  <data name="PLACEHOLDER_ENTRY_DATE" xml:space="preserve">
+    <value>Data de entrada</value>
+  </data>
+  <data name="PLACEHOLDER_FAMILYRELATIONSHIP" xml:space="preserve">
+    <value>Grau de parentesco</value>
+  </data>
+  <data name="PLACEHOLDER_MANUFACTURER" xml:space="preserve">
+    <value>Fabricante</value>
+  </data>
+  <data name="PLACEHOLDER_MONTHLYRENT" xml:space="preserve">
+    <value>600,00</value>
+  </data>
+  <data name="PLACEHOLDER_NAME" xml:space="preserve">
+    <value>Bruce Wayne</value>
+  </data>
+  <data name="PLACEHOLDER_NEIGHBORHOOD" xml:space="preserve">
+    <value>Bairro</value>
+  </data>
+  <data name="PLACEHOLDER_NETWORK_NAME" xml:space="preserve">
+    <value>Nome da rede ...</value>
+  </data>
+  <data name="PLACEHOLDER_NEW_PASSWORD" xml:space="preserve">
+    <value>Nova senha</value>
+  </data>
+  <data name="PLACEHOLDER_PASSWORD" xml:space="preserve">
+    <value>Senha</value>
+  </data>
+  <data name="PLACEHOLDER_PASSWORD_CONFIRMATION" xml:space="preserve">
+    <value>Confirmação de senha</value>
+  </data>
+  <data name="PLACEHOLDER_PHONENUMBER" xml:space="preserve">
+    <value>+55 (31) 9 0000-0000</value>
+  </data>
+  <data name="PLACEHOLDER_PRODUCT" xml:space="preserve">
+    <value>Produto</value>
+  </data>
+  <data name="PLACEHOLDER_QUANTITY" xml:space="preserve">
+    <value>Quantidade</value>
+  </data>
+  <data name="PLACEHOLDER_RELATIONSHIP" xml:space="preserve">
+    <value>Grau de parentesco</value>
+  </data>
+  <data name="PLACEHOLDER_ROOM" xml:space="preserve">
+    <value>Cozinha</value>
+  </data>
+  <data name="PLACEHOLDER_STATE" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="PORTUGAL" xml:space="preserve">
+    <value>Portugal</value>
+  </data>
+  <data name="PUERTO_RICO" xml:space="preserve">
+    <value>Porto Rico</value>
+  </data>
+  <data name="SPAIN" xml:space="preserve">
+    <value>Espanha</value>
+  </data>
+  <data name="SUBTITLE_NO_RESULTS_MATCHED_FILTER" xml:space="preserve">
+    <value>Tente um novo filtro :)</value>
+  </data>
+  <data name="SWITZERLAND" xml:space="preserve">
+    <value>Suíça</value>
+  </data>
+  <data name="TEXT_CHECK_YOUR_INTERNET_CONNECTION" xml:space="preserve">
+    <value>Verifique sua conexão de internet!</value>
+  </data>
+  <data name="TITILE_ABOUT_APP" xml:space="preserve">
+    <value>Sobre o App</value>
+  </data>
+  <data name="TITLE_ABOUT_THIS_PROJECT" xml:space="preserve">
+    <value>Sobre este Projeto</value>
+  </data>
+  <data name="TITLE_ACCEPT" xml:space="preserve">
+    <value>Aceitar</value>
+  </data>
+  <data name="TITLE_ACCEPTED" xml:space="preserve">
+    <value>Aceito!</value>
+  </data>
+  <data name="TITLE_ADDING_NEW_FRIEND" xml:space="preserve">
+    <value>Adicionar novo amigo</value>
+  </data>
+  <data name="TITLE_ADDITIONALADDRESSINFO_TWOPOINTS" xml:space="preserve">
+    <value>Informação complementar:</value>
+  </data>
+  <data name="TITLE_ADDRESS" xml:space="preserve">
+    <value>Endereço</value>
+  </data>
+  <data name="TITLE_ADDRESSNUMBER_TWOPOINTS" xml:space="preserve">
+    <value>Número:</value>
+  </data>
+  <data name="TITLE_ADDRESS_TWOPOINTS" xml:space="preserve">
+    <value>Endereço:</value>
+  </data>
+  <data name="TITLE_ADD_FRIEND" xml:space="preserve">
+    <value>Adicionar amigo</value>
+  </data>
+  <data name="TITLE_ADD_PRODUCT" xml:space="preserve">
+    <value>Adicionar produto</value>
+  </data>
+  <data name="TITLE_ADD_ROOM" xml:space="preserve">
+    <value>Adicione um cômodo</value>
+  </data>
+  <data name="TITLE_ADD_ROOMS_HOME" xml:space="preserve">
+    <value>Adicionar Cômodos ao Lar</value>
+  </data>
+  <data name="TITLE_ADMINISTRATOR_MUST_CONFIGURE_CLEANING_SCHEDULE" xml:space="preserve">
+    <value>O Administrador deve configurar o cronograma de limpeza.</value>
+  </data>
+  <data name="TITLE_ALL_YOU_NEED_TO_KNOW" xml:space="preserve">
+    <value>Tudo que você precisa saber.</value>
+  </data>
+  <data name="TITLE_ALREADY_RECEIVED" xml:space="preserve">
+    <value>Ok, já recebi!</value>
+  </data>
+  <data name="TITLE_AND" xml:space="preserve">
+    <value>e</value>
+  </data>
+  <data name="TITLE_APPROACH_CAMERA_READ_QRCODE" xml:space="preserve">
+    <value>Aproxime a câmera do QRCode para realizar a leitura.</value>
+  </data>
+  <data name="TITLE_ASSIGN_TASKS" xml:space="preserve">
+    <value>Atribuir tarefas</value>
+  </data>
+  <data name="TITLE_AVERAGE_RATE" xml:space="preserve">
+    <value>Avaliação média</value>
+  </data>
+  <data name="TITLE_BATHROOM" xml:space="preserve">
+    <value>Banheiro</value>
+  </data>
+  <data name="TITLE_BOX" xml:space="preserve">
+    <value>Caixa(s)</value>
+  </data>
+  <data name="TITLE_CALL_TO_TWOPOINTS" xml:space="preserve">
+    <value>Ligar para {0}:</value>
+  </data>
+  <data name="TITLE_CANCEL" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="TITLE_CANCEL_OPERATION" xml:space="preserve">
+    <value>Cancelar operação</value>
+  </data>
+  <data name="TITLE_CHANGE" xml:space="preserve">
+    <value>Alterar</value>
+  </data>
+  <data name="TITLE_CHANGE_JOINED_DATE" xml:space="preserve">
+    <value>Alterar data da entrada</value>
+  </data>
+  <data name="TITLE_CHANGE_PASSWORD" xml:space="preserve">
+    <value>Alterar senha</value>
+  </data>
+  <data name="TITLE_CHECKING_EMAIL" xml:space="preserve">
+    <value>Verificando E-mail ...</value>
+  </data>
+  <data name="TITLE_CHOOSE_ONE_NUMBERS_BELOW_TOWPOINTS" xml:space="preserve">
+    <value>Escolha um dos números abaixo:</value>
+  </data>
+  <data name="TITLE_CHOOSE_RESPONSIBLE_PEOPLE_TWOPOINTS" xml:space="preserve">
+    <value>Escolha a(s) pessoa(s) responsável(is):</value>
+  </data>
+  <data name="TITLE_CHOOSE_THE_ROOMS_TWO_POINTS" xml:space="preserve">
+    <value>Escolha o(s) cômodo(s):</value>
+  </data>
+  <data name="TITLE_CHOOSE_WHO_WILL_RECEIVE_REMINDER_TWO_POINTS" xml:space="preserve">
+    <value>Escolha quem vai receber o lembrete:</value>
+  </data>
+  <data name="TITLE_CHOOSE_YOUR_FRIEND" xml:space="preserve">
+    <value>Escolha seu amigo</value>
+  </data>
+  <data name="TITLE_CHOOSE_YOUR_RATING" xml:space="preserve">
+    <value>Escolha a sua nota de 1 a 5 estrelas ;)</value>
+  </data>
+  <data name="TITLE_CITY_TWOPOINTS" xml:space="preserve">
+    <value>Cidade:</value>
+  </data>
+  <data name="TITLE_CLEANING_RECORDS" xml:space="preserve">
+    <value>Registros de limpeza: {0}</value>
+  </data>
+  <data name="TITLE_CLEAN_HOUSE" xml:space="preserve">
+    <value>Lar limpo</value>
+  </data>
+  <data name="TITLE_CODE_RECEIVED_TWOPOINTS" xml:space="preserve">
+    <value>Código recebido:</value>
+  </data>
+  <data name="TITLE_COMMENT" xml:space="preserve">
+    <value>Comentário</value>
+  </data>
+  <data name="TITLE_COMPLETED_TODAY" xml:space="preserve">
+    <value>Concluída hoje</value>
+  </data>
+  <data name="TITLE_CONCLUDE" xml:space="preserve">
+    <value>Concluir</value>
+  </data>
+  <data name="TITLE_CONTACTS" xml:space="preserve">
+    <value>Contatos</value>
+  </data>
+  <data name="TITLE_CONTACT_EMERGENCY_1_FAMILYRELATIONSHIP_TWOPOINTS" xml:space="preserve">
+    <value>Parentesco com contato 1:</value>
+  </data>
+  <data name="TITLE_CONTACT_EMERGENCY_1_PHONENUMBER_TWOPOINTS" xml:space="preserve">
+    <value>Telefone do contato 1:</value>
+  </data>
+  <data name="TITLE_CONTACT_EMERGENCY_1_TWOPOINTS" xml:space="preserve">
+    <value>Contato 1:</value>
+  </data>
+  <data name="TITLE_CONTACT_EMERGENCY_2_FAMILYRELATIONSHIP_TWOPOINTS" xml:space="preserve">
+    <value>Parentesco com contato 2:</value>
+  </data>
+  <data name="TITLE_CONTACT_EMERGENCY_2_PHONENUMBER_TWOPOINTS" xml:space="preserve">
+    <value>Telefone do contato 2:</value>
+  </data>
+  <data name="TITLE_CONTACT_EMERGENCY_2_TWOPOINTS" xml:space="preserve">
+    <value>Contato 2:</value>
+  </data>
+  <data name="TITLE_CONTACT_EMERGENCY_CASES" xml:space="preserve">
+    <value>Me informe um contato para casos de emergência</value>
+  </data>
+  <data name="TITLE_CONTACT_EMERGENCY_CASES_OPTIONAL" xml:space="preserve">
+    <value>Se desejar, pode me informar um segundo contato para casos de emergência (opcional)</value>
+  </data>
+  <data name="TITLE_CONTACT_US" xml:space="preserve">
+    <value>Contate-nos</value>
+  </data>
+  <data name="TITLE_COUNTRY_AVALIABLE" xml:space="preserve">
+    <value>{0} países disponíveis.</value>
+  </data>
+  <data name="TITLE_COUNTRY_TWOPOINTS" xml:space="preserve">
+    <value>País:</value>
+  </data>
+  <data name="TITLE_CREATE_HOME" xml:space="preserve">
+    <value>Criar um lar</value>
+  </data>
+  <data name="TITLE_CREATE_SCHEDULE_NOW" xml:space="preserve">
+    <value>Criar cronograma agora</value>
+  </data>
+  <data name="TITLE_CURRENT_PASSWORD_TWOPOINTS" xml:space="preserve">
+    <value>Senha atual:</value>
+  </data>
+  <data name="TITLE_DAY" xml:space="preserve">
+    <value>dia</value>
+  </data>
+  <data name="TITLE_DAYS" xml:space="preserve">
+    <value>dias</value>
+  </data>
+  <data name="TITLE_DEADLINE_PAYMENT_RENT_TWOPOINTS" xml:space="preserve">
+    <value>Dia limite para o pagamento do aluguel:</value>
+  </data>
+  <data name="TITLE_DECLINED" xml:space="preserve">
+    <value>Recusado!</value>
+  </data>
+  <data name="TITLE_DELETE" xml:space="preserve">
+    <value>Deletar</value>
+  </data>
+  <data name="TITLE_DELETE_ACCOUNT" xml:space="preserve">
+    <value>Deletar conta</value>
+  </data>
+  <data name="TITLE_DELETE_HOME" xml:space="preserve">
+    <value>Deletar lar</value>
+  </data>
+  <data name="TITLE_DETAILS" xml:space="preserve">
+    <value>Detalhes</value>
+  </data>
+  <data name="TITLE_DINING_ROOM" xml:space="preserve">
+    <value>Sala de jantar</value>
+  </data>
+  <data name="TITLE_DUEDATE_TWOPOINTS" xml:space="preserve">
+    <value>Data vencimento:</value>
+  </data>
+  <data name="TITLE_EDIT" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="TITLE_EMAIL_RECOVER_PASSAWORD" xml:space="preserve">
+    <value>Qual é o e-mail para recuperação de senha?</value>
+  </data>
+  <data name="TITLE_EMAIL_TWOPOINTS" xml:space="preserve">
+    <value>E-mail:</value>
+  </data>
+  <data name="TITLE_EMERGENCY_CONTACTS_TWOPOINTS" xml:space="preserve">
+    <value>Contatos de emergência:</value>
+  </data>
+  <data name="TITLE_ENTRY_DATE_TWOPOINTS" xml:space="preserve">
+    <value>Data de entrada:</value>
+  </data>
+  <data name="TITLE_FAMILYRELATIONSHIP_TWOPOINTS" xml:space="preserve">
+    <value>Parentesco:</value>
+  </data>
+  <data name="TITLE_FINANCES" xml:space="preserve">
+    <value>Finanças</value>
+  </data>
+  <data name="TITLE_FORGOT_PASSWORD" xml:space="preserve">
+    <value>Esqueceu sua senha?</value>
+  </data>
+  <data name="TITLE_FOR_SECURITY_REASONS_PASSWORD_AND_CODE_EMAIL" xml:space="preserve">
+    <value>Por questões de segurança, digite abaixo sua senha e o código que enviamos no seu e-mail para finalizarmos o processo.</value>
+  </data>
+  <data name="TITLE_FRIDAY_ABBREVIATED" xml:space="preserve">
+    <value>Sex</value>
+  </data>
+  <data name="TITLE_FRIENDS_AVALIABLE" xml:space="preserve">
+    <value>{0} amigos disponíveis.</value>
+  </data>
+  <data name="TITLE_FRIENDS_TASKS" xml:space="preserve">
+    <value>Tarefas dos amigos</value>
+  </data>
+  <data name="TITLE_GENERATING_CODE" xml:space="preserve">
+    <value>Gerando código ...</value>
+  </data>
+  <data name="TITLE_HAVE_NICE_DAY" xml:space="preserve">
+    <value>Tenha um ótimo dia,</value>
+  </data>
+  <data name="TITLE_HI" xml:space="preserve">
+    <value>Oi,</value>
+  </data>
+  <data name="TITLE_HOME_SWEET_HOME" xml:space="preserve">
+    <value>Lar, doce lar</value>
+  </data>
+  <data name="TITLE_HOMUAI_TOOL_NEW_WAY_ORGANIZE_HOME" xml:space="preserve">
+    <value>O Homuai é sua ferramenta e um novo jeito de organizar sua casa.</value>
+  </data>
+  <data name="TITLE_HOUSEWORK" xml:space="preserve">
+    <value>Tarefas de limpeza</value>
+  </data>
+  <data name="TITLE_ICONS_ILUSTRATIONS_USED" xml:space="preserve">
+    <value>Icones e ilustrações utilizadas</value>
+  </data>
+  <data name="TITLE_INFORMATION_NOT_SHARED_AND_SAVED_ENCRYPTION" xml:space="preserve">
+    <value>Sua informação é salva com criptografia e nos não vamos compartilhar com ninguem. Você pode editar ou excluir quando quiser.</value>
+  </data>
+  <data name="TITLE_ITISSAD_SEEYOUGO" xml:space="preserve">
+    <value>É triste ver você partir :((</value>
+  </data>
+  <data name="TITLE_ITS_GREAT_SEE_YOU_HERE" xml:space="preserve">
+    <value>É muito bom ver você aqui 😍</value>
+  </data>
+  <data name="TITLE_JOINED_ON" xml:space="preserve">
+    <value>Juntou-se em {0}</value>
+  </data>
+  <data name="TITLE_JOIN_HOME" xml:space="preserve">
+    <value>Participar de um lar</value>
+  </data>
+  <data name="TITLE_KILOGRAM" xml:space="preserve">
+    <value>Quilograma(s)</value>
+  </data>
+  <data name="TITLE_KITCHEN" xml:space="preserve">
+    <value>Cozinha</value>
+  </data>
+  <data name="TITLE_LAST_RECORD" xml:space="preserve">
+    <value>Último registro em: {0}</value>
+  </data>
+  <data name="TITLE_LAUNDRY" xml:space="preserve">
+    <value>Área de serviço</value>
+  </data>
+  <data name="TITLE_LEAVE_COMMENT_IF_YOU_WANTE" xml:space="preserve">
+    <value>Se quiser você pode deixar um comentário</value>
+  </data>
+  <data name="TITLE_LIVING_ROOM" xml:space="preserve">
+    <value>Sala de estar</value>
+  </data>
+  <data name="TITLE_LOGIN" xml:space="preserve">
+    <value>Entrar</value>
+  </data>
+  <data name="TITLE_LOGIN_TO_CONTINUE" xml:space="preserve">
+    <value>Faça login para continuar</value>
+  </data>
+  <data name="TITLE_LOGIN_WITH_FINGERPRINT_ACCESS" xml:space="preserve">
+    <value>Login com acesso por impressão digital</value>
+  </data>
+  <data name="TITLE_LOGOUT" xml:space="preserve">
+    <value>Sair</value>
+  </data>
+  <data name="TITLE_MANAGE_SCHEDULE" xml:space="preserve">
+    <value>Criar primeiro cronograma</value>
+  </data>
+  <data name="TITLE_MANUFACTURER_TWOPOINTS" xml:space="preserve">
+    <value>Fabricante:</value>
+  </data>
+  <data name="TITLE_MESSAGE" xml:space="preserve">
+    <value>Mensagem</value>
+  </data>
+  <data name="TITLE_MONDAY_ABBREVIATED" xml:space="preserve">
+    <value>Seg</value>
+  </data>
+  <data name="TITLE_MONTH" xml:space="preserve">
+    <value>mês</value>
+  </data>
+  <data name="TITLE_MONTHLYRENT_TWOPOINTS" xml:space="preserve">
+    <value>Valor do aluguel:</value>
+  </data>
+  <data name="TITLE_MONTHS" xml:space="preserve">
+    <value>mêses</value>
+  </data>
+  <data name="TITLE_MY_DATA" xml:space="preserve">
+    <value>Meus dados</value>
+  </data>
+  <data name="TITLE_MY_FOODS" xml:space="preserve">
+    <value>My foods</value>
+  </data>
+  <data name="TITLE_MY_FRIENDS" xml:space="preserve">
+    <value>My friends</value>
+  </data>
+  <data name="TITLE_MY_PROFILE" xml:space="preserve">
+    <value>Minhas informações</value>
+  </data>
+  <data name="TITLE_MY_TASKS" xml:space="preserve">
+    <value>Minhas tarefas</value>
+  </data>
+  <data name="TITLE_NAME_TWOPOINTS" xml:space="preserve">
+    <value>Nome:</value>
+  </data>
+  <data name="TITLE_NEIGHBORHOOD" xml:space="preserve">
+    <value>O Bairro</value>
+  </data>
+  <data name="TITLE_NEIGHBORHOOD_TWOPOINTS" xml:space="preserve">
+    <value>Bairro:</value>
+  </data>
+  <data name="TITLE_NEW_ITEM" xml:space="preserve">
+    <value>Novo item</value>
+  </data>
+  <data name="TITLE_NEW_PASSWORD_TWOPOINTS" xml:space="preserve">
+    <value>Nova senha:</value>
+  </data>
+  <data name="TITLE_NEXT" xml:space="preserve">
+    <value>Próximo</value>
+  </data>
+  <data name="TITLE_NOT" xml:space="preserve">
+    <value>não</value>
+  </data>
+  <data name="TITLE_NOTIFY_ORDER_ARRIVED" xml:space="preserve">
+    <value>Avisar que chegou uma encomenda</value>
+  </data>
+  <data name="TITLE_NOW_YOUR_PHONE_NUMBER" xml:space="preserve">
+    <value>Agora seu número de telefone</value>
+  </data>
+  <data name="TITLE_NO_COMMENTS" xml:space="preserve">
+    <value>Sem comentários</value>
+  </data>
+  <data name="TITLE_NO_RECORDS" xml:space="preserve">
+    <value>Nenhum registro</value>
+  </data>
+  <data name="TITLE_NO_RESPONSIBLE" xml:space="preserve">
+    <value>Sem responsáveis</value>
+  </data>
+  <data name="TITLE_NO_RESULTS_MATCHED_FILTER" xml:space="preserve">
+    <value>Seu filtro não encontrou nenhum resultado.</value>
+  </data>
+  <data name="TITLE_NO_TASKS" xml:space="preserve">
+    <value>Sem tarefas</value>
+  </data>
+  <data name="TITLE_NO_TASKS_FOR_THIS_MONTH" xml:space="preserve">
+    <value>Sem tarefa para este mês.</value>
+  </data>
+  <data name="TITLE_OFFICE" xml:space="preserve">
+    <value>Escritório</value>
+  </data>
+  <data name="TITLE_PACKAGE" xml:space="preserve">
+    <value>Pacote(s)</value>
+  </data>
+  <data name="TITLE_PASSWORD_CONFIRMATION_TWOPOINTS" xml:space="preserve">
+    <value>Confirmação de senha:</value>
+  </data>
+  <data name="TITLE_PASSWORD_TWOPOINTS" xml:space="preserve">
+    <value>Senha:</value>
+  </data>
+  <data name="TITLE_PHONENUMBERS" xml:space="preserve">
+    <value>Telefones</value>
+  </data>
+  <data name="TITLE_PHONENUMBER_1_TWOPOINTS" xml:space="preserve">
+    <value>Telefone 1:</value>
+  </data>
+  <data name="TITLE_PHONENUMBER_2_TWOPOINTS" xml:space="preserve">
+    <value>Telefone 2:</value>
+  </data>
+  <data name="TITLE_PHONENUMBER_TWOPOINTS" xml:space="preserve">
+    <value>Telefone:</value>
+  </data>
+  <data name="TITLE_PLACEHOLDER_LEAVE_YOUR_FEEDBACK" xml:space="preserve">
+    <value>(Opcional) Deixe seu feedback ...</value>
+  </data>
+  <data name="TITLE_PLEASE_LOGIN_AGAIN" xml:space="preserve">
+    <value>Por razões de segurança, faça login novamente.</value>
+  </data>
+  <data name="TITLE_PRIVACY_POLICY" xml:space="preserve">
+    <value>Política de privacidade</value>
+  </data>
+  <data name="TITLE_PRODUCTS_AVALIABLES" xml:space="preserve">
+    <value>{0} produtos disponíveis</value>
+  </data>
+  <data name="TITLE_PRODUCT_TWOPOINTS" xml:space="preserve">
+    <value>Produto:</value>
+  </data>
+  <data name="TITLE_QUANTITY_TWOPOINTS" xml:space="preserve">
+    <value>Quantidade:</value>
+  </data>
+  <data name="TITLE_RANDOM_ASSIGNMENT" xml:space="preserve">
+    <value>Atribuir tarefas aleatórias</value>
+  </data>
+  <data name="TITLE_RATE" xml:space="preserve">
+    <value>Avaliar</value>
+  </data>
+  <data name="TITLE_RATING" xml:space="preserve">
+    <value>Avaliação</value>
+  </data>
+  <data name="TITLE_RECOMMENDED_TWOPOINTS" xml:space="preserve">
+    <value>Recomendado:</value>
+  </data>
+  <data name="TITLE_REGISTER" xml:space="preserve">
+    <value>Cadastrar</value>
+  </data>
+  <data name="TITLE_REGISTER_NETWORK_INFORMATION" xml:space="preserve">
+    <value>Informações da rede Wi-fi (Opcional)</value>
+  </data>
+  <data name="TITLE_REGISTER_ROOM_CLEANING" xml:space="preserve">
+    <value>Registrar limpeza de cômodo</value>
+  </data>
+  <data name="TITLE_REMINDER_PERFORM_TASK" xml:space="preserve">
+    <value>Lembrete para realizar tarefas</value>
+  </data>
+  <data name="TITLE_REMIND_FRIEND_PERFORM_TASKS" xml:space="preserve">
+    <value>Lembrar amigo de realizar tarefas</value>
+  </data>
+  <data name="TITLE_REMOVE" xml:space="preserve">
+    <value>Remover</value>
+  </data>
+  <data name="TITLE_RETURN" xml:space="preserve">
+    <value>Voltar</value>
+  </data>
+  <data name="TITLE_ROOMS" xml:space="preserve">
+    <value>Comôdos</value>
+  </data>
+  <data name="TITLE_ROOMS_IN_THE_HOUSE" xml:space="preserve">
+    <value>Cômodos da casa</value>
+  </data>
+  <data name="TITLE_ROOM_CLEANED" xml:space="preserve">
+    <value>{0} limpo(a) :)</value>
+  </data>
+  <data name="TITLE_ROOM_TWOPOINTS" xml:space="preserve">
+    <value>Cômodo:</value>
+  </data>
+  <data name="TITLE_SATURDAY_ABBREVIATED" xml:space="preserve">
+    <value>Sáb</value>
+  </data>
+  <data name="TITLE_SAVE" xml:space="preserve">
+    <value>Salvar</value>
+  </data>
+  <data name="TITLE_SAVE_AND_NEW" xml:space="preserve">
+    <value>Salvar e novo</value>
+  </data>
+  <data name="TITLE_SCHEDULE_SETTING" xml:space="preserve">
+    <value>Configuração do cronograma</value>
+  </data>
+  <data name="TITLE_SEARCH_BY_NAME" xml:space="preserve">
+    <value>Busque por nome</value>
+  </data>
+  <data name="TITLE_SEE_MORE_DETAILS" xml:space="preserve">
+    <value>Ver mais detalhes</value>
+  </data>
+  <data name="TITLE_SELECT_CLEANING_DATE_TWO_POINT" xml:space="preserve">
+    <value>Selecione a data da limpeza:</value>
+  </data>
+  <data name="TITLE_SELECT_ROOMS_BELOW_TO_BE_CLEANED" xml:space="preserve">
+    <value>Selecione abaixo os cômodos para serem limpos.</value>
+  </data>
+  <data name="TITLE_SELECT_THOSE_RESPONSIBLE_CLEANING_ROOM_BELOW" xml:space="preserve">
+    <value>Selecione abaixo os responsáveis para limpar este cômodo.</value>
+  </data>
+  <data name="TITLE_SENDING_DATA" xml:space="preserve">
+    <value>Enviando dados ...</value>
+  </data>
+  <data name="TITLE_SENDING_QRCODE" xml:space="preserve">
+    <value>Enviando o QRCode ...</value>
+  </data>
+  <data name="TITLE_SEND_MESSAGE" xml:space="preserve">
+    <value>Enviar Mensagem</value>
+  </data>
+  <data name="TITLE_SET_AS_ADMINISTRATOR" xml:space="preserve">
+    <value>Definir como administrador</value>
+  </data>
+  <data name="TITLE_SHOPPING" xml:space="preserve">
+    <value>Shopping</value>
+  </data>
+  <data name="TITLE_SHOW_ME_THE_LINKS" xml:space="preserve">
+    <value>Mostre-me os links</value>
+  </data>
+  <data name="TITLE_STATE_TWOPOINTS" xml:space="preserve">
+    <value>Estado:</value>
+  </data>
+  <data name="TITLE_SUCCESS" xml:space="preserve">
+    <value>Sucesso :)</value>
+  </data>
+  <data name="TITLE_SUNDAY_ABBREVIATED" xml:space="preserve">
+    <value>Dom</value>
+  </data>
+  <data name="TITLE_TASKS" xml:space="preserve">
+    <value>Tarefas</value>
+  </data>
+  <data name="TITLE_TASKS_TWO_POINTS" xml:space="preserve">
+    <value>Tarefas:</value>
+  </data>
+  <data name="TITLE_TERMS_OF_USE" xml:space="preserve">
+    <value>Termos de Uso</value>
+  </data>
+  <data name="TITLE_THERE_ARE_NOT_CLEANING_RECORDS_THIS_DAY" xml:space="preserve">
+    <value>Não há registros de limpeza para este dia</value>
+  </data>
+  <data name="TITLE_THIS_OPERATION_WILL_EXPIRE" xml:space="preserve">
+    <value>Esta operação vai expirar em:</value>
+  </data>
+  <data name="TITLE_THURSDAY_ABBREVIATED" xml:space="preserve">
+    <value>Qui</value>
+  </data>
+  <data name="TITLE_TIME_EXPIRED_TRY_AGAIN" xml:space="preserve">
+    <value>O tempo expirou. Por favor, tente novamente.</value>
+  </data>
+  <data name="TITLE_TOBEGIN_TELL_EMAIL" xml:space="preserve">
+    <value>Para começar :) Me conte qual é o seu e-mail</value>
+  </data>
+  <data name="TITLE_TOTAL" xml:space="preserve">
+    <value>Total: {0}</value>
+  </data>
+  <data name="TITLE_TOUCH_SCREEN_TO_FOCUS" xml:space="preserve">
+    <value>Toque na tela para focar.</value>
+  </data>
+  <data name="TITLE_TO_FINISH_PASSWORD" xml:space="preserve">
+    <value>Para finalizar. A sua senha</value>
+  </data>
+  <data name="TITLE_TUESDAY_ABBREVIATED" xml:space="preserve">
+    <value>Ter</value>
+  </data>
+  <data name="TITLE_TYPE_TWOPOINTS" xml:space="preserve">
+    <value>Tipo:</value>
+  </data>
+  <data name="TITLE_UNITY" xml:space="preserve">
+    <value>Unidade(s)</value>
+  </data>
+  <data name="TITLE_UPDATING_TASKS" xml:space="preserve">
+    <value>Atualizando tarefas</value>
+  </data>
+  <data name="TITLE_USE_YOUR_FIGERPRINT_TO_LOGIN" xml:space="preserve">
+    <value>Você pode entrar utilizando sua impressão digital. Clique aqui :)</value>
+  </data>
+  <data name="TITLE_VALIDATING_OPERATION" xml:space="preserve">
+    <value>Validando operação ...</value>
+  </data>
+  <data name="TITLE_VERSION" xml:space="preserve">
+    <value>Versão:</value>
+  </data>
+  <data name="TITLE_VIEW_FULL_HISTORY" xml:space="preserve">
+    <value>Visualizar histórico completo</value>
+  </data>
+  <data name="TITLE_WAITING_FOR_ADMINISTRATOR" xml:space="preserve">
+    <value>Aguardando o Administrador ...</value>
+  </data>
+  <data name="TITLE_WARMING_UP_ENGINES" xml:space="preserve">
+    <value>Aquecendo os motores ...</value>
+  </data>
+  <data name="TITLE_WEDNESDAY_ABBREVIATED" xml:space="preserve">
+    <value>Qua</value>
+  </data>
+  <data name="TITLE_WELCOME" xml:space="preserve">
+    <value>Bem vindo :)</value>
+  </data>
+  <data name="TITLE_WE_LOVE_HEAR_FROM_YOU" xml:space="preserve">
+    <value>Nos amamos ouvir você.</value>
+  </data>
+  <data name="TITLE_WHAT_THINK_CLEANING" xml:space="preserve">
+    <value>O que achou da limpeza?</value>
+  </data>
+  <data name="TITLE_WHICH_ARE_THEY" xml:space="preserve">
+    <value>Quais são?</value>
+  </data>
+  <data name="TITLE_WHY_NEED_FILL_THIS_INFORMATION" xml:space="preserve">
+    <value>Por que preciso preencher esta informação?</value>
+  </data>
+  <data name="TITLE_YEAR" xml:space="preserve">
+    <value>ano</value>
+  </data>
+  <data name="TITLE_YEARS" xml:space="preserve">
+    <value>anos</value>
+  </data>
+  <data name="TITLE_YES_IAMSURE" xml:space="preserve">
+    <value>Sim, eu tenho certeza</value>
+  </data>
+  <data name="TITLE_YOUR_EVALUATION" xml:space="preserve">
+    <value>Sua avaliação</value>
+  </data>
+  <data name="TITLE_YOUR_NAME" xml:space="preserve">
+    <value>O seu nome ;)</value>
+  </data>
+  <data name="TITLE_ZIPCODE_TWOPOINTS" xml:space="preserve">
+    <value>CEP:</value>
+  </data>
+  <data name="UNITED_KINGDOM" xml:space="preserve">
+    <value>Reino Unido</value>
+  </data>
+  <data name="UNITED_STATES" xml:space="preserve">
+    <value>Estados Unidos</value>
+  </data>
+</root>

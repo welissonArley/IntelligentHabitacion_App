@@ -1,25 +1,40 @@
-name: .NET Build
+name: Build Project
 
-on:
-  push:
-    branches: [ master, develop ]
-  pull_request:
-    branches: [ master, develop ]
+on: push
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
+    env:
+      ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+      buildConfiguration: 'Release'
+      SolutionPath: 'Homuai.sln'
+    
+    runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1.x
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore
-    - name: Run Test
-      run: dotnet test --no-build --verbosity normal
+    - name: Checkout
+      uses: actions/checkout@v2
+    
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1
+    
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.2
+      
+    - name: Clean Solution
+      run: msbuild.exe ${{ env.SolutionPath }} /t:Clean /p:configuration=${{ env.buildConfiguration }}
+      
+    - name: Restore Packages
+      run: nuget restore ${{ env.SolutionPath }}
+      
+    - name: Build Solution
+      run: msbuild.exe ${{ env.SolutionPath }} /restore /t:Build /p:ContinuousIntegrationBuild=true /p:Deterministic=false /p:Configuration=${{ env.buildConfiguration }}
+      
+    - name: Run Validators Test
+      run: dotnet test tests\Backend\Validators.Test
+      
+    - name: Run UseCases Test
+      run: dotnet test tests\Backend\UseCases.Test
+      
+    - name: Run WebApi Test
+      run: dotnet test tests\Backend\WebApi.Test

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:Homuai.App"
+             xmlns:templateCard="clr-namespace:Homuai.App.Views.Templates.CardIlustrationOptions"
+             xmlns:templateHeader="clr-namespace:Homuai.App.Views.Templates.Header"
+             FlowDirection="LeftToRight"
+             x:Name="UserWithoutPartOfHomeContentPage"
+             x:Class="Homuai.App.Views.View.Dashboard.NotPartOfHome.UserWithoutPartOfHomePageDetail"
+             Title=" ">
+    <ScrollView>
+        <StackLayout Spacing="0">
+            <templateHeader:HeaderWithGirlReading x:Name="HeaderGirlReading"></templateHeader:HeaderWithGirlReading>
+
+            <Grid Margin="20,30,20,20" ColumnDefinitions="*,*" ColumnSpacing="30" RowSpacing="30" x:Name="GridCards">
+                <templateCard:CardIlustrationOptions Grid.Column="0" Grid.Row="0" TappedCardCommand="{Binding Path=BindingContext.CardJoinHomeTapped, Source={x:Reference Name=UserWithoutPartOfHomeContentPage}}" Ilustration="IlustrationFriendsSharingHome" TitleCard="{x:Static resourceText:ResourceText.TITLE_JOIN_HOME}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_JOIN_HOME}"></templateCard:CardIlustrationOptions>
+                <templateCard:CardIlustrationOptions Grid.Column="1" Grid.Row="0" TappedCardCommand="{Binding Path=BindingContext.CardCreateHomeTapped, Source={x:Reference Name=UserWithoutPartOfHomeContentPage}}" Ilustration="IlustrationCreateHome" TitleCard="{x:Static resourceText:ResourceText.TITLE_CREATE_HOME}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_CREATE_HOME}"></templateCard:CardIlustrationOptions>
+                <templateCard:CardIlustrationOptions Grid.Column="0" Grid.Row="1" TappedCardCommand="{Binding Path=BindingContext.CardMyInformationTapped, Source={x:Reference Name=UserWithoutPartOfHomeContentPage}}" Ilustration="IlustrationMyInformation" TitleCard="{x:Static resourceText:ResourceText.TITLE_MY_PROFILE}" DescriptionCard="{x:Static resourceText:ResourceText.DESCRIPTION_MY_DATA}"></templateCard:CardIlustrationOptions>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

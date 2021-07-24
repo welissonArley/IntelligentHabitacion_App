@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="2" android:versionName="2.0" package="com.id1tech.homuai.app" android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher_round" android:installLocation="auto">
+	<uses-sdk android:minSdkVersion="23" android:targetSdkVersion="30" />
+	<application android:label="Homuai" android:icon="@mipmap/ic_launcher" android:supportsRtl="true">
+		<meta-data android:name="com.onesignal.NotificationAccentColor.DEFAULT" android:value="FEBF3B" />
+		<receiver android:name="com.onesignal.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+			<intent-filter>
+				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
+				<category android:name="com.id1tech.homuai.app" />
+			</intent-filter>
+		</receiver>
+	</application>
+	<uses-permission android:name="android.permission.USE_FINGERPRINT" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.CAMERA" />
+	<permission android:name="com.id1tech.homuai.app.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+	<uses-permission android:name="com.id1tech.homuai.app.permission.C2D_MESSAGE" />
+</manifest>

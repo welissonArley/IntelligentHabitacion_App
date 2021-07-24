@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:Homuai.App"
+             xmlns:customcontrol="clr-namespace:Homuai.App.CustomControl"
+             x:Class="Homuai.App.Views.Templates.Skeleton.CalendarSkeleton">
+    <ContentView.Content>
+        <StackLayout>
+            <StackLayout Margin="0,10,0,20" Orientation="Horizontal">
+                <customcontrol:SkeletonView HorizontalOptions="StartAndExpand" WidthRequest="130" HeightRequest="16"></customcontrol:SkeletonView>
+                <StackLayout Orientation="Horizontal">
+                    <ImageButton Source="{AppThemeBinding Light=IconSquareDirection, Dark=IconSquareDirection_darkmode}" HeightRequest="25" WidthRequest="25" Rotation="90"/>
+                    <ImageButton Source="{AppThemeBinding Light=IconSquareDirection, Dark=IconSquareDirection_darkmode}" HeightRequest="25" WidthRequest="25" Margin="15,0,0,0" Rotation="270"/>
+                </StackLayout>
+            </StackLayout>
+            <Grid ColumnSpacing="1" x:Name="DaysContent" RowDefinitions="17,1,40,40,40,40,40,40"
+                ColumnDefinitions="*,*,*,*,*,*,*">
+
+                <Label HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0" Text="{x:Static resourceText:ResourceText.TITLE_SUNDAY_ABBREVIATED}" FontSize="14" TextColor="{x:StaticResource GrayDefault}" Style="{x:StaticResource LabelLight}"></Label>
+                <Label HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="1" Text="{x:Static resourceText:ResourceText.TITLE_MONDAY_ABBREVIATED}" FontSize="14" TextColor="{x:StaticResource GrayDefault}" Style="{x:StaticResource LabelLight}"></Label>
+                <Label HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="2" Text="{x:Static resourceText:ResourceText.TITLE_TUESDAY_ABBREVIATED}" FontSize="14" TextColor="{x:StaticResource GrayDefault}" Style="{x:StaticResource LabelLight}"></Label>
+                <Label HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="3" Text="{x:Static resourceText:ResourceText.TITLE_WEDNESDAY_ABBREVIATED}" FontSize="14" TextColor="{x:StaticResource GrayDefault}" Style="{x:StaticResource LabelLight}"></Label>
+                <Label HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="4" Text="{x:Static resourceText:ResourceText.TITLE_THURSDAY_ABBREVIATED}" FontSize="14" TextColor="{x:StaticResource GrayDefault}" Style="{x:StaticResource LabelLight}"></Label>
+                <Label HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="5" Text="{x:Static resourceText:ResourceText.TITLE_FRIDAY_ABBREVIATED}" FontSize="14" TextColor="{x:StaticResource GrayDefault}" Style="{x:StaticResource LabelLight}"></Label>
+                <Label HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="6" Text="{x:Static resourceText:ResourceText.TITLE_SATURDAY_ABBREVIATED}" FontSize="14" TextColor="{x:StaticResource GrayDefault}" Style="{x:StaticResource LabelLight}"></Label>
+
+                <BoxView Color="{StaticResource GrayDefault}" Grid.Row="1" Grid.ColumnSpan="7"></BoxView>
+
+                <customcontrol:SkeletonView Grid.Column="5" Grid.Row="2" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView Grid.Column="6" Grid.Row="2" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView Grid.Column="0" Grid.Row="3" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView Grid.Column="1" Grid.Row="3" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView Grid.Column="2" Grid.Row="3" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView Grid.Column="3" Grid.Row="3" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView Grid.Column="4" Grid.Row="3" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView Grid.Column="5" Grid.Row="3" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView Grid.Column="6" Grid.Row="3" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView Grid.Column="0" Grid.Row="4" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView Grid.Column="1" Grid.Row="4" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView Grid.Column="2" Grid.Row="4" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView Grid.Column="3" Grid.Row="4" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView Grid.Column="4" Grid.Row="4" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView Grid.Column="5" Grid.Row="4" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView Grid.Column="6" Grid.Row="4" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView Grid.Column="0" Grid.Row="5" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView Grid.Column="1" Grid.Row="5" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView Grid.Column="2" Grid.Row="5" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView Grid.Column="3" Grid.Row="5" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView Grid.Column="4" Grid.Row="5" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView Grid.Column="5" Grid.Row="5" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView Grid.Column="6" Grid.Row="5" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView Grid.Column="0" Grid.Row="6" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView Grid.Column="1" Grid.Row="6" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView Grid.Column="2" Grid.Row="6" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView Grid.Column="3" Grid.Row="6" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView Grid.Column="4" Grid.Row="6" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView Grid.Column="5" Grid.Row="6" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView Grid.Column="6" Grid.Row="6" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+                <customcontrol:SkeletonView Grid.Column="0" Grid.Row="7" HorizontalOptions="CenterAndExpand" WidthRequest="20" HeightRequest="15"></customcontrol:SkeletonView>
+            </Grid>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

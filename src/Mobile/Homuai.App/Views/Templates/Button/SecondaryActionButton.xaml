@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Homuai.App.Views.Templates.Button.SecondaryActionButton">
+    <ContentView.Content>
+        <Grid ColumnSpacing="30" x:Name="GridCard" ColumnDefinitions="Auto, *" RowDefinitions="40">
+            <Button x:Name="Button" Clicked="Button_OnTapped" Grid.Column="0" HeightRequest="40" Grid.Row="0" Style="{x:StaticResource ButtonSecondaryActionDefault}" Padding="15,0,15,0"></Button>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:Homuai.App"
+             xmlns:customControl="clr-namespace:Homuai.App.CustomControl"
+             xmlns:template="clr-namespace:Homuai.App.Views.Templates.Information"
+             xmlns:loading="clr-namespace:Homuai.App.Views.Templates.Loading"
+             xmlns:component="clr-namespace:Homuai.App.Views.Templates.Search"
+             xmlns:skeleton="clr-namespace:Homuai.App.Views.Templates.Skeleton"
+             xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+             Title="{x:Static resourceText:ResourceText.TITLE_MY_FOODS}"
+             x:Name="MyFoodsContentPage"
+             x:Class="Homuai.App.Views.View.MyFoods.MyFoodsPage">
+    <ContentPage.Content>
+        <StackLayout Style="{x:StaticResource MarginStyleDefault}" xct:StateLayout.CurrentState="{Binding CurrentState}">
+            <xct:StateLayout.StateViews>
+                <xct:StateView StateKey="Saving">
+                    <xct:StateView.Template>
+                        <DataTemplate>
+                            <loading:LoadingTemplate Text="{x:Static resourceText:ResourceText.TITLE_SENDING_DATA}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></loading:LoadingTemplate>
+                        </DataTemplate>
+                    </xct:StateView.Template>
+                </xct:StateView>
+                <xct:StateView StateKey="Success">
+                    <xct:StateView.Template>
+                        <DataTemplate>
+                            <template:SucessTemplate HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></template:SucessTemplate>
+                        </DataTemplate>
+                    </xct:StateView.Template>
+                </xct:StateView>
+                <xct:StateView StateKey="Loading">
+                    <xct:StateView.Template>
+                        <DataTemplate>
+                            <StackLayout>
+                                <skeleton:LabelAmountAvaliableSkeleton Margin="0,20,0,0"></skeleton:LabelAmountAvaliableSkeleton>
+                                <component:SearchByNameComponent IsEnabled="False"></component:SearchByNameComponent>
+                                <Label Margin="0,30,0,0" Text="{x:Static resourceText:ResourceText.TITLE_MY_FOODS}" FontSize="14" Style="{x:StaticResource LabelSemiBold}" TextColor="{x:StaticResource GrayDefault}"></Label>
+
+                                <skeleton:MyFoodsComponentSkeleton></skeleton:MyFoodsComponentSkeleton>
+                                <skeleton:MyFoodsComponentSkeleton></skeleton:MyFoodsComponentSkeleton>
+                                <skeleton:MyFoodsComponentSkeleton></skeleton:MyFoodsComponentSkeleton>
+                                <skeleton:MyFoodsComponentSkeleton></skeleton:MyFoodsComponentSkeleton>
+                            </StackLayout>
+                        </DataTemplate>
+                    </xct:StateView.Template>
+                </xct:StateView>
+                <xct:StateView StateKey="Empty" VerticalOptions="FillAndExpand">
+                    <xct:StateView.Template>
+                        <DataTemplate>
+                            <Grid VerticalOptions="FillAndExpand">
+                                <StackLayout>
+                                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Spacing="-3">
+                                        <Image Source="IlustrationMyFood" HeightRequest="300"></Image>
+                                        <customControl:LabelJustifyText Margin="0,40,0,0" Text="{x:Static resourceText:ResourceText.PHRASE_YOU_HAVENT_ADDED_FOODS}" Style="{x:StaticResource LabelLight}" FontSize="18"></customControl:LabelJustifyText>
+                                    </StackLayout>
+
+                                    <Button VerticalOptions="End" Text="{x:Static resourceText:ResourceText.TITLE_ADD_PRODUCT}" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding Path=BindingContext.AddNewItemCommand, Source={x:Reference Name=MyFoodsContentPage}}"></Button>
+                                </StackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </xct:StateView.Template>
+                </xct:StateView>
+            </xct:StateLayout.StateViews>
+
+            <Label Margin="0,20,0,0" Text="{Binding FoodsList.Count, StringFormat={x:Static resourceText:ResourceText.TITLE_PRODUCTS_AVALIABLES}}" FontSize="12" Style="{x:StaticResource LabelThin}"></Label>
+            <component:SearchByNameComponent EntryTextChanged="{Binding Path=BindingContext.SearchTextChangedCommand, Source={x:Reference Name=MyFoodsContentPage}}"></component:SearchByNameComponent>
+            <CollectionView Margin="0,30,0,20" VerticalOptions="FillAndExpand" ItemsSource="{Binding FoodsList}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <template:MyFoodsComponent Food="{Binding .}" TappedItemCommand="{Binding Path=BindingContext.TappedItemCommand, Source={x:Reference Name=MyFoodsContentPage}}" TappedChangeQuantityCommand="{Binding Path=BindingContext.TappedChangeQuantityCommand, Source={x:Reference Name=MyFoodsContentPage}}"></template:MyFoodsComponent>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.EmptyView>
+                    <ContentView>
+                        <template:EmptyTemplate></template:EmptyTemplate>
+                    </ContentView>
+                </CollectionView.EmptyView>
+            </CollectionView>
+            <Button Text="{x:Static resourceText:ResourceText.TITLE_ADD_PRODUCT}" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding AddNewItemCommand}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

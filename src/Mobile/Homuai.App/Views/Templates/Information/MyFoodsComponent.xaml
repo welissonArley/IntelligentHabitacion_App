@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Homuai.App.Views.Templates.Information.MyFoodsComponent">
+    <ContentView.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Item_Tapped"></TapGestureRecognizer>
+            </StackLayout.GestureRecognizers>
+            <StackLayout HorizontalOptions="FillAndExpand" Margin="0,10,5,10" Spacing="-3">
+                <Label x:Name="DueDateController" IsVisible="False"></Label>
+                <Label x:Name="Product" Style="{x:StaticResource LabelMedium}" FontSize="15">
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference DueDateController}, Path=Text}" Value="0">
+                            <Setter Property="TextColor" Value="{x:StaticResource RedDefault}"></Setter>
+                            <Setter Property="Style" Value="{x:StaticResource LabelBold}"></Setter>
+                        </DataTrigger>
+                        <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference DueDateController}, Path=Text}" Value="1">
+                            <Setter Property="TextColor" Value="{x:StaticResource YellowDefault}"></Setter>
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                        <Label x:Name="Description" Margin="0,2,0,0" Style="{x:StaticResource LabelMedium}" FontSize="12" TextColor="{x:StaticResource GrayDefault}">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference DueDateController}, Path=Text}" Value="0">
+                                    <Setter Property="TextColor" Value="{x:StaticResource RedDefault}"></Setter>
+                                    <Setter Property="Style" Value="{x:StaticResource LabelBold}"></Setter>
+                                </DataTrigger>
+                                <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference DueDateController}, Path=Text}" Value="1">
+                                    <Setter Property="TextColor" Value="{x:StaticResource YellowDefault}"></Setter>
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                    </StackLayout>
+                    <Grid HorizontalOptions="End" ColumnSpacing="15" VerticalOptions="CenterAndExpand" RowDefinitions="20" ColumnDefinitions="30,30">
+                        <Button Grid.Row="0" Grid.Column="0" Text="-1" BackgroundColor="Transparent" BorderWidth="2" BorderColor="{x:StaticResource RedDefault}" TextColor="{x:StaticResource RedDefault}" CornerRadius="7" FontSize="12" Padding="0" Clicked="Button_SubtractOne"></Button>
+                        <Button Grid.Row="0" Grid.Column="1" Text="+1" BackgroundColor="Transparent" BorderWidth="2" BorderColor="{x:StaticResource GreenDefault}" TextColor="{x:StaticResource GreenDefault}" CornerRadius="7" FontSize="12" Padding="0" Clicked="Button_AddOne"></Button>
+                    </Grid>
+                </StackLayout>
+                <BoxView BackgroundColor="{x:StaticResource GrayDefault}" HeightRequest="0.2" Opacity="0.5" Margin="0,10,0,0"></BoxView>
+            </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

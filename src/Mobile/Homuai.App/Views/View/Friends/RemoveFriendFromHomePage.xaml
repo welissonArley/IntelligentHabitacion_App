@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:Homuai.App"
+             xmlns:customControl="clr-namespace:Homuai.App.CustomControl"
+             xmlns:button="clr-namespace:Homuai.App.Views.Templates.Button"
+             xmlns:informations="clr-namespace:Homuai.App.Views.Templates.Information"
+             xmlns:loading="clr-namespace:Homuai.App.Views.Templates.Loading"
+             xmlns:templateInputTextWithLabel="clr-namespace:Homuai.App.Views.Templates.TextWithLabel"
+             xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+             x:Name="RemoveFriendFromHomeContentPage"
+             x:Class="Homuai.App.Views.View.Friends.RemoveFriendFromHomePage">
+    <ContentPage.Content>
+        <StackLayout Style="{x:StaticResource MarginStyleDefault}" xct:StateLayout.CurrentState="{Binding CurrentState}" xct:StateLayout.CurrentCustomStateKey="{Binding CustomState}">
+            <xct:StateLayout.StateViews>
+                <xct:StateView StateKey="Saving">
+                    <xct:StateView.Template>
+                        <DataTemplate>
+                            <loading:LoadingTemplate Text="{x:Static resourceText:ResourceText.TITLE_SENDING_DATA}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></loading:LoadingTemplate>
+                        </DataTemplate>
+                    </xct:StateView.Template>
+                </xct:StateView>
+                <xct:StateView StateKey="Success">
+                    <xct:StateView.Template>
+                        <DataTemplate>
+                            <informations:SucessTemplate HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></informations:SucessTemplate>
+                        </DataTemplate>
+                    </xct:StateView.Template>
+                </xct:StateView>
+                <xct:StateView StateKey="Custom" CustomStateKey="ConfirmAction" VerticalOptions="FillAndExpand">
+                    <StackLayout>
+                        <customControl:LabelJustifyText Margin="0,40,0,0" Text="{x:Static resourceText:ResourceText.TITLE_FOR_SECURITY_REASONS_PASSWORD_AND_CODE_EMAIL}" FontSize="22" Style="{x:StaticResource LabelSemiBold}"></customControl:LabelJustifyText>
+                        <templateInputTextWithLabel:InputTextWithLabelComponent BindingEntry="{Binding Path=BindingContext.Code, Source={x:Reference Name=RemoveFriendFromHomeContentPage}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_CODE_RECEIVED_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_CODE_RECEIVED}" IsPassword="False"></templateInputTextWithLabel:InputTextWithLabelComponent>
+                        <templateInputTextWithLabel:InputTextWithLabelComponent BindingEntry="{Binding Path=BindingContext.Password, Source={x:Reference Name=RemoveFriendFromHomeContentPage}}" TopMargin="True" LabelTitle="{x:Static resourceText:ResourceText.TITLE_PASSWORD_TWOPOINTS}" PlaceHolderText="{x:Static resourceText:ResourceText.PLACEHOLDER_PASSWORD}" IsPassword="True"></templateInputTextWithLabel:InputTextWithLabelComponent>
+
+                        <Button Command="{Binding Path=BindingContext.ConfirmRemoveFriendCommand, Source={x:Reference Name=RemoveFriendFromHomeContentPage}}" Text="{x:Static resourceText:ResourceText.TITLE_CONCLUDE}" Style="{x:StaticResource ButtonDangerActionDefault}" VerticalOptions="EndAndExpand"></Button>
+                    </StackLayout>
+                </xct:StateView>
+            </xct:StateLayout.StateViews>
+
+            <StackLayout VerticalOptions="FillAndExpand">
+                <customControl:LabelJustifyText>
+                    <customControl:LabelJustifyText.FormattedText>
+                        <FormattedString>
+                            <Span FontFamily="{DynamicResource FontFamilyRalewayBold}" Text="{Binding Model.Name}" TextColor="{x:StaticResource GreenDefault}" FontSize="22"></Span>
+                            <Span Text=" " FontSize="22"></Span>
+                            <Span Text="{x:Static resourceText:ResourceText.DESCRIPTION_ACTION_REMOVE_FRIEND_FROM_HOME}" TextColor="{AppThemeBinding Light=Black, Dark=White}" FontSize="22" FontFamily="{DynamicResource FontFamilyRalewaySemiBold}"></Span>
+                        </FormattedString>
+                    </customControl:LabelJustifyText.FormattedText>
+                </customControl:LabelJustifyText>
+
+                <StackLayout VerticalOptions="EndAndExpand">
+                    <button:ConfirmDangerActionButton TitleButton="{x:Static resourceText:ResourceText.TITLE_YES_IAMSURE}" TappedButtonCommand="{Binding RequestCodeCommand}"></button:ConfirmDangerActionButton>
+                    <Button Margin="0,50,0,0" Style="{x:StaticResource ButtonYellowDefault}" Text="{x:Static resourceText:ResourceText.TITLE_CANCEL}" Command="{Binding CancelCommand}"></Button>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:Homuai.App"
+             xmlns:messier16="clr-namespace:Messier16.Forms.Controls;assembly=Messier16.Forms.Controls"
+             x:Class="Homuai.App.Views.Templates.Information.TaskDetailsRateComponent">
+    <ContentView.Content>
+        <StackLayout Margin="0,15,0,0">
+            <Label x:Name="UserLabel" FontSize="13"></Label>
+
+            <StackLayout x:Name="ContentShowRateDetails" Orientation="Horizontal" Margin="0,5,0,0">
+                <Label Text="{x:Static resourceText:ResourceText.TITLE_AVERAGE_RATE}" HorizontalOptions="FillAndExpand" TextColor="{x:StaticResource GrayDefault}" Style="{x:StaticResource LabelThin}" FontSize="14"></Label>
+                <Label x:Name="LabelWithoutRate" HorizontalOptions="EndAndExpand" Text="-" TextColor="{x:StaticResource YellowDefault}" Style="{x:StaticResource LabelBold}" FontSize="14"></Label>
+                <messier16:RatingBar x:Name="RatingStars" HorizontalOptions="FillAndExpand" IsEnabled="False" WidthRequest="10" FilledImage="IconStarFilled" Image="IconStar" MaxRating="5" FillColor="{x:StaticResource YellowDefault}" HeightRequest="15"></messier16:RatingBar>
+            </StackLayout>
+
+            <BoxView HeightRequest="0.5" Color="{x:StaticResource GrayDefault}" Opacity="0.5"></BoxView>
+
+            <Button x:Name="ButtonToRate" Clicked="ButtonRateTask_Clicked" Text="{x:Static resourceText:ResourceText.TITLE_RATE}" Style="{x:StaticResource ButtonYellowDefault}" CornerRadius="0"></Button>
+
+            <Button HorizontalOptions="End" Clicked="ButtonSeeDetails_Clicked" x:Name="SeeDetailsButton" Text="{x:Static resourceText:ResourceText.TITLE_DETAILS}" CornerRadius="0" BackgroundColor="Transparent" TextColor="{x:StaticResource GreenDefault}" Padding="25,0,0,0" HeightRequest="30"></Button>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

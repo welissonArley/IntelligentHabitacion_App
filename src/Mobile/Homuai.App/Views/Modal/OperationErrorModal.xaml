@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:customControl="clr-namespace:Homuai.App.CustomControl"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 BackgroundColor="#BE3232"
+                 x:Class="Homuai.App.Views.Modal.OperationErrorModal">
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Grid.Row="0">
+        <Image Source="IconError" HeightRequest="150" WidthRequest="150"></Image>
+        <customControl:LabelJustifyText Margin="0,20,0,0" FontSize="24" x:Name="LabelText" TextColor="White" Style="{x:StaticResource LabelBold}" HorizontalOptions="CenterAndExpand"></customControl:LabelJustifyText>
+    </StackLayout>
+</pages:PopupPage>

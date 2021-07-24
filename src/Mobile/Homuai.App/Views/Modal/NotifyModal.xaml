@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:customControl="clr-namespace:Homuai.App.CustomControl"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 BackgroundColor="{x:StaticResource YellowDefault}"
+                 x:Class="Homuai.App.Views.Modal.NotifyModal">
+    <StackLayout>
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="20,0,20,0">
+            <Image Source="IconNotification" HeightRequest="150" WidthRequest="150"></Image>
+            <Label x:Name="LabelTitle" Style="{x:StaticResource LabelExtraBold}" FontSize="18" HorizontalOptions="CenterAndExpand" Margin="0,40,0,0"></Label>
+            <customControl:LabelJustifyText Margin="0,40,0,0" FontSize="24" x:Name="LabelMessage" TextColor="White" Style="{x:StaticResource LabelMedium}" HorizontalOptions="CenterAndExpand"></customControl:LabelJustifyText>
+        </StackLayout>
+        <Grid Margin="0,0,20,30" ColumnDefinitions="*,*">
+            <Button Text="Ok" VerticalOptions="End" Grid.Column="1" Style="{x:StaticResource ButtonYellowDefault}" BorderColor="White" BorderWidth="2" Clicked="OnButton_Clicked"></Button>
+        </Grid>
+    </StackLayout>
+</pages:PopupPage>

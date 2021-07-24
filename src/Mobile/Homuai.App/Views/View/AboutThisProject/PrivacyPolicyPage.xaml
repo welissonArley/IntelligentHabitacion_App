@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:Homuai.App"
+             xmlns:customControl="clr-namespace:Homuai.App.CustomControl"
+             x:Class="Homuai.App.Views.View.AboutThisProject.PrivacyPolicyPage">
+    <ContentPage.Content>
+        <ScrollView Margin="0,0,0,30">
+            <StackLayout Style="{StaticResource MarginStyleDefault}">
+                <Label Text="{x:Static resourceText:ResourceText.TITLE_PRIVACY_POLICY}" Style="{StaticResource LabelBold}" FontSize="18"></Label>
+
+                <customControl:LabelJustifyText Margin="0,40,0,0" Text="Este projeto nasceu para te ajudar a manter organizada a sua casa juntamente com os amigos que moram com você e te proporcionar uma boa experiência vivendo em conjunto. Queremos evitar os problemas mais comuns que acontecem quando se mora com os amigos (inclusive que já aconteceu com a gente) para que assim você possa aproveitar a vida e aprender muito com eles." FontSize="12"></customControl:LabelJustifyText>
+
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="Para que este objetivo seja atingido, obviamente vamos solicitar algumas de suas informações, mas queremos deixar bem claro que solicitamos apenas dados necessários. Abaixo vamos te contar como utilizamos e protegemos seus dados." FontSize="12"></customControl:LabelJustifyText>
+
+                <Label Margin="0,20,0,0" Text="Dados pessoais" Style="{StaticResource LabelBold}" FontSize="16"></Label>
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="No momento em que você se cadastrar no aplicativo, nós te pedimos o seu nome, e-mail e telefone para identificarmos você; além disso, pedimos também no mínimo um contato de emergência, onde você deve preencher nome, telefone e grau de parentesco. Esta informação é importante para casos de urgência, nossa equipe espera que nunca aconteça, mas imagine um caso em que você precise ser levado ao hospital. Com as informações de contato de emergência preenchidas, um de seus companheiros de casa poderá entrar em contato com uma pessoa da sua confiança para contar o que aconteceu e até mesmo solicitar ajuda." FontSize="12"></customControl:LabelJustifyText>
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="Pode ficar tranquilo, informações como: o seu número de telefone e contatos de emergência somente são compartilhadas com os seus companheiros de casa dentro do aplicativo." FontSize="12"></customControl:LabelJustifyText>
+
+                <Label Margin="0,20,0,0" Text="Dados da casa" Style="{StaticResource LabelBold}" FontSize="16"></Label>
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="Após ter se cadastrado no aplicativo e passado pela etapa acima, você terá que escolher uma das seguinte opções:" FontSize="12"></customControl:LabelJustifyText>
+                <customControl:LabelJustifyText Margin="10,10,0,0" Text="1. Escolher fazer parte de uma casa;" FontSize="12"></customControl:LabelJustifyText>
+                <customControl:LabelJustifyText Margin="10,10,0,0" Text="2. Criar sua própria casa e convidar pessoas para serem seus companheiros." FontSize="12"></customControl:LabelJustifyText>
+
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="Caso você opte pela segunda opção, vamos te pedir mais alguns dados, desta vez referente ao local da casa que será compartilhado com seus amigos. Informações como endereço são necessárias, informações da rede wifi é opcional e os cômodos da casa serão obrigatórios caso você deseje utilizar a nossa opção de cronograma de limpeza." FontSize="12"></customControl:LabelJustifyText>
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="Lembre-se que estas informações são compartilhadas apenas com os seus companheiros de casa dentro do aplicativo, para facilitar o acesso rápido e fácil, melhor que ficar memorizando tanta informação, principalmente para os novatos da casa, certo?" FontSize="12"></customControl:LabelJustifyText>
+
+                <Label Margin="0,20,0,0" Text="Como coletamos seus dados?" Style="{StaticResource LabelBold}" FontSize="16"></Label>
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="Apenas no momento em que você se cadastrar no aplicativo." FontSize="12"></customControl:LabelJustifyText>
+
+                <Label Margin="0,20,0,0" Text="E se eu decidir encerrar minha conta?" Style="{StaticResource LabelBold}" FontSize="16"></Label>
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="Se você resolver nos deixar, vamos respeitar sua decisão e iremos excluir todos os seus dados da nossa base. Porém apenas o seu nome pode ficar salvo, caso aconteça o seguinte caso:" FontSize="12"></customControl:LabelJustifyText>
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="Imagine que de 2018 até 2019 você morava com alguns amigos na bela cidade de Paris. Porém no final de 2019 você decide mudar de cidade, morar sozinho e encerrar sua conta nos nossos serviços. Neste caso TUDO será excluído, porém o seu nome ficará disponível no sistema para que os seus ex-companheiros mantenham o histórico correto de tarefas de limpeza e dos pagamentos de aluguel, por exemplo. E quando o meu nome sai do sistema? Se os seus ex-companheiros de Paris decidirem excluir os registros da casa, o sistema irá excluir seu nome também." FontSize="12"></customControl:LabelJustifyText>
+
+                <Label Margin="0,20,0,0" Text="Meus dados podem ser compartilhados?" Style="{StaticResource LabelBold}" FontSize="16"></Label>
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="Seus dados e informações da casa em que você mora são compartilhados exclusivamente com as pessoas que moram com você, as pessoas que você adicionou no aplicativo como seus companheiros de casa. Pessoas externas ou empresas parceiras não terão acesso aos seus dados." FontSize="12"></customControl:LabelJustifyText>
+
+                <Label Margin="0,20,0,0" Text="Comunicação" Style="{StaticResource LabelBold}" FontSize="16"></Label>
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="Nós também não gostamos de spam, então você vai receber apenas e-mails da gente referentes a informações importantes, como troca de senha, confirmação de código para realizar operações dentro do aplicativo e até mesmo confirmação de exclusão de conta. Se receber outros emails de pessoas se passando pela gente, entre em contato para que possamos tomar providências." FontSize="12"></customControl:LabelJustifyText>
+
+                <Label Margin="0,20,0,0" Text="Como mantemos seus dados?" Style="{StaticResource LabelBold}" FontSize="16"></Label>
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="Todos os seus dados pessoais recebidos pela gente usam um canal seguro de transferência e são armazenados em um ambiente seguro utilizando Clouding Computing." FontSize="12"></customControl:LabelJustifyText>
+
+                <Label Margin="0,20,0,0" Text="Dúvidas?" Style="{StaticResource LabelBold}" FontSize="16"></Label>
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="Se tiver qualquer dúvida, é só entrar em contato com a gente que estamos prontos para te atender." FontSize="12"></customControl:LabelJustifyText>
+
+                <Label Margin="0,20,0,0" Text="Atualização" Style="{StaticResource LabelBold}" FontSize="16"></Label>
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="Podemos alterar informações disponibilizadas aqui, então pedimos que visite esta página periodicamente." FontSize="12"></customControl:LabelJustifyText>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

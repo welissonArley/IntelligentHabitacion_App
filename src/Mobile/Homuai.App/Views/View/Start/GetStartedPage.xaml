@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:Homuai.App"
+             x:Class="Homuai.App.Views.View.Start.GetStartedPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout VerticalOptions="FillAndExpand" Margin="20,100,20,0">
+                <Label Text="{x:Static resourceText:ResourceText.TITLE_ITS_GREAT_SEE_YOU_HERE}" FontSize="30" HorizontalOptions="StartAndExpand" Style="{x:StaticResource LabelMedium}"></Label>
+                <Label Text="{x:Static resourceText:ResourceText.TITLE_HOMUAI_TOOL_NEW_WAY_ORGANIZE_HOME}" FontSize="16" HorizontalOptions="StartAndExpand" Margin="0,25,0,0" Style="{x:StaticResource LabelLight}"></Label>
+            </StackLayout>
+
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0">
+                <Image Source="IlustrationWave" Aspect="AspectFill"></Image>
+
+                <Grid VerticalOptions="EndAndExpand" ColumnDefinitions="*,10,*" RowDefinitions="50" Margin="20,0,20,30">
+                    <Button Grid.Row="0" Grid.Column="0" CornerRadius="16" BorderColor="White" BorderWidth="2" TextColor="Black" BackgroundColor="{x:StaticResource YellowDefault}" Text="{x:Static resourceText:ResourceText.TITLE_REGISTER}" Command="{Binding RegisterCommand}"></Button>
+                    <Button Grid.Row="0" Grid.Column="2" CornerRadius="16" BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}" Text="{x:Static resourceText:ResourceText.TITLE_LOGIN}" TextColor="{AppThemeBinding Light=Black, Dark=White}" Command="{Binding LoginCommand}"></Button>
+                </Grid>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

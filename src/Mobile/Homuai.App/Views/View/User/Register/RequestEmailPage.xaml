@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resourceText="clr-namespace:Homuai.App"
+             xmlns:CustomEntry="clr-namespace:Homuai.App.CustomControl"
+             xmlns:loading="clr-namespace:Homuai.App.Views.Templates.Loading"
+             xmlns:templateStep="clr-namespace:Homuai.App.Views.Templates.Step"
+             xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+             x:Class="Homuai.App.Views.View.User.Register.RequestEmailPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem NavigationPage.BackButtonTitle="" NavigationPage.TitleIcon="" IconImageSource="IconQuestion" FlexLayout.AlignSelf="Center" Priority="0" Command="{Binding WhyINeedFillThisInformationCommand}"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Style="{x:StaticResource MarginStyleDefault}" xct:StateLayout.CurrentState="{Binding CurrentState}">
+            <xct:StateLayout.StateViews>
+                <xct:StateView StateKey="Saving">
+                    <xct:StateView.Template>
+                        <DataTemplate>
+                            <loading:LoadingTemplate Text="{x:Static resourceText:ResourceText.TITLE_CHECKING_EMAIL}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></loading:LoadingTemplate>
+                        </DataTemplate>
+                    </xct:StateView.Template>
+                </xct:StateView>
+            </xct:StateLayout.StateViews>
+
+            <templateStep:Steps AmountCompleteSteps="1" AmountIncompleteSteps="4"></templateStep:Steps>
+
+            <Label Text="{x:Static resourceText:ResourceText.TITLE_TOBEGIN_TELL_EMAIL}" Style="{x:StaticResource LabelTitle}"></Label>
+
+            <CustomEntry:EntryNoLine Text="{Binding Model.Email}" VerticalOptions="CenterAndExpand" Placeholder="{x:Static resourceText:ResourceText.PLACEHOLDER_EMAIL}" Keyboard="Email" ReturnCommand="{Binding NextCommand}"></CustomEntry:EntryNoLine>
+
+            <Button Text="{x:Static resourceText:ResourceText.TITLE_NEXT}" Style="{x:StaticResource ButtonYellowDefault}" Command="{Binding NextCommand}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
