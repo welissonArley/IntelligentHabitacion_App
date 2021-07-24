@@ -17,7 +17,7 @@ namespace Homuai.Api.Filter
         /// <param name="context"></param>
         public void OnException(ExceptionContext context)
         {
-            if (!((context.Exception as HomuaiException) is null))
+            if (context.Exception is HomuaiException)
                 HandleProjectException(context);
             else
                 ThrowUnknowError(context);
@@ -29,11 +29,11 @@ namespace Homuai.Api.Filter
         /// <param name="context"></param>
         private void HandleProjectException(ExceptionContext context)
         {
-            if (!(context.Exception as ErrorOnValidationException is null))
+            if (context.Exception is ErrorOnValidationException)
                 ThrowBadRequestValidation(context);
-            else if (!(context.Exception as NotFoundException is null))
+            else if (context.Exception is NotFoundException)
                 ThrowNotFound(context);
-            else if (!(context.Exception as InvalidLoginException is null))
+            else if (context.Exception is InvalidLoginException)
                 ThrowUnauthorized(context);
             else
                 ThrowBadRequest(context);
