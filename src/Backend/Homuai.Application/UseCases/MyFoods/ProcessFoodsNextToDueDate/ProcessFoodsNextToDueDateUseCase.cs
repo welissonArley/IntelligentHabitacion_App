@@ -4,6 +4,7 @@ using Homuai.Domain.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 
 namespace Homuai.Application.UseCases.MyFoods.ProcessFoodsNextToDueDate
@@ -159,10 +160,11 @@ namespace Homuai.Application.UseCases.MyFoods.ProcessFoodsNextToDueDate
 
         private async Task SendNotification(Domain.Entity.User user, Dictionary<string, string> titles, Dictionary<string, string> messages)
         {
-            var random = new Random();
+            var hours = RandomNumberGenerator.GetInt32(7, 12);
+            var minutes = RandomNumberGenerator.GetInt32(0, 59);
 
             var today = DateTime.Today.Date;
-            var ts = new TimeSpan(random.Next(7, 11), random.Next(0, 59), 0);
+            var ts = new TimeSpan(hours, minutes, seconds: 0);
 
             await _pushNotificationService.Send(titles, messages, new List<string> { user.PushNotificationId }, today + ts);
         }
