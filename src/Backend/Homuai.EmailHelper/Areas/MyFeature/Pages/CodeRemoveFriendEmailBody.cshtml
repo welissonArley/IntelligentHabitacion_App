@@ -1,4 +1,4 @@
-﻿@model Homuai.EmailHelper.Models.ResetPasswordModel
+﻿@model Homuai.EmailHelper.Models.CodeToPermorfActionModel
 
 <div class="u-row-container" style="padding: 0px;background-color: transparent">
     <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #ffffff;">
@@ -18,9 +18,7 @@
                                         <div class="v-text-align" style="line-height: 140%; text-align: left; word-wrap: break-word;">
                                             <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 18px; line-height: 25.2px; color: #666666;">@string.Format(@Resources.ResourceText.TITLE_HI_NAME, @Model.UserName)</span></p>
                                             <p style="font-size: 14px; line-height: 140%;">&nbsp;</p>
-                                            <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 18px; line-height: 25.2px; color: #666666;">@Resources.ResourceText.TITLE_NEED_TO_RESET_YOUR_PASSWORD</span></p>
-                                            <p style="font-size: 14px; line-height: 140%;">&nbsp;</p>
-                                            <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 18px; line-height: 25.2px; color: #666666;">@Resources.ResourceText.TITLE_TO_RESET_PASSWORD_USE_CODE_BELOW</span></p>
+                                            <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 18px; line-height: 25.2px; color: #666666;">@Resources.ResourceText.TITLE_TO_REMOVE_FRIEND_USE_CODE_BELOW</span></p>
                                         </div>
 
                                     </td>
@@ -48,21 +46,7 @@
                                     <td style="overflow-wrap:break-word;word-break:break-word;padding:40px 40px 30px;font-family:'Lato',sans-serif;" align="left">
 
                                         <div class="v-text-align" style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                            <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 18px; line-height: 25.2px; color: #666666;">@Resources.ResourceText.TITLE_BUT_REMEMBER_DONT_LEAVE_FOR_LATER_ONE_HOUR</span></p>
-                                        </div>
-
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <table style="font-family:'Lato',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                            <tbody>
-                                <tr>
-                                    <td style="overflow-wrap:break-word;word-break:break-word;padding:40px 40px 30px;font-family:'Lato',sans-serif;" align="left">
-
-                                        <div class="v-text-align" style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                            <p style="font-size: 12px; line-height: 140%;"><span style="color: #888888; font-size: 12px; line-height: 19.6px;"><em><span style="font-size: 16px; line-height: 22.4px;">@Resources.ResourceText.TITLE_PLEASE_IGNORE_THIS_EMAIL_NOT_REQUEST_PASSWORD_CHANGE</span></em></span><br /><span style="color: #888888; font-size: 14px; line-height: 19.6px;"><em><span style="font-size: 16px; line-height: 22.4px;">&nbsp;</span></em></span></p>
+                                            <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 18px; line-height: 25.2px; color: #666666;">@Resources.ResourceText.TITLE_BUT_REMEMBER_DONT_LEAVE_FOR_LATER_TEN_MINUTES</span></p>
                                         </div>
 
                                     </td>

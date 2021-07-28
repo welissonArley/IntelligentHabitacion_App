@@ -61,6 +61,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Remove a friend.
+        /// </summary>
+        public static string SUBJECT_REMOVE_FRIEND {
+            get {
+                return ResourceManager.GetString("SUBJECT_REMOVE_FRIEND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change Password.
         /// </summary>
         public static string SUBJECT_RESET_YOUR_PASSWORD {
@@ -75,6 +84,24 @@ namespace Resources {
         public static string TITLE_BUT_REMEMBER_DONT_LEAVE_FOR_LATER_ONE_HOUR {
             get {
                 return ResourceManager.GetString("TITLE_BUT_REMEMBER_DONT_LEAVE_FOR_LATER_ONE_HOUR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to But remember, don&apos;t leave it for later as this code will only be valid for 10 minutes, agreed?.
+        /// </summary>
+        public static string TITLE_BUT_REMEMBER_DONT_LEAVE_FOR_LATER_TEN_MINUTES {
+            get {
+                return ResourceManager.GetString("TITLE_BUT_REMEMBER_DONT_LEAVE_FOR_LATER_TEN_MINUTES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Code to remove a friend.
+        /// </summary>
+        public static string TITLE_CODE_REMOVE_FRIEND {
+            get {
+                return ResourceManager.GetString("TITLE_CODE_REMOVE_FRIEND", resourceCulture);
             }
         }
         
@@ -111,6 +138,15 @@ namespace Resources {
         public static string TITLE_PLEASE_IGNORE_THIS_EMAIL_NOT_REQUEST_PASSWORD_CHANGE {
             get {
                 return ResourceManager.GetString("TITLE_PLEASE_IGNORE_THIS_EMAIL_NOT_REQUEST_PASSWORD_CHANGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the code below to remove your friend from Home membership:.
+        /// </summary>
+        public static string TITLE_TO_REMOVE_FRIEND_USE_CODE_BELOW {
+            get {
+                return ResourceManager.GetString("TITLE_TO_REMOVE_FRIEND_USE_CODE_BELOW", resourceCulture);
             }
         }
         

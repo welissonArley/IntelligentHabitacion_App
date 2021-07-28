@@ -117,11 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="SUBJECT_REMOVE_FRIEND" xml:space="preserve">
+    <value>Remover um(a) amigo(a)</value>
+  </data>
   <data name="SUBJECT_RESET_YOUR_PASSWORD" xml:space="preserve">
     <value>Alterar senha</value>
   </data>
   <data name="TITLE_BUT_REMEMBER_DONT_LEAVE_FOR_LATER_ONE_HOUR" xml:space="preserve">
     <value>Mas lembre-se, não deixe pra depois, pois este código será valido por apenas 1 hora, combinado?</value>
+  </data>
+  <data name="TITLE_BUT_REMEMBER_DONT_LEAVE_FOR_LATER_TEN_MINUTES" xml:space="preserve">
+    <value>Mas lembre-se, não deixe pra depois pois este código será valido por apenas 10 minutos, combinado?</value>
+  </data>
+  <data name="TITLE_CODE_REMOVE_FRIEND" xml:space="preserve">
+    <value>Código para remover um(a) amigo(a)</value>
   </data>
   <data name="TITLE_CODE_RESET_YOUR_PASSWORD" xml:space="preserve">
     <value>Código para alterar sua senha</value>
@@ -134,6 +143,9 @@
   </data>
   <data name="TITLE_PLEASE_IGNORE_THIS_EMAIL_NOT_REQUEST_PASSWORD_CHANGE" xml:space="preserve">
     <value>Ignore este e-mail se você não solicitou uma alteração de senha.</value>
+  </data>
+  <data name="TITLE_TO_REMOVE_FRIEND_USE_CODE_BELOW" xml:space="preserve">
+    <value>Use o código abaixo para remover seu(a) amigo(a) da associação com a Home:</value>
   </data>
   <data name="TITLE_TO_RESET_PASSWORD_USE_CODE_BELOW" xml:space="preserve">
     <value>Para redefinir sua senha, use o código abaixo:</value>

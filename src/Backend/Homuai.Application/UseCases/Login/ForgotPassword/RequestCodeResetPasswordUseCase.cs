@@ -13,11 +13,11 @@ namespace Homuai.Application.UseCases.Login.ForgotPassword
     {
         private readonly IUserReadOnlyRepository _userRepository;
         private readonly ICodeWriteOnlyRepository _repository;
-        private readonly ISendResetPasswordEmail _emailHelper;
+        private readonly ISendCodeResetPasswordEmail _emailHelper;
         private readonly IUnitOfWork _unitOfWork;
 
         public RequestCodeResetPasswordUseCase(IUserReadOnlyRepository userRepository, ICodeWriteOnlyRepository repository,
-            ISendResetPasswordEmail emailHelper, IUnitOfWork unitOfWork)
+            ISendCodeResetPasswordEmail emailHelper, IUnitOfWork unitOfWork)
         {
             _userRepository = userRepository;
             _repository = repository;
@@ -40,7 +40,7 @@ namespace Homuai.Application.UseCases.Login.ForgotPassword
                     UserId = user.Id
                 });
 
-                await _emailHelper.Send(new Domain.Dto.ResetPasswordDto
+                await _emailHelper.Send(new Domain.Dto.SendCodeToPerformSomeActionDto
                 {
                     UserName = user.Name,
                     Email = user.Email,

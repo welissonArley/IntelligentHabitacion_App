@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 
 namespace Homuai.Domain.Services.SendEmail
 {
-    public interface ISendResetPasswordEmail
+    public interface ISendContactUsEmail
     {
-        Task Send(ResetPasswordDto dto);
+        Task Send(ContactUsDto dto);
     }
 }

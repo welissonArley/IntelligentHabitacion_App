@@ -1,6 +1,6 @@
 ﻿namespace Homuai.EmailHelper.Models
 {
-    public class ResetPasswordModel
+    public class CodeToPermorfActionModel
     {
         public string UserName { get; set; }
         public string Code { get; set; }

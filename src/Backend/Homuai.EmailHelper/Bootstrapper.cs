@@ -11,7 +11,9 @@ namespace Homuai.EmailHelper
         {
             return services
                     .AddScoped<ICustomRazorEngine, CustomRazorEngine>()
-                    .AddScoped<ISendResetPasswordEmail, SendResetPasswordHelper>();
+                    .AddScoped<ISendCodeResetPasswordEmail, SendCodeResetPasswordHelper>()
+                    .AddScoped<ISendCodeRemoveFriendEmail, SendCodeRemoveFriendHelper>()
+                    .AddScoped<ISendContactUsEmail, SendContactUsHelper>();
         }
     }
 }
