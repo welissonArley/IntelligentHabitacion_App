@@ -55,7 +55,7 @@ namespace Homuai.EmailHelper.Setting
             if (viewResult.Success)
                 return viewResult.View;
 
-            throw new Exception("Invalid View Path");
+            throw new ArgumentException("Invalid View Path");
         }
 
         private ActionContext GetContext()

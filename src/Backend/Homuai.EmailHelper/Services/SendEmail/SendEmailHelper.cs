@@ -9,7 +9,7 @@ namespace Homuai.EmailHelper.Services.SendEmail
         private readonly ICustomRazorEngine _customRazorEngine;
         private readonly ISendEmail _sendEmail;
 
-        public SendEmailHelper(ICustomRazorEngine customRazorEngine, ISendEmail sendEmail)
+        protected SendEmailHelper(ICustomRazorEngine customRazorEngine, ISendEmail sendEmail)
         {
             _customRazorEngine = customRazorEngine;
             _sendEmail = sendEmail;
