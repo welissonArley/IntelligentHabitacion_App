@@ -31,7 +31,7 @@ namespace Homuai.Infrastructure.Services
         public async Task SendMessageSupport(EmailContent content)
         {
             var to = new EmailAddress(_emailConfig.SupportEmail, content.Subject);
-            var msg = MailHelper.CreateSingleEmail(_from, to, content.Subject, content.HtmlContent, content.HtmlContent);
+            var msg = MailHelper.CreateSingleEmail(_from, to, content.Subject, content.PlainTextContent, content.HtmlContent);
 
             await _client.SendEmailAsync(msg);
         }
