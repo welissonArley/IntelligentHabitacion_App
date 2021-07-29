@@ -6,6 +6,7 @@ using Homuai.Domain.Repository.MyFoods;
 using Homuai.Domain.Repository.Token;
 using Homuai.Domain.Repository.User;
 using Homuai.Domain.Services;
+using Homuai.EmailHelper.Services.SendEmail;
 using Homuai.Infrastructure.DataAccess;
 using Homuai.Infrastructure.DataAccess.Repositories;
 using Homuai.Infrastructure.Services;

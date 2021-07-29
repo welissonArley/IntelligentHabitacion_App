@@ -6,6 +6,7 @@ using Homuai.Api.Filter.Authentication;
 using Homuai.Api.Middleware;
 using Homuai.Api.Services;
 using Homuai.Api.WebSocket.AddFriend;
+using Homuai.EmailHelper;
 using Homuai.Infrastructure;
 using Homuai.Infrastructure.DataAccess;
 using Homuai.Infrastructure.Migrations;
@@ -99,7 +100,8 @@ namespace Homuai.Api
 
             services
                 .AddUseCases(Configuration)
-                .AddRepositories(Configuration);
+                .AddRepositories(Configuration)
+                .AddEmailHelper();
 
             services.AddHttpContextAccessor();
 

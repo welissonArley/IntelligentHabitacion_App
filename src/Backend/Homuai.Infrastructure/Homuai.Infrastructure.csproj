@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Homuai.Domain\Homuai.Domain.csproj" />
+    <ProjectReference Include="..\Homuai.EmailHelper\Homuai.EmailHelper.csproj" />
   </ItemGroup>
 
 </Project>

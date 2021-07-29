@@ -1,7 +1,7 @@
 ﻿using Homuai.Domain.ValueObjects;
 using System.Threading.Tasks;
 
-namespace Homuai.Domain.Services
+namespace Homuai.EmailHelper.Services.SendEmail
 {
     public interface ISendEmail
     {
