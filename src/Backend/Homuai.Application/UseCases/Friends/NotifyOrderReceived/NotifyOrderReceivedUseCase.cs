@@ -1,4 +1,5 @@
-﻿using Homuai.Application.Services.LoggedUser;
+﻿using Homuai.Application.Helper.Notification;
+using Homuai.Application.Services.LoggedUser;
 using Homuai.Domain.Enums;
 using Homuai.Domain.Repository;
 using Homuai.Domain.Repository.User;
@@ -55,16 +56,8 @@ namespace Homuai.Application.UseCases.Friends.NotifyOrderReceived
 
         private async Task SendNotification(string pushNotificationId)
         {
-            var titles = new Dictionary<string, string>
-            {
-                { "en", "Delivery received 📬" },
-                { "pt", "Encomenda recebida 📬" }
-            };
-            var messages = new Dictionary<string, string>
-            {
-                { "en", "You have received an order and it is waiting for you ✈️" },
-                { "pt", "Você recebeu uma encomenda e ela está te esperando ✈️" }
-            };
+            (var titles, var messages) = new MessagesNotificationHelper().Messages(NotificationHelperType.DeliveryReceived);
+
             var data = new Dictionary<string, string> { { EnumNotifications.OrderReceived, "1" } };
 
             await _pushNotificationService.Send(titles, messages, new List<string> { pushNotificationId }, data);

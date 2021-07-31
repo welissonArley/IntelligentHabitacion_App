@@ -97,6 +97,267 @@ namespace Homuai.Domain {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your {0} product will expire in three days..
+        /// </summary>
+        public static string NOTIFICATION_MESSAGE_3_DAYS_PRODUCT_EXPIRATION {
+            get {
+                return ResourceManager.GetString("NOTIFICATION_MESSAGE_3_DAYS_PRODUCT_EXPIRATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your {0} product will expire next week..
+        /// </summary>
+        public static string NOTIFICATION_MESSAGE_7_DAYS_PRODUCT_EXPIRATION {
+            get {
+                return ResourceManager.GetString("NOTIFICATION_MESSAGE_7_DAYS_PRODUCT_EXPIRATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter in the app and check ;).
+        /// </summary>
+        public static string NOTIFICATION_MESSAGE_CLEANING_SCHEDULE_CREATED {
+            get {
+                return ResourceManager.GetString("NOTIFICATION_MESSAGE_CLEANING_SCHEDULE_CREATED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Someone asked you to clean the room(s) for which you are responsible 👍.
+        /// </summary>
+        public static string NOTIFICATION_MESSAGE_CLEANING_SCHEDULE_REMINDER {
+            get {
+                return ResourceManager.GetString("NOTIFICATION_MESSAGE_CLEANING_SCHEDULE_REMINDER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter in the app and check :).
+        /// </summary>
+        public static string NOTIFICATION_MESSAGE_CLEANING_SCHEDULE_UPDATED {
+            get {
+                return ResourceManager.GetString("NOTIFICATION_MESSAGE_CLEANING_SCHEDULE_UPDATED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your cleaning task ({0}) has been rated :) Enter the app and check ✔️.
+        /// </summary>
+        public static string NOTIFICATION_MESSAGE_CLEANING_TASK_RATED {
+            get {
+                return ResourceManager.GetString("NOTIFICATION_MESSAGE_CLEANING_TASK_RATED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your {0} product has been deleted: it has been expired for more than two days..
+        /// </summary>
+        public static string NOTIFICATION_MESSAGE_DELETED_PRODUCT_EXPIRATION {
+            get {
+                return ResourceManager.GetString("NOTIFICATION_MESSAGE_DELETED_PRODUCT_EXPIRATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have received an order and it is waiting for you ✈️.
+        /// </summary>
+        public static string NOTIFICATION_MESSAGE_DELIVERY_RECEIVED {
+            get {
+                return ResourceManager.GetString("NOTIFICATION_MESSAGE_DELIVERY_RECEIVED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Good luck with your new journey 🚀.
+        /// </summary>
+        public static string NOTIFICATION_MESSAGE_REMOVED_FROM_HOME {
+            get {
+                return ResourceManager.GetString("NOTIFICATION_MESSAGE_REMOVED_FROM_HOME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} cleaned the {1}, uhuu. You can now go to the App and rate the task ✔️.
+        /// </summary>
+        public static string NOTIFICATION_MESSAGE_ROOM_CLEANED {
+            get {
+                return ResourceManager.GetString("NOTIFICATION_MESSAGE_ROOM_CLEANED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your {0} product has the expiration date for today..
+        /// </summary>
+        public static string NOTIFICATION_MESSAGE_TODAY_PRODUCT_EXPIRATION {
+            get {
+                return ResourceManager.GetString("NOTIFICATION_MESSAGE_TODAY_PRODUCT_EXPIRATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your {0} product has the expiration date for tomorrow..
+        /// </summary>
+        public static string NOTIFICATION_MESSAGE_TOMORROW_PRODUCT_EXPIRATION {
+            get {
+                return ResourceManager.GetString("NOTIFICATION_MESSAGE_TOMORROW_PRODUCT_EXPIRATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hey, it&apos;s been {0} days since you cleaned {1}. You can do it, help keep everything organized  🥰.
+        /// </summary>
+        public static string NOTIFICATION_MESSAGE_TOTAL_DAYS_WITHOUT_CLEANING_ROOM {
+            get {
+                return ResourceManager.GetString("NOTIFICATION_MESSAGE_TOTAL_DAYS_WITHOUT_CLEANING_ROOM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your {0} product expiration two days ago..
+        /// </summary>
+        public static string NOTIFICATION_MESSAGE_TWO_DAYS_PASSED_PRODUCT_EXPIRATION {
+            get {
+                return ResourceManager.GetString("NOTIFICATION_MESSAGE_TWO_DAYS_PASSED_PRODUCT_EXPIRATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your {0} product has the expiration date for yesterday..
+        /// </summary>
+        public static string NOTIFICATION_MESSAGE_YESTERDAY_PRODUCT_EXPIRATION {
+            get {
+                return ResourceManager.GetString("NOTIFICATION_MESSAGE_YESTERDAY_PRODUCT_EXPIRATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3 days until product expiration ⌛.
+        /// </summary>
+        public static string NOTIFICATION_TITLE_3_DAYS_PRODUCT_EXPIRATION {
+            get {
+                return ResourceManager.GetString("NOTIFICATION_TITLE_3_DAYS_PRODUCT_EXPIRATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 7 days until product expiration ⌛.
+        /// </summary>
+        public static string NOTIFICATION_TITLE_7_DAYS_PRODUCT_EXPIRATION {
+            get {
+                return ResourceManager.GetString("NOTIFICATION_TITLE_7_DAYS_PRODUCT_EXPIRATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clean room 💦.
+        /// </summary>
+        public static string NOTIFICATION_TITLE_CLEAN_ROOM_CLEANED {
+            get {
+                return ResourceManager.GetString("NOTIFICATION_TITLE_CLEAN_ROOM_CLEANED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cleaning Schedule created 🏡.
+        /// </summary>
+        public static string NOTIFICATION_TITLE_CLEANING_SCHEDULE_CREATED {
+            get {
+                return ResourceManager.GetString("NOTIFICATION_TITLE_CLEANING_SCHEDULE_CREATED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cleaning Schedule reminder 😶.
+        /// </summary>
+        public static string NOTIFICATION_TITLE_CLEANING_SCHEDULE_REMINDER {
+            get {
+                return ResourceManager.GetString("NOTIFICATION_TITLE_CLEANING_SCHEDULE_REMINDER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cleaning Schedule updated 🏡.
+        /// </summary>
+        public static string NOTIFICATION_TITLE_CLEANING_SCHEDULE_UPDATED {
+            get {
+                return ResourceManager.GetString("NOTIFICATION_TITLE_CLEANING_SCHEDULE_UPDATED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cleaning task rated 🌟.
+        /// </summary>
+        public static string NOTIFICATION_TITLE_CLEANING_TASK_RATED {
+            get {
+                return ResourceManager.GetString("NOTIFICATION_TITLE_CLEANING_TASK_RATED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deleted product ♻.
+        /// </summary>
+        public static string NOTIFICATION_TITLE_DELETED_PRODUCT_EXPIRATION {
+            get {
+                return ResourceManager.GetString("NOTIFICATION_TITLE_DELETED_PRODUCT_EXPIRATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delivery received 📬.
+        /// </summary>
+        public static string NOTIFICATION_TITLE_DELIVERY_RECEIVED {
+            get {
+                return ResourceManager.GetString("NOTIFICATION_TITLE_DELIVERY_RECEIVED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have been removed from Home.
+        /// </summary>
+        public static string NOTIFICATION_TITLE_REMOVED_FROM_HOME {
+            get {
+                return ResourceManager.GetString("NOTIFICATION_TITLE_REMOVED_FROM_HOME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have product with expiration date for TODAY ⚠.
+        /// </summary>
+        public static string NOTIFICATION_TITLE_TODAY_PRODUCT_EXPIRATION {
+            get {
+                return ResourceManager.GetString("NOTIFICATION_TITLE_TODAY_PRODUCT_EXPIRATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ✘ TOMORROW, you have product with expiration date for TOMORROW.
+        /// </summary>
+        public static string NOTIFICATION_TITLE_TOMORROW_PRODUCT_EXPIRATION {
+            get {
+                return ResourceManager.GetString("NOTIFICATION_TITLE_TOMORROW_PRODUCT_EXPIRATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Two days passed and ⌚.
+        /// </summary>
+        public static string NOTIFICATION_TITLE_TWO_DAYS_PASSED_PRODUCT_EXPIRATION {
+            get {
+                return ResourceManager.GetString("NOTIFICATION_TITLE_TWO_DAYS_PASSED_PRODUCT_EXPIRATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HEY, you have a product that expired yesterday ⌚.
+        /// </summary>
+        public static string NOTIFICATION_TITLE_YESTERDAY_PRODUCT_EXPIRATION {
+            get {
+                return ResourceManager.GetString("NOTIFICATION_TITLE_YESTERDAY_PRODUCT_EXPIRATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to and.
         /// </summary>
         public static string TITLE_AND {

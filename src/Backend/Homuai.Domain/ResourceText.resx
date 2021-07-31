@@ -129,6 +129,93 @@
   <data name="MESSAGE_REGISTER_ROOM_ADMIN" xml:space="preserve">
     <value>You need to go to the option "Home, sweet home" and in the "Rooms" tab register the rooms for the schedule.</value>
   </data>
+  <data name="NOTIFICATION_MESSAGE_3_DAYS_PRODUCT_EXPIRATION" xml:space="preserve">
+    <value>Your {0} product will expire in three days.</value>
+  </data>
+  <data name="NOTIFICATION_MESSAGE_7_DAYS_PRODUCT_EXPIRATION" xml:space="preserve">
+    <value>Your {0} product will expire next week.</value>
+  </data>
+  <data name="NOTIFICATION_MESSAGE_CLEANING_SCHEDULE_CREATED" xml:space="preserve">
+    <value>Enter in the app and check ;)</value>
+  </data>
+  <data name="NOTIFICATION_MESSAGE_CLEANING_SCHEDULE_REMINDER" xml:space="preserve">
+    <value>Someone asked you to clean the room(s) for which you are responsible 👍</value>
+  </data>
+  <data name="NOTIFICATION_MESSAGE_CLEANING_SCHEDULE_UPDATED" xml:space="preserve">
+    <value>Enter in the app and check :)</value>
+  </data>
+  <data name="NOTIFICATION_MESSAGE_CLEANING_TASK_RATED" xml:space="preserve">
+    <value>Your cleaning task ({0}) has been rated :) Enter the app and check ✔️</value>
+  </data>
+  <data name="NOTIFICATION_MESSAGE_DELETED_PRODUCT_EXPIRATION" xml:space="preserve">
+    <value>Your {0} product has been deleted: it has been expired for more than two days.</value>
+  </data>
+  <data name="NOTIFICATION_MESSAGE_DELIVERY_RECEIVED" xml:space="preserve">
+    <value>You have received an order and it is waiting for you ✈️</value>
+  </data>
+  <data name="NOTIFICATION_MESSAGE_REMOVED_FROM_HOME" xml:space="preserve">
+    <value>Good luck with your new journey 🚀</value>
+  </data>
+  <data name="NOTIFICATION_MESSAGE_ROOM_CLEANED" xml:space="preserve">
+    <value>{0} cleaned the {1}, uhuu. You can now go to the App and rate the task ✔️</value>
+  </data>
+  <data name="NOTIFICATION_MESSAGE_TODAY_PRODUCT_EXPIRATION" xml:space="preserve">
+    <value>Your {0} product has the expiration date for today.</value>
+  </data>
+  <data name="NOTIFICATION_MESSAGE_TOMORROW_PRODUCT_EXPIRATION" xml:space="preserve">
+    <value>Your {0} product has the expiration date for tomorrow.</value>
+  </data>
+  <data name="NOTIFICATION_MESSAGE_TOTAL_DAYS_WITHOUT_CLEANING_ROOM" xml:space="preserve">
+    <value>Hey, it's been {0} days since you cleaned {1}. You can do it, help keep everything organized  🥰</value>
+  </data>
+  <data name="NOTIFICATION_MESSAGE_TWO_DAYS_PASSED_PRODUCT_EXPIRATION" xml:space="preserve">
+    <value>Your {0} product expiration two days ago.</value>
+  </data>
+  <data name="NOTIFICATION_MESSAGE_YESTERDAY_PRODUCT_EXPIRATION" xml:space="preserve">
+    <value>Your {0} product has the expiration date for yesterday.</value>
+  </data>
+  <data name="NOTIFICATION_TITLE_3_DAYS_PRODUCT_EXPIRATION" xml:space="preserve">
+    <value>3 days until product expiration ⌛</value>
+  </data>
+  <data name="NOTIFICATION_TITLE_7_DAYS_PRODUCT_EXPIRATION" xml:space="preserve">
+    <value>7 days until product expiration ⌛</value>
+  </data>
+  <data name="NOTIFICATION_TITLE_CLEANING_SCHEDULE_CREATED" xml:space="preserve">
+    <value>Cleaning Schedule created 🏡</value>
+  </data>
+  <data name="NOTIFICATION_TITLE_CLEANING_SCHEDULE_REMINDER" xml:space="preserve">
+    <value>Cleaning Schedule reminder 😶</value>
+  </data>
+  <data name="NOTIFICATION_TITLE_CLEANING_SCHEDULE_UPDATED" xml:space="preserve">
+    <value>Cleaning Schedule updated 🏡</value>
+  </data>
+  <data name="NOTIFICATION_TITLE_CLEANING_TASK_RATED" xml:space="preserve">
+    <value>Cleaning task rated 🌟</value>
+  </data>
+  <data name="NOTIFICATION_TITLE_CLEAN_ROOM_CLEANED" xml:space="preserve">
+    <value>Clean room 💦</value>
+  </data>
+  <data name="NOTIFICATION_TITLE_DELETED_PRODUCT_EXPIRATION" xml:space="preserve">
+    <value>Deleted product ♻</value>
+  </data>
+  <data name="NOTIFICATION_TITLE_DELIVERY_RECEIVED" xml:space="preserve">
+    <value>Delivery received 📬</value>
+  </data>
+  <data name="NOTIFICATION_TITLE_REMOVED_FROM_HOME" xml:space="preserve">
+    <value>You have been removed from Home</value>
+  </data>
+  <data name="NOTIFICATION_TITLE_TODAY_PRODUCT_EXPIRATION" xml:space="preserve">
+    <value>You have product with expiration date for TODAY ⚠</value>
+  </data>
+  <data name="NOTIFICATION_TITLE_TOMORROW_PRODUCT_EXPIRATION" xml:space="preserve">
+    <value>✘ TOMORROW, you have product with expiration date for TOMORROW</value>
+  </data>
+  <data name="NOTIFICATION_TITLE_TWO_DAYS_PASSED_PRODUCT_EXPIRATION" xml:space="preserve">
+    <value>Two days passed and ⌚</value>
+  </data>
+  <data name="NOTIFICATION_TITLE_YESTERDAY_PRODUCT_EXPIRATION" xml:space="preserve">
+    <value>HEY, you have a product that expired yesterday ⌚</value>
+  </data>
   <data name="TITLE_AND" xml:space="preserve">
     <value>and</value>
   </data>

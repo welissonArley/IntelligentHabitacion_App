@@ -1,4 +1,5 @@
-﻿using Homuai.Application.Services.Cryptography;
+﻿using Homuai.Application.Helper.Notification;
+using Homuai.Application.Services.Cryptography;
 using Homuai.Application.Services.LoggedUser;
 using Homuai.Communication.Request;
 using Homuai.Domain.Enums;
@@ -76,16 +77,7 @@ namespace Homuai.Application.UseCases.Friends.RemoveFriend
 
         private async Task SendNotification(string pushNotificationId)
         {
-            var titles = new Dictionary<string, string>
-            {
-                { "en", "You have been removed from Home" },
-                { "pt", "Você foi removido do Lar" }
-            };
-            var messages = new Dictionary<string, string>
-            {
-                { "en", "Good luck with your new journey 🚀" },
-                { "pt", "Boa sorte com sua nova jornada 🚀" }
-            };
+            (var titles, var messages) = new MessagesNotificationHelper().Messages(NotificationHelperType.RemovedFromHome);
             var data = new Dictionary<string, string> { { EnumNotifications.RemovedFromHome, "1" } };
 
             await _pushNotificationService.Send(titles, messages, new List<string> { pushNotificationId }, data);

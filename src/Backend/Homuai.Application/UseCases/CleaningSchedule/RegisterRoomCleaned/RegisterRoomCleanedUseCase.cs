@@ -1,4 +1,5 @@
 ﻿using HashidsNet;
+using Homuai.Application.Helper.Notification;
 using Homuai.Application.Services.LoggedUser;
 using Homuai.Communication.Request;
 using Homuai.Domain.Repository;
@@ -93,16 +94,7 @@ namespace Homuai.Application.UseCases.CleaningSchedule.RegisterRoomCleaned
 
         private async Task SendNotification(string userName, string room, List<string> pushNotificationIds)
         {
-            var titles = new Dictionary<string, string>
-            {
-                { "en", "Clean room 💦" },
-                { "pt", "Cômodo limpo 💦" }
-            };
-            var messages = new Dictionary<string, string>
-            {
-                { "en", string.Format("{0} cleaned the {1}, uhuu. You can now go to the App and rate the task ✔️", userName, room) },
-                { "pt", string.Format("{0} limpou a(o) {1}, uhuu. Você já pode ir no App e avaliar a tarefa ✔️", userName, room) }
-            };
+            (var titles, var messages) = new MessagesNotificationHelper().Messages(NotificationHelperType.RoomCleaned, data: new string[2]{ userName, room });
 
             await _pushNotificationService.Send(titles, messages, pushNotificationIds);
         }

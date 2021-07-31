@@ -1,4 +1,5 @@
 ﻿using HashidsNet;
+using Homuai.Application.Helper.Notification;
 using Homuai.Application.Services.LoggedUser;
 using Homuai.Communication.Request;
 using Homuai.Communication.Response;
@@ -196,16 +197,7 @@ namespace Homuai.Application.UseCases.CleaningSchedule.CreateFirstSchedule
 
         private async Task SendNotification(List<string> pushNotificationIds)
         {
-            var titles = new Dictionary<string, string>
-            {
-                { "en", "Cleaning Schedule created 🏡" },
-                { "pt", "Cronograma de limpeza criado 🏡" }
-            };
-            var messages = new Dictionary<string, string>
-            {
-                { "en", "Enter in the app and check" },
-                { "pt", "Entre no app e confira ;)" }
-            };
+            (var titles, var messages) = new MessagesNotificationHelper().Messages(NotificationHelperType.CleaningScheduleCreated);
 
             await _pushNotificationService.Send(titles, messages, pushNotificationIds);
         }

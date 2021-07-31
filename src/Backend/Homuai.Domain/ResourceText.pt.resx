@@ -129,6 +129,93 @@
   <data name="MESSAGE_REGISTER_ROOM_ADMIN" xml:space="preserve">
     <value>Você precisa ir até a opção "Lar, doce lar" e na aba "Cômodos" registrar os cômodos para o cronograma.</value>
   </data>
+  <data name="NOTIFICATION_MESSAGE_3_DAYS_PRODUCT_EXPIRATION" xml:space="preserve">
+    <value>Seu produto {0} irá vencer dentro de três dias.</value>
+  </data>
+  <data name="NOTIFICATION_MESSAGE_7_DAYS_PRODUCT_EXPIRATION" xml:space="preserve">
+    <value>Seu produto {0} irá vencer na próxima semana.</value>
+  </data>
+  <data name="NOTIFICATION_MESSAGE_CLEANING_SCHEDULE_CREATED" xml:space="preserve">
+    <value>Entre no app e confira ;)</value>
+  </data>
+  <data name="NOTIFICATION_MESSAGE_CLEANING_SCHEDULE_REMINDER" xml:space="preserve">
+    <value>Alguém solicitou que você limpe o(s) cômodos os quais você é responsável 👍</value>
+  </data>
+  <data name="NOTIFICATION_MESSAGE_CLEANING_SCHEDULE_UPDATED" xml:space="preserve">
+    <value>Entre no app e confira ;)</value>
+  </data>
+  <data name="NOTIFICATION_MESSAGE_CLEANING_TASK_RATED" xml:space="preserve">
+    <value>Sua tarefa de limpeza ({0}) foi avaliada :) Entre no app e confira ✔️</value>
+  </data>
+  <data name="NOTIFICATION_MESSAGE_DELETED_PRODUCT_EXPIRATION" xml:space="preserve">
+    <value>Seu produto {0} foi excluido: estava vencido há mais de dois dias.</value>
+  </data>
+  <data name="NOTIFICATION_MESSAGE_DELIVERY_RECEIVED" xml:space="preserve">
+    <value>Você recebeu uma encomenda e ela está te esperando ✈️</value>
+  </data>
+  <data name="NOTIFICATION_MESSAGE_REMOVED_FROM_HOME" xml:space="preserve">
+    <value>Boa sorte com sua nova jornada 🚀</value>
+  </data>
+  <data name="NOTIFICATION_MESSAGE_ROOM_CLEANED" xml:space="preserve">
+    <value>{0} limpou a(o) {1}, uhuu. Você já pode ir no App e avaliar a tarefa ✔️</value>
+  </data>
+  <data name="NOTIFICATION_MESSAGE_TODAY_PRODUCT_EXPIRATION" xml:space="preserve">
+    <value>Seu produto {0} possui a data de vencimento para hoje.</value>
+  </data>
+  <data name="NOTIFICATION_MESSAGE_TOMORROW_PRODUCT_EXPIRATION" xml:space="preserve">
+    <value>Seu produto {0} possui a data de vencimento para amanhã.</value>
+  </data>
+  <data name="NOTIFICATION_MESSAGE_TOTAL_DAYS_WITHOUT_CLEANING_ROOM" xml:space="preserve">
+    <value>Hey, já fazem {0} dias que você não limpou {1}. Você consegue, ajude a manter tudo organizado  🥰</value>
+  </data>
+  <data name="NOTIFICATION_MESSAGE_TWO_DAYS_PASSED_PRODUCT_EXPIRATION" xml:space="preserve">
+    <value>Seu produto {0} venceu há dois dias.</value>
+  </data>
+  <data name="NOTIFICATION_MESSAGE_YESTERDAY_PRODUCT_EXPIRATION" xml:space="preserve">
+    <value>Seu produto {0} venceu ontem.</value>
+  </data>
+  <data name="NOTIFICATION_TITLE_3_DAYS_PRODUCT_EXPIRATION" xml:space="preserve">
+    <value>Faltam 3 dias para vencimento de produto ⌛</value>
+  </data>
+  <data name="NOTIFICATION_TITLE_7_DAYS_PRODUCT_EXPIRATION" xml:space="preserve">
+    <value>Faltam 7 dias para vencimento de produto ⌛</value>
+  </data>
+  <data name="NOTIFICATION_TITLE_CLEANING_SCHEDULE_CREATED" xml:space="preserve">
+    <value>Cronograma de limpeza criado 🏡</value>
+  </data>
+  <data name="NOTIFICATION_TITLE_CLEANING_SCHEDULE_REMINDER" xml:space="preserve">
+    <value>Lembrete Cronograma de limpeza 😶</value>
+  </data>
+  <data name="NOTIFICATION_TITLE_CLEANING_SCHEDULE_UPDATED" xml:space="preserve">
+    <value>Cronograma de limpeza atualizado 🏡</value>
+  </data>
+  <data name="NOTIFICATION_TITLE_CLEANING_TASK_RATED" xml:space="preserve">
+    <value>Tarefa de limpeza avaliada 🌟</value>
+  </data>
+  <data name="NOTIFICATION_TITLE_CLEAN_ROOM_CLEANED" xml:space="preserve">
+    <value>Cômodo limpo 💦</value>
+  </data>
+  <data name="NOTIFICATION_TITLE_DELETED_PRODUCT_EXPIRATION" xml:space="preserve">
+    <value>Produto excluido ♻</value>
+  </data>
+  <data name="NOTIFICATION_TITLE_DELIVERY_RECEIVED" xml:space="preserve">
+    <value>Encomenda recebida 📬</value>
+  </data>
+  <data name="NOTIFICATION_TITLE_REMOVED_FROM_HOME" xml:space="preserve">
+    <value>Você foi removido do Lar</value>
+  </data>
+  <data name="NOTIFICATION_TITLE_TODAY_PRODUCT_EXPIRATION" xml:space="preserve">
+    <value>Tem produto com data de vencimento para HOJE ⚠</value>
+  </data>
+  <data name="NOTIFICATION_TITLE_TOMORROW_PRODUCT_EXPIRATION" xml:space="preserve">
+    <value>✘ AMANHÃ, tem produto com data de vencimento para AMANHÃ</value>
+  </data>
+  <data name="NOTIFICATION_TITLE_TWO_DAYS_PASSED_PRODUCT_EXPIRATION" xml:space="preserve">
+    <value>Dois dias se passaram e ... ⌚</value>
+  </data>
+  <data name="NOTIFICATION_TITLE_YESTERDAY_PRODUCT_EXPIRATION" xml:space="preserve">
+    <value>HEY, você tem um produto que venceu ontem ⌚</value>
+  </data>
   <data name="TITLE_AND" xml:space="preserve">
     <value>e</value>
   </data>

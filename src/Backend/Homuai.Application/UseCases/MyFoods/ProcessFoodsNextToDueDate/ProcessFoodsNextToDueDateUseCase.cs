@@ -1,10 +1,10 @@
-﻿using Homuai.Domain.Entity;
+﻿using Homuai.Application.Helper.Notification;
+using Homuai.Domain.Entity;
 using Homuai.Domain.Repository.MyFoods;
 using Homuai.Domain.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Threading.Tasks;
 
 namespace Homuai.Application.UseCases.MyFoods.ProcessFoodsNextToDueDate
@@ -14,6 +14,7 @@ namespace Homuai.Application.UseCases.MyFoods.ProcessFoodsNextToDueDate
         private readonly IMyFoodsWriteOnlyRepository _myFoodWriteRepository;
         private readonly IMyFoodsReadOnlyRepository _myFoodReadOnlyRepository;
         private readonly IPushNotificationService _pushNotificationService;
+        private readonly MessagesNotificationHelper _messagesNotificationHelper;
 
         public ProcessFoodsNextToDueDateUseCase(IMyFoodsWriteOnlyRepository myFoodWriteRepository,
             IMyFoodsReadOnlyRepository myFoodReadOnlyRepository,
@@ -22,6 +23,7 @@ namespace Homuai.Application.UseCases.MyFoods.ProcessFoodsNextToDueDate
             _myFoodWriteRepository = myFoodWriteRepository;
             _myFoodReadOnlyRepository = myFoodReadOnlyRepository;
             _pushNotificationService = pushNotificationService;
+            _messagesNotificationHelper = new MessagesNotificationHelper();
         }
 
         public async Task Execute()
@@ -51,104 +53,44 @@ namespace Homuai.Application.UseCases.MyFoods.ProcessFoodsNextToDueDate
             foreach (var food in listFoods)
             {
                 var totalDays = (food.DueDate.Value - today).TotalDays;
+                var foodName = new string[1] { food.Name };
+
                 switch (totalDays)
                 {
                     case 7:
                         {
-                            titles = new Dictionary<string, string>
-                            {
-                                { "en", "7 days until product expiration ⌛" },
-                                { "pt", "Faltam 7 dias para vencimento de produto ⌛" }
-                            };
-                            messages = new Dictionary<string, string>
-                            {
-                                { "en", $"Your {food.Name} product will expire next week." },
-                                { "pt", $"Seu produto {food.Name} irá vencer na próxima semana." }
-                            };
+                            (titles, messages) = _messagesNotificationHelper.Messages(NotificationHelperType.SevenDaysProductExpiration, foodName);
                         }
                         break;
                     case 3:
                         {
-                            titles = new Dictionary<string, string>
-                            {
-                                { "en", "3 days until product expiration ⌛" },
-                                { "pt", "Faltam 3 dias para vencimento de produto ⌛" }
-                            };
-                            messages = new Dictionary<string, string>
-                            {
-                                { "en", $"Your {food.Name} product will expire in three days." },
-                                { "pt", $"Seu produto {food.Name} irá vencer dentro de três dias." }
-                            };
+                            (titles, messages) = _messagesNotificationHelper.Messages(NotificationHelperType.ThreeDaysProductExpiration, foodName);
                         }
                         break;
                     case 1:
                         {
-                            titles = new Dictionary<string, string>
-                            {
-                                { "en", "✘ TOMORROW, has product with expiration date for TOMORROW" },
-                                { "pt", "✘ AMANHÃ, tem produto com data de vencimento para AMANHÃ" }
-                            };
-                            messages = new Dictionary<string, string>
-                            {
-                                { "en", $"Your {food.Name} product has the expiration date for tomorrow." },
-                                { "pt", $"Seu produto {food.Name} possui a data de vencimento para amanhã." }
-                            };
+                            (titles, messages) = _messagesNotificationHelper.Messages(NotificationHelperType.TomorrowDayProductExpiration, foodName);
                         }
                         break;
                     case 0:
                         {
-                            titles = new Dictionary<string, string>
-                            {
-                                { "en", "Has product with expiration date for TODAY ⚠" },
-                                { "pt", "Tem produto com data de vencimento para HOJE ⚠" }
-                            };
-                            messages = new Dictionary<string, string>
-                            {
-                                { "en", $"Your {food.Name} product has the expiration date for today." },
-                                { "pt", $"Seu produto {food.Name} possui a data de vencimento para hoje." }
-                            };
+                            (titles, messages) = _messagesNotificationHelper.Messages(NotificationHelperType.TodayProductExpiration, foodName);
                         }
                         break;
                     case -1:
                         {
-                            titles = new Dictionary<string, string>
-                            {
-                                { "en", "HEY, you have a product that expired yesterday ⌚" },
-                                { "pt", "HEY, você tem um produto que venceu ontem ⌚" }
-                            };
-                            messages = new Dictionary<string, string>
-                            {
-                                { "en", $"Your {food.Name} product has the expiration date for yesterday." },
-                                { "pt", $"Seu produto {food.Name} venceu ontem." }
-                            };
+                            (titles, messages) = _messagesNotificationHelper.Messages(NotificationHelperType.YesterdayProductExpiration, foodName);
                         }
                         break;
                     case -2:
                         {
-                            titles = new Dictionary<string, string>
-                            {
-                                { "en", "Two days passed and ⌚" },
-                                { "pt", "Dois dias se passaram e ... ⌚" }
-                            };
-                            messages = new Dictionary<string, string>
-                            {
-                                { "en", $"Your {food.Name} product expiration two days ago." },
-                                { "pt", $"Seu produto {food.Name} venceu há dois dias." }
-                            };
+                            (titles, messages) = _messagesNotificationHelper.Messages(NotificationHelperType.TwoDaysPassedProductExpiration, foodName);
                         }
                         break;
                     default:
                         {
-                            titles = new Dictionary<string, string>
-                            {
-                                { "en", "Deleted product ♻" },
-                                { "pt", "Produto excluido ♻" }
-                            };
-                            messages = new Dictionary<string, string>
-                            {
-                                { "en", $"Your {food.Name} product has been deleted: it has been expired for more than two days." },
-                                { "pt", $"Seu produto {food.Name} foi excluido: estava vencido há mais de dois dias." }
-                            };
+                            (titles, messages) = _messagesNotificationHelper.Messages(NotificationHelperType.DeletedProductExpiration, foodName);
+
                             _myFoodWriteRepository.Delete(food);
                         }
                         break;
@@ -160,13 +102,7 @@ namespace Homuai.Application.UseCases.MyFoods.ProcessFoodsNextToDueDate
 
         private async Task SendNotification(Domain.Entity.User user, Dictionary<string, string> titles, Dictionary<string, string> messages)
         {
-            var hours = RandomNumberGenerator.GetInt32(7, 12);
-            var minutes = RandomNumberGenerator.GetInt32(0, 59);
-
-            var today = DateTime.Today.Date;
-            var ts = new TimeSpan(hours, minutes, seconds: 0);
-
-            await _pushNotificationService.Send(titles, messages, new List<string> { user.PushNotificationId }, today + ts);
+            await _pushNotificationService.Send(titles, messages, new List<string> { user.PushNotificationId }, DateTime.Today.RandomTimeMorning());
         }
     }
 }

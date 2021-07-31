@@ -1,4 +1,5 @@
-﻿using Homuai.Application.Services.LoggedUser;
+﻿using Homuai.Application.Helper.Notification;
+using Homuai.Application.Services.LoggedUser;
 using Homuai.Communication.Request;
 using Homuai.Communication.Response;
 using Homuai.Domain.Repository;
@@ -82,16 +83,7 @@ namespace Homuai.Application.UseCases.CleaningSchedule.RateTask
 
         private async Task SendNotification(string room, string pushNotificationId)
         {
-            var titles = new Dictionary<string, string>
-            {
-                { "en", "Cleaning task rated 🌟" },
-                { "pt", "Tarefa de limpeza avaliada 🌟" }
-            };
-            var messages = new Dictionary<string, string>
-            {
-                { "en", string.Format("Your cleaning task ({0}) has been rated :) Enter the app and check ✔️", room) },
-                { "pt", string.Format("Sua tarefa de limpeza ({0}) foi avaliada :) Entre no app e confira ✔️", room) }
-            };
+            (var titles, var messages) = new MessagesNotificationHelper().Messages(NotificationHelperType.RatedTask, new string[1] { room });
 
             await _pushNotificationService.Send(titles, messages, new List<string> { pushNotificationId });
         }

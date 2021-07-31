@@ -1,4 +1,5 @@
 ﻿using HashidsNet;
+using Homuai.Application.Helper.Notification;
 using Homuai.Application.Services.LoggedUser;
 using Homuai.Communication.Request;
 using Homuai.Domain.Repository;
@@ -88,16 +89,7 @@ namespace Homuai.Application.UseCases.CleaningSchedule.EditTaskAssign
 
         private async Task SendNotification(List<string> pushNotificationIds)
         {
-            var titles = new Dictionary<string, string>
-            {
-                { "en", "Cleaning Schedule updated 🏡" },
-                { "pt", "Cronograma de limpeza atualizado 🏡" }
-            };
-            var messages = new Dictionary<string, string>
-            {
-                { "en", "Enter in the app and check" },
-                { "pt", "Entre no app e confira ;)" }
-            };
+            (var titles, var messages) = new MessagesNotificationHelper().Messages(NotificationHelperType.CleaningScheduleUpdated);
 
             await _pushNotificationService.Send(titles, messages, pushNotificationIds);
         }
