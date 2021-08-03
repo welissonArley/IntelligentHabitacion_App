@@ -1,11 +1,7 @@
-﻿using AutoMapper;
-using FluentAssertions;
-using Homuai.Application.Services.Cryptography;
+﻿using FluentAssertions;
 using Homuai.Application.UseCases;
 using Homuai.Application.UseCases.User.RegisterUser;
 using Homuai.Communication.Response;
-using Homuai.Domain.Repository;
-using Homuai.Domain.Repository.User;
 using Homuai.Exception;
 using Homuai.Exception.ExceptionsBase;
 using System;
@@ -21,29 +17,19 @@ namespace UseCases.Test.User.RegisterUser
 {
     public class RegisterUserUseCaseTest
     {
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly PasswordEncripter _passwordEncripter;
-        private readonly IMapper _mapper;
-        private readonly HomuaiUseCase _homuaiUseCase;
-        private readonly IUserReadOnlyRepository _userReadOnlyRepository;
-        private readonly IUserWriteOnlyRepository _userWriteOnlyRepository;
-
-        public RegisterUserUseCaseTest()
-        {
-            _unitOfWork = UnitOfWorkBuilder.Instance().Build();
-            _passwordEncripter = PasswordEncripterBuilder.Instance().Build();
-            _mapper = MapperBuilder.Build();
-            _homuaiUseCase = HomuaiUseCaseBuilder.Instance().Build();
-            _userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
-            _userWriteOnlyRepository = UserWriteOnlyRepositoryBuilder.Instance().Build();
-        }
-
         [Fact]
         public async Task Validade_Sucess()
         {
+            var unitOfWork = UnitOfWorkBuilder.Instance().Build();
+            var passwordEncripter = PasswordEncripterBuilder.Instance().Build();
+            var mapper = MapperBuilder.Build();
+            var homuaiUseCase = HomuaiUseCaseBuilder.Instance().Build();
+            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
+            var userWriteOnlyRepository = UserWriteOnlyRepositoryBuilder.Instance().Build();
+
             var user = RequestRegisterUser.Instance().Build();
 
-            var useCase = new RegisterUserUseCase(_mapper, _unitOfWork, _homuaiUseCase, _userWriteOnlyRepository, _userReadOnlyRepository, _passwordEncripter);
+            var useCase = new RegisterUserUseCase(mapper, unitOfWork, homuaiUseCase, userWriteOnlyRepository, userReadOnlyRepository, passwordEncripter);
 
             var validationResult = await useCase.Execute(user);
 
@@ -60,11 +46,18 @@ namespace UseCases.Test.User.RegisterUser
         [Fact]
         public async Task Validade_Empty_PhoneNumbersAndEmergencyContacts()
         {
+            var unitOfWork = UnitOfWorkBuilder.Instance().Build();
+            var passwordEncripter = PasswordEncripterBuilder.Instance().Build();
+            var mapper = MapperBuilder.Build();
+            var homuaiUseCase = HomuaiUseCaseBuilder.Instance().Build();
+            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
+            var userWriteOnlyRepository = UserWriteOnlyRepositoryBuilder.Instance().Build();
+
             var user = RequestRegisterUser.Instance().Build();
             user.Phonenumbers.Clear();
             user.EmergencyContacts.Clear();
 
-            var useCase = new RegisterUserUseCase(_mapper, _unitOfWork, _homuaiUseCase, _userWriteOnlyRepository, _userReadOnlyRepository, _passwordEncripter);
+            var useCase = new RegisterUserUseCase(mapper, unitOfWork, homuaiUseCase, userWriteOnlyRepository, userReadOnlyRepository, passwordEncripter);
 
             Func<Task> act = async () => { await useCase.Execute(user); };
 

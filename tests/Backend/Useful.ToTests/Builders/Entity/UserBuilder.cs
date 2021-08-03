@@ -2,6 +2,7 @@
 using Homuai.Domain.Entity;
 using System;
 using System.Collections.Generic;
+using Useful.ToTests.Builders.Encripter;
 
 namespace Useful.ToTests.Builders.Entity
 {
@@ -17,11 +18,13 @@ namespace Useful.ToTests.Builders.Entity
 
         public User WithoutHomeAssociation()
         {
+            var passwordEncripter = PasswordEncripterBuilder.Instance().Build();
+
             return new Faker<User>()
                 .RuleFor(u => u.Name, (f) => f.Person.UserName)
                 .RuleFor(u => u.Email, (f, u) => f.Internet.Email(u.Name))
                 .RuleFor(u => u.PushNotificationId, () => Guid.NewGuid().ToString())
-                .RuleFor(u => u.Password, (f) => f.Internet.Password(10))
+                .RuleFor(u => u.Password, (f) => passwordEncripter.Encrypt(f.Internet.Password(10)))
                 .RuleFor(u => u.Phonenumbers, (f) => new List<Phonenumber>
                 {
                     new Phonenumber

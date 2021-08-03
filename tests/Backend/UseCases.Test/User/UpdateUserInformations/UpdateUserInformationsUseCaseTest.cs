@@ -1,12 +1,8 @@
-﻿using AutoMapper;
-using FluentAssertions;
-using Homuai.Application.Services.LoggedUser;
+﻿using FluentAssertions;
 using Homuai.Application.UseCases;
 using Homuai.Application.UseCases.User.EmailAlreadyBeenRegistered;
 using Homuai.Application.UseCases.User.UpdateUserInformations;
 using Homuai.Communication.Boolean;
-using Homuai.Domain.Repository;
-using Homuai.Domain.Repository.User;
 using Homuai.Exception;
 using Homuai.Exception.ExceptionsBase;
 using Moq;
@@ -24,33 +20,23 @@ namespace UseCases.Test.User.UpdateUserInformations
 {
     public class UpdateUserInformationsUseCaseTest
     {
-        private readonly ILoggedUser _loggedUser;
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly IMapper _mapper;
-        private readonly HomuaiUseCase _homuaiUseCase;
-        private readonly IUserUpdateOnlyRepository _userUpdateOnlyRepository;
-        private readonly Homuai.Domain.Entity.User _user;
-
-        public UpdateUserInformationsUseCaseTest()
-        {
-            _user = UserBuilder.Instance().WithoutHomeAssociation();
-
-            _unitOfWork = UnitOfWorkBuilder.Instance().Build();
-            _mapper = MapperBuilder.Build();
-            _homuaiUseCase = HomuaiUseCaseBuilder.Instance().Build();
-            _userUpdateOnlyRepository = UserUpdateOnlyRepositoryBuilder.Instance().GetById(_user).Build();
-            _loggedUser = LoggedUserBuilder.Instance().User(_user).Build();
-        }
-
         [Fact]
         public async Task Validade_Sucess()
         {
+            var user = UserBuilder.Instance().WithoutHomeAssociation();
+
+            var unitOfWork = UnitOfWorkBuilder.Instance().Build();
+            var mapper = MapperBuilder.Build();
+            var homuaiUseCase = HomuaiUseCaseBuilder.Instance().Build();
+            var userUpdateOnlyRepository = UserUpdateOnlyRepositoryBuilder.Instance().GetById(user).Build();
+            var loggedUser = LoggedUserBuilder.Instance().User(user).Build();
+
             var request = RequestUpdateUser.Instance().Build();
 
             var emailAlreadyBeenRegisteredUseCase = new Mock<IEmailAlreadyBeenRegisteredUseCase>();
             emailAlreadyBeenRegisteredUseCase.Setup(c => c.Execute(request.Email)).ReturnsAsync(new BooleanJson { Value = false });
 
-            var useCase = new UpdateUserInformationsUseCase(_loggedUser, _mapper, _userUpdateOnlyRepository, _unitOfWork, emailAlreadyBeenRegisteredUseCase.Object, _homuaiUseCase);
+            var useCase = new UpdateUserInformationsUseCase(loggedUser, mapper, userUpdateOnlyRepository, unitOfWork, emailAlreadyBeenRegisteredUseCase.Object, homuaiUseCase);
 
             var validationResult = await useCase.Execute(request);
 
@@ -58,19 +44,27 @@ namespace UseCases.Test.User.UpdateUserInformations
             validationResult.Token.Should().NotBeNullOrWhiteSpace();
             validationResult.ResponseJson.Should().BeNull();
 
-            _user.Email.Should().Equals(request.Email);
-            _user.Name.Should().Equals(request.Name);
+            user.Email.Should().Equals(request.Email);
+            user.Name.Should().Equals(request.Name);
         }
 
         [Fact]
         public async Task Validade_NewEmailRegistered()
         {
+            var user = UserBuilder.Instance().WithoutHomeAssociation();
+
+            var unitOfWork = UnitOfWorkBuilder.Instance().Build();
+            var mapper = MapperBuilder.Build();
+            var homuaiUseCase = HomuaiUseCaseBuilder.Instance().Build();
+            var userUpdateOnlyRepository = UserUpdateOnlyRepositoryBuilder.Instance().GetById(user).Build();
+            var loggedUser = LoggedUserBuilder.Instance().User(user).Build();
+
             var request = RequestUpdateUser.Instance().Build();
 
             var emailAlreadyBeenRegisteredUseCase = new Mock<IEmailAlreadyBeenRegisteredUseCase>();
             emailAlreadyBeenRegisteredUseCase.Setup(c => c.Execute(request.Email)).ReturnsAsync(new BooleanJson { Value = true });
 
-            var useCase = new UpdateUserInformationsUseCase(_loggedUser, _mapper, _userUpdateOnlyRepository, _unitOfWork, emailAlreadyBeenRegisteredUseCase.Object, _homuaiUseCase);
+            var useCase = new UpdateUserInformationsUseCase(loggedUser, mapper, userUpdateOnlyRepository, unitOfWork, emailAlreadyBeenRegisteredUseCase.Object, homuaiUseCase);
 
             Func<Task> act = async () => { await useCase.Execute(request); };
 
@@ -82,13 +76,21 @@ namespace UseCases.Test.User.UpdateUserInformations
         [Fact]
         public async Task Validade_EmptyName()
         {
+            var user = UserBuilder.Instance().WithoutHomeAssociation();
+
+            var unitOfWork = UnitOfWorkBuilder.Instance().Build();
+            var mapper = MapperBuilder.Build();
+            var homuaiUseCase = HomuaiUseCaseBuilder.Instance().Build();
+            var userUpdateOnlyRepository = UserUpdateOnlyRepositoryBuilder.Instance().GetById(user).Build();
+            var loggedUser = LoggedUserBuilder.Instance().User(user).Build();
+
             var request = RequestUpdateUser.Instance().Build();
             request.Name = "";
 
             var emailAlreadyBeenRegisteredUseCase = new Mock<IEmailAlreadyBeenRegisteredUseCase>();
             emailAlreadyBeenRegisteredUseCase.Setup(c => c.Execute(request.Email)).ReturnsAsync(new BooleanJson { Value = false });
 
-            var useCase = new UpdateUserInformationsUseCase(_loggedUser, _mapper, _userUpdateOnlyRepository, _unitOfWork, emailAlreadyBeenRegisteredUseCase.Object, _homuaiUseCase);
+            var useCase = new UpdateUserInformationsUseCase(loggedUser, mapper, userUpdateOnlyRepository, unitOfWork, emailAlreadyBeenRegisteredUseCase.Object, homuaiUseCase);
 
             Func<Task> act = async () => { await useCase.Execute(request); };
 
