@@ -19,12 +19,7 @@ namespace UseCases.Test.User.UserInformations
         {
             var user = UserBuilder.Instance().WithoutHomeAssociation();
 
-            var unitOfWork = UnitOfWorkBuilder.Instance().Build();
-            var mapper = MapperBuilder.Build();
-            var homuaiUseCase = HomuaiUseCaseBuilder.Instance().Build();
-            var loggedUser = LoggedUserBuilder.Instance().User(user).Build();
-
-            var useCase = new UserInformationsUseCase(loggedUser, mapper, unitOfWork, homuaiUseCase);
+            var useCase = CreateUseCase(user);
 
             var validationResult = await useCase.Execute();
 
@@ -35,6 +30,16 @@ namespace UseCases.Test.User.UserInformations
             var responseJson = validationResult.ResponseJson.As<ResponseUserInformationsJson>();
             responseJson.Email.Should().NotBeNullOrEmpty().And.Equals(user.Email);
             responseJson.Name.Should().NotBeNullOrEmpty().And.Equals(user.Name);
+        }
+
+        private UserInformationsUseCase CreateUseCase(Homuai.Domain.Entity.User user)
+        {
+            var unitOfWork = UnitOfWorkBuilder.Instance().Build();
+            var mapper = MapperBuilder.Build();
+            var homuaiUseCase = HomuaiUseCaseBuilder.Instance().Build();
+            var loggedUser = LoggedUserBuilder.Instance().User(user).Build();
+
+            return new UserInformationsUseCase(loggedUser, mapper, unitOfWork, homuaiUseCase);
         }
     }
 }

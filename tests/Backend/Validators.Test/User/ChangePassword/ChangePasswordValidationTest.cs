@@ -14,13 +14,8 @@ namespace Validators.Test.User.ChangePassword
         {
             var request = RequestChangePassword.Instance().Build();
 
-            var passwordEncripter = PasswordEncripterBuilder.Instance().Build();
+            var validator = ChangePasswordValidation(request.CurrentPassword);
 
-            var validator = new ChangePasswordValidation(passwordEncripter, new Homuai.Domain.Entity.User
-            {
-                Password = passwordEncripter.Encrypt(request.CurrentPassword)
-            });
-            
             var validationResult = validator.Validate(request);
 
             validationResult.IsValid.Should().BeTrue();
@@ -31,12 +26,7 @@ namespace Validators.Test.User.ChangePassword
         {
             var request = RequestChangePassword.Instance().Build();
 
-            var passwordEncripter = PasswordEncripterBuilder.Instance().Build();
-
-            var validator = new ChangePasswordValidation(passwordEncripter, new Homuai.Domain.Entity.User
-            {
-                Password = passwordEncripter.Encrypt("differentPassword")
-            });
+            var validator = ChangePasswordValidation("differentPassword");
 
             var validationResult = validator.Validate(request);
 
@@ -50,12 +40,7 @@ namespace Validators.Test.User.ChangePassword
             var request = RequestChangePassword.Instance().Build();
             request.NewPassword = "";
 
-            var passwordEncripter = PasswordEncripterBuilder.Instance().Build();
-
-            var validator = new ChangePasswordValidation(passwordEncripter, new Homuai.Domain.Entity.User
-            {
-                Password = passwordEncripter.Encrypt(request.CurrentPassword)
-            });
+            var validator = ChangePasswordValidation(request.CurrentPassword);
 
             var validationResult = validator.Validate(request);
 
@@ -69,17 +54,22 @@ namespace Validators.Test.User.ChangePassword
             var request = RequestChangePassword.Instance().Build();
             request.NewPassword = "@1";
 
-            var passwordEncripter = PasswordEncripterBuilder.Instance().Build();
-
-            var validator = new ChangePasswordValidation(passwordEncripter, new Homuai.Domain.Entity.User
-            {
-                Password = passwordEncripter.Encrypt(request.CurrentPassword)
-            });
+            var validator = ChangePasswordValidation(request.CurrentPassword);
 
             var validationResult = validator.Validate(request);
 
             validationResult.IsValid.Should().BeFalse();
             validationResult.Errors.Should().ContainSingle(e => e.ErrorMessage.Equals(ResourceTextException.INVALID_PASSWORD));
+        }
+
+        private ChangePasswordValidation ChangePasswordValidation(string currentPassword)
+        {
+            var passwordEncripter = PasswordEncripterBuilder.Instance().Build();
+
+            return new ChangePasswordValidation(passwordEncripter, new Homuai.Domain.Entity.User
+            {
+                Password = passwordEncripter.Encrypt(currentPassword)
+            });
         }
     }
 }

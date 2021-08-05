@@ -27,12 +27,7 @@ namespace UseCases.Test.User.ChangePassword
             var user = UserBuilder.Instance().WithoutHomeAssociation();
             user.Password = passwordEncripter.Encrypt(CurrentPassword);
 
-            var unitOfWork = UnitOfWorkBuilder.Instance().Build();
-            var homuaiUseCase = HomuaiUseCaseBuilder.Instance().Build();
-            var userUpdateOnlyRepository = UserUpdateOnlyRepositoryBuilder.Instance().GetById(user).Build();
-            var loggedUser = LoggedUserBuilder.Instance().User(user).Build();
-            
-            var useCase = new ChangePasswordUseCase(loggedUser, userUpdateOnlyRepository, unitOfWork, passwordEncripter, homuaiUseCase);
+            var useCase = CreateUseCase(user);
 
             var validationResult = await useCase.Execute(new RequestChangePasswordJson
             {
@@ -55,12 +50,7 @@ namespace UseCases.Test.User.ChangePassword
             var user = UserBuilder.Instance().WithoutHomeAssociation();
             user.Password = passwordEncripter.Encrypt(CurrentPassword);
 
-            var unitOfWork = UnitOfWorkBuilder.Instance().Build();
-            var homuaiUseCase = HomuaiUseCaseBuilder.Instance().Build();
-            var userUpdateOnlyRepository = UserUpdateOnlyRepositoryBuilder.Instance().GetById(user).Build();
-            var loggedUser = LoggedUserBuilder.Instance().User(user).Build();
-
-            var useCase = new ChangePasswordUseCase(loggedUser, userUpdateOnlyRepository, unitOfWork, passwordEncripter, homuaiUseCase);
+            var useCase = CreateUseCase(user);
 
             Func<Task> act = async () =>
             {
@@ -85,12 +75,7 @@ namespace UseCases.Test.User.ChangePassword
             var user = UserBuilder.Instance().WithoutHomeAssociation();
             user.Password = passwordEncripter.Encrypt(CurrentPassword);
 
-            var unitOfWork = UnitOfWorkBuilder.Instance().Build();
-            var homuaiUseCase = HomuaiUseCaseBuilder.Instance().Build();
-            var userUpdateOnlyRepository = UserUpdateOnlyRepositoryBuilder.Instance().GetById(user).Build();
-            var loggedUser = LoggedUserBuilder.Instance().User(user).Build();
-
-            var useCase = new ChangePasswordUseCase(loggedUser, userUpdateOnlyRepository, unitOfWork, passwordEncripter, homuaiUseCase);
+            var useCase = CreateUseCase(user);
 
             Func<Task> act = async () =>
             {
@@ -104,6 +89,17 @@ namespace UseCases.Test.User.ChangePassword
             (await act.Should().ThrowAsync<ErrorOnValidationException>())
                 .Where(e => e.ErrorMensages.Count == 1 &&
                     e.ErrorMensages.Contains(ResourceTextException.INVALID_PASSWORD));
+        }
+
+        private ChangePasswordUseCase CreateUseCase(Homuai.Domain.Entity.User user)
+        {
+            var passwordEncripter = PasswordEncripterBuilder.Instance().Build();
+            var unitOfWork = UnitOfWorkBuilder.Instance().Build();
+            var homuaiUseCase = HomuaiUseCaseBuilder.Instance().Build();
+            var userUpdateOnlyRepository = UserUpdateOnlyRepositoryBuilder.Instance().GetById(user).Build();
+            var loggedUser = LoggedUserBuilder.Instance().User(user).Build();
+
+            return new ChangePasswordUseCase(loggedUser, userUpdateOnlyRepository, unitOfWork, passwordEncripter, homuaiUseCase);
         }
     }
 }

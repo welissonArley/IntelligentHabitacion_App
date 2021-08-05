@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using Homuai.Application.UseCases.User.RegisterUser;
+using Homuai.Domain.Repository.User;
 using Homuai.Exception;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,9 +17,7 @@ namespace Validators.Test.User.RegisterUser
         {
             var user = RequestRegisterUser.Instance().Build();
 
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
-
-            var validator = new RegisterUserValidation(userReadOnlyRepository);
+            var validator = CreateValidator();
             var validationResult = await validator.ValidateAsync(user);
 
             validationResult.IsValid.Should().BeTrue();
@@ -30,9 +29,7 @@ namespace Validators.Test.User.RegisterUser
             var user = RequestRegisterUser.Instance().Build();
             user.Name = "";
 
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
-
-            var validator = new RegisterUserValidation(userReadOnlyRepository);
+            var validator = CreateValidator();
             var validationResult = await validator.ValidateAsync(user);
 
             validationResult.IsValid.Should().BeFalse();
@@ -45,9 +42,7 @@ namespace Validators.Test.User.RegisterUser
             var user = RequestRegisterUser.Instance().Build();
             user.Email = "";
 
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
-
-            var validator = new RegisterUserValidation(userReadOnlyRepository);
+            var validator = CreateValidator();
             var validationResult = await validator.ValidateAsync(user);
 
             validationResult.IsValid.Should().BeFalse();
@@ -60,9 +55,7 @@ namespace Validators.Test.User.RegisterUser
             var user = RequestRegisterUser.Instance().Build();
             user.PushNotificationId = "";
 
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
-
-            var validator = new RegisterUserValidation(userReadOnlyRepository);
+            var validator = CreateValidator();
             var validationResult = await validator.ValidateAsync(user);
 
             validationResult.IsValid.Should().BeFalse();
@@ -75,9 +68,7 @@ namespace Validators.Test.User.RegisterUser
             var user = RequestRegisterUser.Instance().Build();
             user.Password = "";
 
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
-
-            var validator = new RegisterUserValidation(userReadOnlyRepository);
+            var validator = CreateValidator();
             var validationResult = await validator.ValidateAsync(user);
 
             validationResult.IsValid.Should().BeFalse();
@@ -90,9 +81,7 @@ namespace Validators.Test.User.RegisterUser
             var user = RequestRegisterUser.Instance().Build();
             user.Password = "@";
 
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
-
-            var validator = new RegisterUserValidation(userReadOnlyRepository);
+            var validator = CreateValidator();
             var validationResult = await validator.ValidateAsync(user);
 
             validationResult.IsValid.Should().BeFalse();
@@ -105,9 +94,7 @@ namespace Validators.Test.User.RegisterUser
             var user = RequestRegisterUser.Instance().Build();
             user.EmergencyContacts.Clear();
 
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
-
-            var validator = new RegisterUserValidation(userReadOnlyRepository);
+            var validator = CreateValidator();
             var validationResult = await validator.ValidateAsync(user);
 
             validationResult.IsValid.Should().BeFalse();
@@ -122,9 +109,7 @@ namespace Validators.Test.User.RegisterUser
             user.EmergencyContacts.Add(RequestEmergencyContact.Instance().Build());
             user.EmergencyContacts.Add(RequestEmergencyContact.Instance().Build());
 
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
-
-            var validator = new RegisterUserValidation(userReadOnlyRepository);
+            var validator = CreateValidator();
             var validationResult = await validator.ValidateAsync(user);
 
             validationResult.IsValid.Should().BeFalse();
@@ -137,9 +122,7 @@ namespace Validators.Test.User.RegisterUser
             var user = RequestRegisterUser.Instance().Build();
             user.EmergencyContacts.First().Name = "";
 
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
-
-            var validator = new RegisterUserValidation(userReadOnlyRepository);
+            var validator = CreateValidator();
             var validationResult = await validator.ValidateAsync(user);
 
             validationResult.IsValid.Should().BeFalse();
@@ -152,9 +135,7 @@ namespace Validators.Test.User.RegisterUser
             var user = RequestRegisterUser.Instance().Build();
             user.EmergencyContacts.Last().Name = "";
 
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
-
-            var validator = new RegisterUserValidation(userReadOnlyRepository);
+            var validator = CreateValidator();
             var validationResult = await validator.ValidateAsync(user);
 
             validationResult.IsValid.Should().BeFalse();
@@ -168,9 +149,7 @@ namespace Validators.Test.User.RegisterUser
             user.EmergencyContacts.First().Name = "";
             user.EmergencyContacts.Last().Name = "";
 
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
-
-            var validator = new RegisterUserValidation(userReadOnlyRepository);
+            var validator = CreateValidator();
             var validationResult = await validator.ValidateAsync(user);
 
             validationResult.IsValid.Should().BeFalse();
@@ -184,9 +163,7 @@ namespace Validators.Test.User.RegisterUser
             var user = RequestRegisterUser.Instance().Build();
             user.EmergencyContacts.First().Relationship = "";
 
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
-
-            var validator = new RegisterUserValidation(userReadOnlyRepository);
+            var validator = CreateValidator();
             var validationResult = await validator.ValidateAsync(user);
 
             validationResult.IsValid.Should().BeFalse();
@@ -199,9 +176,7 @@ namespace Validators.Test.User.RegisterUser
             var user = RequestRegisterUser.Instance().Build();
             user.EmergencyContacts.Last().Relationship = "";
 
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
-
-            var validator = new RegisterUserValidation(userReadOnlyRepository);
+            var validator = CreateValidator();
             var validationResult = await validator.ValidateAsync(user);
 
             validationResult.IsValid.Should().BeFalse();
@@ -215,9 +190,7 @@ namespace Validators.Test.User.RegisterUser
             user.EmergencyContacts.First().Relationship = "";
             user.EmergencyContacts.Last().Relationship = "";
 
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
-
-            var validator = new RegisterUserValidation(userReadOnlyRepository);
+            var validator = CreateValidator();
             var validationResult = await validator.ValidateAsync(user);
 
             validationResult.IsValid.Should().BeFalse();
@@ -231,9 +204,7 @@ namespace Validators.Test.User.RegisterUser
             var user = RequestRegisterUser.Instance().Build();
             user.EmergencyContacts.First().Phonenumber = "";
 
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
-
-            var validator = new RegisterUserValidation(userReadOnlyRepository);
+            var validator = CreateValidator();
             var validationResult = await validator.ValidateAsync(user);
 
             validationResult.IsValid.Should().BeFalse();
@@ -246,9 +217,7 @@ namespace Validators.Test.User.RegisterUser
             var user = RequestRegisterUser.Instance().Build();
             user.EmergencyContacts.Last().Phonenumber = "";
 
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
-
-            var validator = new RegisterUserValidation(userReadOnlyRepository);
+            var validator = CreateValidator();
             var validationResult = await validator.ValidateAsync(user);
 
             validationResult.IsValid.Should().BeFalse();
@@ -262,9 +231,7 @@ namespace Validators.Test.User.RegisterUser
             user.EmergencyContacts.First().Phonenumber = "";
             user.EmergencyContacts.Last().Phonenumber = "";
 
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
-
-            var validator = new RegisterUserValidation(userReadOnlyRepository);
+            var validator = CreateValidator();
             var validationResult = await validator.ValidateAsync(user);
 
             validationResult.IsValid.Should().BeFalse();
@@ -278,9 +245,7 @@ namespace Validators.Test.User.RegisterUser
             var user = RequestRegisterUser.Instance().Build();
             user.EmergencyContacts.First().Phonenumber = user.EmergencyContacts.Last().Phonenumber;
 
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
-
-            var validator = new RegisterUserValidation(userReadOnlyRepository);
+            var validator = CreateValidator();
             var validationResult = await validator.ValidateAsync(user);
 
             validationResult.IsValid.Should().BeFalse();
@@ -293,9 +258,7 @@ namespace Validators.Test.User.RegisterUser
             var user = RequestRegisterUser.Instance().Build();
             user.Phonenumbers.Clear();
 
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
-
-            var validator = new RegisterUserValidation(userReadOnlyRepository);
+            var validator = CreateValidator();
             var validationResult = await validator.ValidateAsync(user);
 
             validationResult.IsValid.Should().BeFalse();
@@ -310,9 +273,7 @@ namespace Validators.Test.User.RegisterUser
             user.Phonenumbers.Add("+55 37 9 3000-0000");
             user.Phonenumbers.Add("+55 37 9 4000-0000");
 
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
-
-            var validator = new RegisterUserValidation(userReadOnlyRepository);
+            var validator = CreateValidator();
             var validationResult = await validator.ValidateAsync(user);
 
             validationResult.IsValid.Should().BeFalse();
@@ -327,9 +288,7 @@ namespace Validators.Test.User.RegisterUser
             user.Phonenumbers.Add("+55 37 9 0000-0000");
             user.Phonenumbers.Add("+55 37 9 0000-0000");
 
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
-
-            var validator = new RegisterUserValidation(userReadOnlyRepository);
+            var validator = CreateValidator();
             var validationResult = await validator.ValidateAsync(user);
 
             validationResult.IsValid.Should().BeFalse();
@@ -342,9 +301,7 @@ namespace Validators.Test.User.RegisterUser
             var user = RequestRegisterUser.Instance().Build();
             user.Email = "usertest.com";
 
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
-
-            var validator = new RegisterUserValidation(userReadOnlyRepository);
+            var validator = CreateValidator();
             var validationResult = await validator.ValidateAsync(user);
 
             validationResult.IsValid.Should().BeFalse();
@@ -356,13 +313,22 @@ namespace Validators.Test.User.RegisterUser
         {
             var user = RequestRegisterUser.Instance().Build();
 
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().ExistActiveUserWithEmail(user.Email).Build();
-
-            var validator = new RegisterUserValidation(userReadOnlyRepository);
+            var validator = CreateValidator(user.Email);
             var validationResult = await validator.ValidateAsync(user);
 
             validationResult.IsValid.Should().BeFalse();
             validationResult.Errors.Should().ContainSingle(e => e.ErrorMessage.Equals(ResourceTextException.EMAIL_ALREADYBEENREGISTERED));
+        }
+
+        private RegisterUserValidation CreateValidator(string email = null)
+        {
+            IUserReadOnlyRepository userReadOnlyRepository;
+            if (string.IsNullOrWhiteSpace(email))
+                userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
+            else
+                userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().ExistActiveUserWithEmail(email).Build();
+
+            return new RegisterUserValidation(userReadOnlyRepository);
         }
     }
 }

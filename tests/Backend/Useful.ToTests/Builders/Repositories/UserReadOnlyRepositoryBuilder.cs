@@ -1,4 +1,5 @@
-﻿using Homuai.Domain.Repository.User;
+﻿using Homuai.Domain.Entity;
+using Homuai.Domain.Repository.User;
 using Moq;
 
 namespace Useful.ToTests.Builders.Repositories
@@ -23,6 +24,18 @@ namespace Useful.ToTests.Builders.Repositories
         public UserReadOnlyRepositoryBuilder ExistActiveUserWithEmail(string email)
         {
             _repository.Setup(x => x.ExistActiveUserWithEmail(email)).ReturnsAsync(true);
+            return this;
+        }
+
+        public UserReadOnlyRepositoryBuilder GetByEmailPassword(User user)
+        {
+            _repository.Setup(x => x.GetByEmailPassword(user.Email, user.Password)).ReturnsAsync(user);
+            return this;
+        }
+
+        public UserReadOnlyRepositoryBuilder GetByEmail(User user)
+        {
+            _repository.Setup(x => x.GetByEmail(user.Email)).ReturnsAsync(user);
             return this;
         }
 

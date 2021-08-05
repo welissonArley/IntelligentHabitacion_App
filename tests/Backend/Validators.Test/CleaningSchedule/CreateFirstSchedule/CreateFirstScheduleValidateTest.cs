@@ -1,6 +1,7 @@
 ﻿using FluentAssertions;
 using Homuai.Application.UseCases.CleaningSchedule.CreateFirstSchedule;
 using Homuai.Communication.Request;
+using Homuai.Domain.Repository.CleaningSchedule;
 using Homuai.Exception;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -16,9 +17,7 @@ namespace Validators.Test.CleaningSchedule.CreateFirstSchedule
         {
             const long HomeId = 1;
 
-            var repository = CleaningScheduleReadOnlyRepositoryBuilder.Instance().Build();
-
-            var validator = new CreateFirstScheduleValidate(repository, HomeId);
+            var validator = CreateValidator(HomeId);
 
             var validationResult = await validator.ValidateAsync(new List<RequestUpdateCleaningScheduleJson>
             {
@@ -36,10 +35,8 @@ namespace Validators.Test.CleaningSchedule.CreateFirstSchedule
         public async Task Validade_Home_Has_Schedule()
         {
             const long HomeId = 1;
-            
-            var repository = CleaningScheduleReadOnlyRepositoryBuilder.Instance().HomeHasCleaningScheduleCreated(HomeId).Build();
 
-            var validator = new CreateFirstScheduleValidate(repository, HomeId);
+            var validator = CreateValidator(HomeId, true);
 
             var validationResult = await validator.ValidateAsync(new List<RequestUpdateCleaningScheduleJson>
             {
@@ -59,9 +56,7 @@ namespace Validators.Test.CleaningSchedule.CreateFirstSchedule
         {
             const long HomeId = 1;
 
-            var repository = CleaningScheduleReadOnlyRepositoryBuilder.Instance().Build();
-
-            var validator = new CreateFirstScheduleValidate(repository, HomeId);
+            var validator = CreateValidator(HomeId);
 
             var validationResult = await validator.ValidateAsync(new List<RequestUpdateCleaningScheduleJson>
             {
@@ -86,9 +81,7 @@ namespace Validators.Test.CleaningSchedule.CreateFirstSchedule
         {
             const long HomeId = 1;
 
-            var repository = CleaningScheduleReadOnlyRepositoryBuilder.Instance().Build();
-
-            var validator = new CreateFirstScheduleValidate(repository, HomeId);
+            var validator = CreateValidator(HomeId);
 
             var validationResult = await validator.ValidateAsync(new List<RequestUpdateCleaningScheduleJson>
             {
@@ -108,9 +101,7 @@ namespace Validators.Test.CleaningSchedule.CreateFirstSchedule
         {
             const long HomeId = 1;
 
-            var repository = CleaningScheduleReadOnlyRepositoryBuilder.Instance().Build();
-
-            var validator = new CreateFirstScheduleValidate(repository, HomeId);
+            var validator = CreateValidator(HomeId);
 
             var validationResult = await validator.ValidateAsync(new List<RequestUpdateCleaningScheduleJson>
             {
@@ -122,6 +113,18 @@ namespace Validators.Test.CleaningSchedule.CreateFirstSchedule
 
             validationResult.IsValid.Should().BeFalse();
             validationResult.Errors.Should().ContainSingle(e => e.ErrorMessage.Equals(ResourceTextException.ALL_USER_WITHOUT_CLEANING_TASKS));
+        }
+
+        private CreateFirstScheduleValidate CreateValidator(long homeId, bool hasCleaningScheduleCreated = false)
+        {
+            ICleaningScheduleReadOnlyRepository repository;
+
+            if (hasCleaningScheduleCreated)
+                repository = CleaningScheduleReadOnlyRepositoryBuilder.Instance().HomeHasCleaningScheduleCreated(homeId).Build();
+            else
+                repository = CleaningScheduleReadOnlyRepositoryBuilder.Instance().Build();
+
+            return new CreateFirstScheduleValidate(repository, homeId);
         }
     }
 }

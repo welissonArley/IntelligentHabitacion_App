@@ -20,16 +20,9 @@ namespace UseCases.Test.User.RegisterUser
         [Fact]
         public async Task Validade_Sucess()
         {
-            var unitOfWork = UnitOfWorkBuilder.Instance().Build();
-            var passwordEncripter = PasswordEncripterBuilder.Instance().Build();
-            var mapper = MapperBuilder.Build();
-            var homuaiUseCase = HomuaiUseCaseBuilder.Instance().Build();
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
-            var userWriteOnlyRepository = UserWriteOnlyRepositoryBuilder.Instance().Build();
-
             var user = RequestRegisterUser.Instance().Build();
 
-            var useCase = new RegisterUserUseCase(mapper, unitOfWork, homuaiUseCase, userWriteOnlyRepository, userReadOnlyRepository, passwordEncripter);
+            var useCase = CreateUseCase();
 
             var validationResult = await useCase.Execute(user);
 
@@ -46,18 +39,11 @@ namespace UseCases.Test.User.RegisterUser
         [Fact]
         public async Task Validade_Empty_PhoneNumbersAndEmergencyContacts()
         {
-            var unitOfWork = UnitOfWorkBuilder.Instance().Build();
-            var passwordEncripter = PasswordEncripterBuilder.Instance().Build();
-            var mapper = MapperBuilder.Build();
-            var homuaiUseCase = HomuaiUseCaseBuilder.Instance().Build();
-            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
-            var userWriteOnlyRepository = UserWriteOnlyRepositoryBuilder.Instance().Build();
-
             var user = RequestRegisterUser.Instance().Build();
             user.Phonenumbers.Clear();
             user.EmergencyContacts.Clear();
 
-            var useCase = new RegisterUserUseCase(mapper, unitOfWork, homuaiUseCase, userWriteOnlyRepository, userReadOnlyRepository, passwordEncripter);
+            var useCase = CreateUseCase();
 
             Func<Task> act = async () => { await useCase.Execute(user); };
 
@@ -65,6 +51,18 @@ namespace UseCases.Test.User.RegisterUser
                 .Where(e => e.ErrorMensages.Count == 2 &&
                     e.ErrorMensages.Contains(ResourceTextException.PHONENUMBER_EMPTY)
                     && e.ErrorMensages.Contains(ResourceTextException.EMERGENCYCONTACT_EMPTY));
+        }
+
+        private RegisterUserUseCase CreateUseCase()
+        {
+            var unitOfWork = UnitOfWorkBuilder.Instance().Build();
+            var passwordEncripter = PasswordEncripterBuilder.Instance().Build();
+            var mapper = MapperBuilder.Build();
+            var homuaiUseCase = HomuaiUseCaseBuilder.Instance().Build();
+            var userReadOnlyRepository = UserReadOnlyRepositoryBuilder.Instance().Build();
+            var userWriteOnlyRepository = UserWriteOnlyRepositoryBuilder.Instance().Build();
+
+            return new RegisterUserUseCase(mapper, unitOfWork, homuaiUseCase, userWriteOnlyRepository, userReadOnlyRepository, passwordEncripter);
         }
     }
 }

@@ -28,6 +28,12 @@ namespace Useful.ToTests.Builders.Repositories
             return _instance;
         }
 
+        public UserUpdateOnlyRepositoryBuilder GetByEmail(Homuai.Domain.Entity.User user)
+        {
+            _repository.Setup(c => c.GetByEmail_Update(user.Email)).ReturnsAsync(user);
+            return _instance;
+        }
+
         public IUserUpdateOnlyRepository Build()
         {
             return _repository.Object;
