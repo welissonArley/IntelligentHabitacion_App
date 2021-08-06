@@ -21,6 +21,7 @@ namespace Useful.ToTests.Builders.Entity
             var passwordEncripter = PasswordEncripterBuilder.Instance().Build();
 
             return new Faker<User>()
+                .RuleFor(u => u.Id, (f) => f.Random.Long(min: 1, max: 200))
                 .RuleFor(u => u.Name, (f) => f.Person.UserName)
                 .RuleFor(u => u.Email, (f, u) => f.Internet.Email(u.Name))
                 .RuleFor(u => u.PushNotificationId, () => Guid.NewGuid().ToString())
@@ -42,6 +43,87 @@ namespace Useful.ToTests.Builders.Entity
                 {
                     EmergencyContactBuilder.Instance().Build(),
                     EmergencyContactBuilder.Instance().Build()
+                });
+        }
+
+        public User HasHomeAssociation_Brazil()
+        {
+            var passwordEncripter = PasswordEncripterBuilder.Instance().Build();
+
+            return new Faker<User>()
+                .RuleFor(u => u.Id, (f) => f.Random.Long(min: 1, max: 200))
+                .RuleFor(u => u.Name, (f) => f.Person.UserName)
+                .RuleFor(u => u.Email, (f, u) => f.Internet.Email(u.Name))
+                .RuleFor(u => u.PushNotificationId, () => Guid.NewGuid().ToString())
+                .RuleFor(u => u.Password, (f) => passwordEncripter.Encrypt(f.Internet.Password(10)))
+                .RuleFor(u => u.ProfileColorLightMode, (f) => f.Internet.Color())
+                .RuleFor(u => u.ProfileColorDarkMode, (f) => f.Internet.Color())
+                .RuleFor(u => u.Phonenumbers, (f) => new List<Phonenumber>
+                {
+                    new Phonenumber
+                    {
+                        Number = f.Person.Phone
+                    },
+                    new Phonenumber
+                    {
+                        Number = f.Phone.PhoneNumber()
+                    }
+                })
+                .RuleFor(u => u.EmergencyContacts, () => new List<EmergencyContact>
+                {
+                    EmergencyContactBuilder.Instance().Build(),
+                    EmergencyContactBuilder.Instance().Build()
+                })
+                .RuleFor(u => u.HomeAssociationId, (f) => f.Random.Long())
+                .RuleFor(u => u.HomeAssociation, (f, u) =>
+                {
+                    return new HomeAssociation
+                    {
+                        Id = u.HomeAssociationId.Value,
+                        JoinedOn = DateTime.UtcNow,
+                        MonthlyRent = 600,
+                        Home = HomeBuilder.Instance().Brazil(u)
+                    };
+                });
+        }
+        public User HasHomeAssociation_OthersCountries()
+        {
+            var passwordEncripter = PasswordEncripterBuilder.Instance().Build();
+
+            return new Faker<User>()
+                .RuleFor(u => u.Id, (f) => f.Random.Long(min: 1, max: 200))
+                .RuleFor(u => u.Name, (f) => f.Person.UserName)
+                .RuleFor(u => u.Email, (f, u) => f.Internet.Email(u.Name))
+                .RuleFor(u => u.PushNotificationId, () => Guid.NewGuid().ToString())
+                .RuleFor(u => u.Password, (f) => passwordEncripter.Encrypt(f.Internet.Password(10)))
+                .RuleFor(u => u.ProfileColorLightMode, (f) => f.Internet.Color())
+                .RuleFor(u => u.ProfileColorDarkMode, (f) => f.Internet.Color())
+                .RuleFor(u => u.Phonenumbers, (f) => new List<Phonenumber>
+                {
+                    new Phonenumber
+                    {
+                        Number = f.Person.Phone
+                    },
+                    new Phonenumber
+                    {
+                        Number = f.Phone.PhoneNumber()
+                    }
+                })
+                .RuleFor(u => u.EmergencyContacts, () => new List<EmergencyContact>
+                {
+                    EmergencyContactBuilder.Instance().Build(),
+                    EmergencyContactBuilder.Instance().Build()
+                })
+                .RuleFor(u => u.HomeAssociationId, (f) => f.Random.Long())
+                .RuleFor(u => u.HomeAssociation, (f, u) =>
+                {
+                    return new HomeAssociation
+                    {
+                        Id = u.HomeAssociationId.Value,
+                        JoinedOn = DateTime.UtcNow,
+                        MonthlyRent = 600,
+                        Home = HomeBuilder.Instance().OthersCountries(u)
+                    };
                 });
         }
     }
