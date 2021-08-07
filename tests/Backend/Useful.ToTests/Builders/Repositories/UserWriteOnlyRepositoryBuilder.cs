@@ -11,9 +11,7 @@ namespace Useful.ToTests.Builders.Repositories
         private UserWriteOnlyRepositoryBuilder()
         {
             if (_repository == null)
-            {
                 _repository = new Mock<IUserWriteOnlyRepository>();
-            }
         }
 
         public static UserWriteOnlyRepositoryBuilder Instance()

@@ -11,9 +11,7 @@ namespace Useful.ToTests.Builders.Services.Email
         private SendContactUsEmailBuilder()
         {
             if (_repository == null)
-            {
                 _repository = new Mock<ISendContactUsEmail>();
-            }
         }
 
         public static SendContactUsEmailBuilder Instance()

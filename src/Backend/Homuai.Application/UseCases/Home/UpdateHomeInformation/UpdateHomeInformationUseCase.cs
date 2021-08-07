@@ -7,9 +7,9 @@ using Homuai.Exception.ExceptionsBase;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Homuai.Application.UseCases.Home.UpdateHomeInformations
+namespace Homuai.Application.UseCases.Home.UpdateHomeInformation
 {
-    public class UpdateHomeInformationsUseCase : IUpdateHomeInformationsUseCase
+    public class UpdateHomeInformationUseCase : IUpdateHomeInformationUseCase
     {
         private readonly HomuaiUseCase _homuaiUseCase;
         private readonly ILoggedUser _loggedUser;
@@ -17,7 +17,7 @@ namespace Homuai.Application.UseCases.Home.UpdateHomeInformations
         private readonly IMapper _mapper;
         private readonly IHomeUpdateOnlyRepository _repository;
 
-        public UpdateHomeInformationsUseCase(ILoggedUser loggedUser, IMapper mapper, IUnitOfWork unitOfWork,
+        public UpdateHomeInformationUseCase(ILoggedUser loggedUser, IMapper mapper, IUnitOfWork unitOfWork,
             HomuaiUseCase homuaiUseCase, IHomeUpdateOnlyRepository repository)
         {
             _loggedUser = loggedUser;

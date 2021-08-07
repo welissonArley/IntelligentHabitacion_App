@@ -11,9 +11,7 @@ namespace Useful.ToTests.Builders.Repositories
         private UserUpdateOnlyRepositoryBuilder()
         {
             if (_repository == null)
-            {
                 _repository = new Mock<IUserUpdateOnlyRepository>();
-            }
         }
 
         public static UserUpdateOnlyRepositoryBuilder Instance()
@@ -25,13 +23,13 @@ namespace Useful.ToTests.Builders.Repositories
         public UserUpdateOnlyRepositoryBuilder GetById(Homuai.Domain.Entity.User user)
         {
             _repository.Setup(c => c.GetById_Update(user.Id)).ReturnsAsync(user);
-            return _instance;
+            return this;
         }
 
         public UserUpdateOnlyRepositoryBuilder GetByEmail(Homuai.Domain.Entity.User user)
         {
             _repository.Setup(c => c.GetByEmail_Update(user.Email)).ReturnsAsync(user);
-            return _instance;
+            return this;
         }
 
         public IUserUpdateOnlyRepository Build()

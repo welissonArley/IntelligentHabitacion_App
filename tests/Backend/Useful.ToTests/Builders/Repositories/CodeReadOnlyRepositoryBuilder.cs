@@ -11,9 +11,7 @@ namespace Useful.ToTests.Builders.Repositories
         private CodeReadOnlyRepositoryBuilder()
         {
             if (_repository == null)
-            {
                 _repository = new Mock<ICodeReadOnlyRepository>();
-            }
         }
 
         public static CodeReadOnlyRepositoryBuilder Instance()

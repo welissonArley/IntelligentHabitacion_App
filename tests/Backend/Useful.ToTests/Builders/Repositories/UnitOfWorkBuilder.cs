@@ -11,9 +11,7 @@ namespace Useful.ToTests.Builders.Repositories
         private UnitOfWorkBuilder()
         {
             if (_repository == null)
-            {
                 _repository = new Mock<IUnitOfWork>();
-            }
         }
 
         public static UnitOfWorkBuilder Instance()

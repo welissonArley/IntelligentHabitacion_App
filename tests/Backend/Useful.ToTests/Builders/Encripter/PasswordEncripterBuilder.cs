@@ -10,9 +10,7 @@ namespace Useful.ToTests.Builders.Encripter
         private PasswordEncripterBuilder()
         {
             if (_encripter == null)
-            {
                 _encripter = new PasswordEncripter("keyAddtional");
-            }
         }
 
         public static PasswordEncripterBuilder Instance()

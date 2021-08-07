@@ -1,7 +1,7 @@
 ﻿using Homuai.Api.Filter.Authentication;
-using Homuai.Application.UseCases.Home.HomeInformations;
+using Homuai.Application.UseCases.Home.HomeInformation;
 using Homuai.Application.UseCases.Home.RegisterHome;
-using Homuai.Application.UseCases.Home.UpdateHomeInformations;
+using Homuai.Application.UseCases.Home.UpdateHomeInformation;
 using Homuai.Communication.Request;
 using Homuai.Communication.Response;
 using Microsoft.AspNetCore.Http;
@@ -43,7 +43,7 @@ namespace Homuai.Api.Controllers.V1
         [HttpGet]
         [ProducesResponseType(typeof(ResponseHomeInformationsJson), StatusCodes.Status200OK)]
         [ServiceFilter(typeof(AuthenticationUserIsPartOfHomeAttribute))]
-        public async Task<IActionResult> Informations([FromServices] IHomeInformationsUseCase useCase)
+        public async Task<IActionResult> Informations([FromServices] IHomeInformationUseCase useCase)
         {
             var response = await useCase.Execute();
             WriteAutenticationHeader(response);
@@ -61,7 +61,7 @@ namespace Homuai.Api.Controllers.V1
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ServiceFilter(typeof(AuthenticationUserIsAdminAttribute))]
         public async Task<IActionResult> Update(
-            [FromServices] IUpdateHomeInformationsUseCase useCase,
+            [FromServices] IUpdateHomeInformationUseCase useCase,
             RequestUpdateHomeJson updateHomeJson)
         {
             var response = await useCase.Execute(updateHomeJson);

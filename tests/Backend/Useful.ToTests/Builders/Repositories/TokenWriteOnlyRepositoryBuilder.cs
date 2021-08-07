@@ -11,9 +11,7 @@ namespace Useful.ToTests.Builders.Repositories
         private TokenWriteOnlyRepositoryBuilder()
         {
             if (_repository == null)
-            {
                 _repository = new Mock<ITokenWriteOnlyRepository>();
-            }
         }
 
         public static TokenWriteOnlyRepositoryBuilder Instance()

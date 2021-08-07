@@ -11,9 +11,7 @@ namespace Useful.ToTests.Builders.Services.Email
         private SendCodeResetPasswordEmailBuilder()
         {
             if (_repository == null)
-            {
                 _repository = new Mock<ISendCodeResetPasswordEmail>();
-            }
         }
 
         public static SendCodeResetPasswordEmailBuilder Instance()

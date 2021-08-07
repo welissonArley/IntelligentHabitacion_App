@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using Homuai.Application.UseCases.Home.UpdateHomeInformations;
+using Homuai.Application.UseCases.Home.UpdateHomeInformation;
 using Homuai.Exception;
 using System.Linq;
 using Useful.ToTests.Builders.Request;

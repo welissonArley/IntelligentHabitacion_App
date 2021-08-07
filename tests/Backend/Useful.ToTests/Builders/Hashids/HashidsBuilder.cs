@@ -8,9 +8,7 @@
         private HashidsBuilder()
         {
             if (_encripter == null)
-            {
                 _encripter = new HashidsNet.Hashids("saltToUnitTest", 3);
-            }
         }
 
         public static HashidsBuilder Instance()

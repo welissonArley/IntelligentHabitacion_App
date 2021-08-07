@@ -10,7 +10,7 @@ namespace Useful.ToTests.Builders.LoggedUser
 
         private LoggedUserBuilder()
         {
-            if (_service == null)
+            if(_service == null)
                 _service = new Mock<ILoggedUser>();
         }
 
@@ -23,7 +23,7 @@ namespace Useful.ToTests.Builders.LoggedUser
         public LoggedUserBuilder User(Homuai.Domain.Entity.User user)
         {
             _service.Setup(c => c.User()).ReturnsAsync(user);
-            return _instance;
+            return this;
         }
 
         public ILoggedUser Build()

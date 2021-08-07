@@ -4,16 +4,16 @@ using Homuai.Communication.Response;
 using Homuai.Domain.Repository;
 using System.Threading.Tasks;
 
-namespace Homuai.Application.UseCases.Home.HomeInformations
+namespace Homuai.Application.UseCases.Home.HomeInformation
 {
-    public class HomeInformationsUseCase : IHomeInformationsUseCase
+    public class HomeInformationUseCase : IHomeInformationUseCase
     {
         private readonly IMapper _mapper;
         private readonly HomuaiUseCase _homuaiUseCase;
         private readonly ILoggedUser _loggedUser;
         private readonly IUnitOfWork _unitOfWork;
 
-        public HomeInformationsUseCase(ILoggedUser loggedUser, IMapper mapper,
+        public HomeInformationUseCase(ILoggedUser loggedUser, IMapper mapper,
             IUnitOfWork unitOfWork, HomuaiUseCase homuaiUseCase)
         {
             _loggedUser = loggedUser;

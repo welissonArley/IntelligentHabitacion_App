@@ -18,7 +18,7 @@ namespace Useful.ToTests.Builders.Entity
         public Home Brazil(User userAdmin)
         {
             return new Faker<Home>()
-                .RuleFor(u => u.Id, (f) => f.Random.Long(min: 1, max: 200))
+                .RuleFor(u => u.Id, () => 1)
                 .RuleFor(u => u.ZipCode, (f) => f.Address.ZipCode("##.###-###"))
                 .RuleFor(u => u.Address, (f) => f.Address.StreetAddress())
                 .RuleFor(u => u.Number, (f) => f.Address.BuildingNumber())
@@ -45,7 +45,7 @@ namespace Useful.ToTests.Builders.Entity
         public Home OthersCountries(User userAdmin)
         {
             return new Faker<Home>()
-                .RuleFor(u => u.Id, (f) => f.Random.Long(min: 1, max: 200))
+                .RuleFor(u => u.Id, () => 2)
                 .RuleFor(u => u.ZipCode, (f) => f.Address.ZipCode())
                 .RuleFor(u => u.Address, (f) => f.Address.StreetAddress())
                 .RuleFor(u => u.Number, (f) => f.Address.BuildingNumber())

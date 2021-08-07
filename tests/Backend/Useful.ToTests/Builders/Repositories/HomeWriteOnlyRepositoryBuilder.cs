@@ -11,9 +11,7 @@ namespace Useful.ToTests.Builders.Repositories
         private HomeWriteOnlyRepositoryBuilder()
         {
             if (_repository == null)
-            {
                 _repository = new Mock<IHomeWriteOnlyRepository>();
-            }
         }
 
         public static HomeWriteOnlyRepositoryBuilder Instance()

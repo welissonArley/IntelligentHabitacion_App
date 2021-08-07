@@ -18,9 +18,9 @@ using Homuai.Application.UseCases.Friends.ChangeDateFriendJoinHome;
 using Homuai.Application.UseCases.Friends.GetMyFriends;
 using Homuai.Application.UseCases.Friends.NotifyOrderReceived;
 using Homuai.Application.UseCases.Friends.RemoveFriend;
-using Homuai.Application.UseCases.Home.HomeInformations;
+using Homuai.Application.UseCases.Home.HomeInformation;
 using Homuai.Application.UseCases.Home.RegisterHome;
-using Homuai.Application.UseCases.Home.UpdateHomeInformations;
+using Homuai.Application.UseCases.Home.UpdateHomeInformation;
 using Homuai.Application.UseCases.Login.DoLogin;
 using Homuai.Application.UseCases.Login.ForgotPassword;
 using Homuai.Application.UseCases.MyFoods.ChangeQuantityOfOneProduct;
@@ -67,9 +67,9 @@ namespace Clearfield.Application
                 .AddScoped<ILoginUseCase, LoginUseCase>()
                 .AddScoped<IRequestCodeResetPasswordUseCase, RequestCodeResetPasswordUseCase>()
                 .AddScoped<IResetPasswordUseCase, ResetPasswordUseCase>()
-                .AddScoped<IHomeInformationsUseCase, HomeInformationsUseCase>()
+                .AddScoped<IHomeInformationUseCase, HomeInformationUseCase>()
                 .AddScoped<IRegisterHomeUseCase, RegisterHomeUseCase>()
-                .AddScoped<IUpdateHomeInformationsUseCase, UpdateHomeInformationsUseCase>()
+                .AddScoped<IUpdateHomeInformationUseCase, UpdateHomeInformationUseCase>()
                 .AddScoped<IAddFriendUseCase, AddFriendUseCase>()
                 .AddScoped<IChangeDateFriendJoinHomeUseCase, ChangeDateFriendJoinHomeUseCase>()
                 .AddScoped<IGetMyFriendsUseCase, GetMyFriendsUseCase>()

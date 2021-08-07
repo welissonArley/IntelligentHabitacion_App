@@ -3,7 +3,7 @@ using Homuai.Communication.Request;
 using Homuai.Exception;
 using System.Linq;
 
-namespace Homuai.Application.UseCases.Home.UpdateHomeInformations
+namespace Homuai.Application.UseCases.Home.UpdateHomeInformation
 {
     public class UpdateHomeInformationValidation : AbstractValidator<RequestUpdateHomeJson>
     {

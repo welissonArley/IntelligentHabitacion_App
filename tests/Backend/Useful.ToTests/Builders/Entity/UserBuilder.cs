@@ -21,7 +21,7 @@ namespace Useful.ToTests.Builders.Entity
             var passwordEncripter = PasswordEncripterBuilder.Instance().Build();
 
             return new Faker<User>()
-                .RuleFor(u => u.Id, (f) => f.Random.Long(min: 1, max: 200))
+                .RuleFor(u => u.Id, () => 1)
                 .RuleFor(u => u.Name, (f) => f.Person.UserName)
                 .RuleFor(u => u.Email, (f, u) => f.Internet.Email(u.Name))
                 .RuleFor(u => u.PushNotificationId, () => Guid.NewGuid().ToString())
@@ -51,7 +51,7 @@ namespace Useful.ToTests.Builders.Entity
             var passwordEncripter = PasswordEncripterBuilder.Instance().Build();
 
             return new Faker<User>()
-                .RuleFor(u => u.Id, (f) => f.Random.Long(min: 1, max: 200))
+                .RuleFor(u => u.Id, () => 2)
                 .RuleFor(u => u.Name, (f) => f.Person.UserName)
                 .RuleFor(u => u.Email, (f, u) => f.Internet.Email(u.Name))
                 .RuleFor(u => u.PushNotificationId, () => Guid.NewGuid().ToString())
@@ -74,7 +74,7 @@ namespace Useful.ToTests.Builders.Entity
                     EmergencyContactBuilder.Instance().Build(),
                     EmergencyContactBuilder.Instance().Build()
                 })
-                .RuleFor(u => u.HomeAssociationId, (f) => f.Random.Long())
+                .RuleFor(u => u.HomeAssociationId, () => 10)
                 .RuleFor(u => u.HomeAssociation, (f, u) =>
                 {
                     return new HomeAssociation
@@ -84,6 +84,10 @@ namespace Useful.ToTests.Builders.Entity
                         MonthlyRent = 600,
                         Home = HomeBuilder.Instance().Brazil(u)
                     };
+                })
+                .FinishWith((f, u) =>
+                {
+                    u.HomeAssociation.HomeId = u.HomeAssociation.Home.Id;
                 });
         }
         public User HasHomeAssociation_OthersCountries()
@@ -91,7 +95,7 @@ namespace Useful.ToTests.Builders.Entity
             var passwordEncripter = PasswordEncripterBuilder.Instance().Build();
 
             return new Faker<User>()
-                .RuleFor(u => u.Id, (f) => f.Random.Long(min: 1, max: 200))
+                .RuleFor(u => u.Id, () => 3)
                 .RuleFor(u => u.Name, (f) => f.Person.UserName)
                 .RuleFor(u => u.Email, (f, u) => f.Internet.Email(u.Name))
                 .RuleFor(u => u.PushNotificationId, () => Guid.NewGuid().ToString())
@@ -114,7 +118,7 @@ namespace Useful.ToTests.Builders.Entity
                     EmergencyContactBuilder.Instance().Build(),
                     EmergencyContactBuilder.Instance().Build()
                 })
-                .RuleFor(u => u.HomeAssociationId, (f) => f.Random.Long())
+                .RuleFor(u => u.HomeAssociationId, () => 11)
                 .RuleFor(u => u.HomeAssociation, (f, u) =>
                 {
                     return new HomeAssociation
@@ -124,6 +128,10 @@ namespace Useful.ToTests.Builders.Entity
                         MonthlyRent = 600,
                         Home = HomeBuilder.Instance().OthersCountries(u)
                     };
+                })
+                .FinishWith((f, u) =>
+                {
+                    u.HomeAssociation.HomeId = u.HomeAssociation.Home.Id;
                 });
         }
     }
